@@ -55,4 +55,4 @@ sudo dpkg -i sanqian_*.deb
 
 ## 许可证
 
-Copyright © 2024 Sanqian. All rights reserved.
+Copyright © 2025 Sanqian. All rights reserved.

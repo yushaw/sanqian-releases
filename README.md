@@ -1,58 +1,93 @@
-# 三千 (Sanqian)
+# 三千 Sanqian
 
-智能对话助手，支持多模型、知识库、工具调用等功能。
+> 一念三千 | One Thought, Infinite Possibilities
 
-## 下载
+[English](#english) | [中文](#中文)
 
-从 [Releases](https://github.com/yushaw/sanqian-releases/releases) 页面下载适合你系统的版本：
+---
+
+## 中文
+
+智能对话助手，支持多模型、知识库、工具调用。
+
+🌐 官网：[sanqian.io](https://sanqian.io)
+
+### 下载
+
+👉 [Releases](https://github.com/yushaw/sanqian-releases/releases)
 
 | 平台 | 文件 |
 |------|------|
 | macOS (Apple Silicon) | `Sanqian-x.x.x-arm64.dmg` |
 | Windows | `Sanqian-Setup-x.x.x.exe` |
-| Linux | `Sanqian-x.x.x.AppImage` 或 `.deb` |
 
-## 功能特性
+### 功能
 
-- 多模型支持（OpenAI、Claude、DeepSeek 等）
-- 本地知识库（文档索引、向量搜索）
-- 工具调用（联网搜索等）
-- 多语言界面（中文/英文）
-- 自动更新
+- 🤖 多模型支持（OpenAI、Claude、DeepSeek 等）
+- 📚 本地知识库
+- 🔧 工具调用
+- 🌐 中英双语界面
+- 🔄 自动更新
+- 🔌 本地 API 服务
 
-## 系统要求
+### 安装
 
-- **macOS**: 11.0+ (Apple Silicon)
-- **Windows**: 10/11 (64-bit)
-- **Linux**: Ubuntu 20.04+ 或其他主流发行版
+**macOS**: 下载 `.dmg` → 拖入 Applications → 首次打开在「系统设置 > 隐私与安全」中允许
 
-## 安装说明
+**Windows**: 下载 `.exe` → 运行安装
 
-### macOS
-1. 下载 `.dmg` 文件
-2. 打开并拖动应用到 Applications 文件夹
-3. 首次打开如遇安全提示，在系统设置 > 隐私与安全中允许运行
+### 文档
 
-### Windows
-1. 下载 `.exe` 安装程序
-2. 运行安装程序，按提示完成安装
+📖 [本地 API 文档](https://github.com/yushaw/sanqian-releases/discussions/2) - 通过 API 集成三千到你的工作流
 
-### Linux
-**AppImage:**
-```bash
-chmod +x Sanqian-*.AppImage
-./Sanqian-*.AppImage
-```
+### 交流
 
-**Deb:**
-```bash
-sudo dpkg -i sanqian_*.deb
-```
+💬 [Discussions](https://github.com/yushaw/sanqian-releases/discussions) - 提问、建议、分享使用心得
 
-## 反馈与支持
+🐛 [Issues](https://github.com/yushaw/sanqian-releases/issues) - Bug 反馈
 
-如有问题或建议，请在 [Issues](https://github.com/yushaw/sanqian-releases/issues) 中反馈。
+---
 
-## 许可证
+## English
 
-Copyright © 2025 Sanqian. All rights reserved.
+An intelligent chat assistant with multi-model support, local knowledge base, and tool calling.
+
+🌐 Website: [sanqian.io](https://sanqian.io)
+
+### Download
+
+👉 [Releases](https://github.com/yushaw/sanqian-releases/releases)
+
+| Platform | File |
+|----------|------|
+| macOS (Apple Silicon) | `Sanqian-x.x.x-arm64.dmg` |
+| Windows | `Sanqian-Setup-x.x.x.exe` |
+
+### Features
+
+- 🤖 Multi-model support (OpenAI, Claude, DeepSeek, etc.)
+- 📚 Local knowledge base
+- 🔧 Tool calling
+- 🌐 Bilingual UI (Chinese/English)
+- 🔄 Auto-update
+- 🔌 Local API service
+
+### Installation
+
+**macOS**: Download `.dmg` → Drag to Applications → Allow in System Settings > Privacy & Security
+
+**Windows**: Download `.exe` → Run installer
+
+### Documentation
+
+📖 [Local API Docs](https://github.com/yushaw/sanqian-releases/discussions/2) - Integrate Sanqian into your workflow via API
+
+### Community
+
+💬 [Discussions](https://github.com/yushaw/sanqian-releases/discussions) - Questions, suggestions, share your experience
+
+  🐛 [Issues](https://github.com/yushaw/sanqian-releases/issues) - Bug reports
+
+  ---
+
+  © 2025 [Sanqian](https://sanqian.io)

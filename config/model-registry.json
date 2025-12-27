@@ -197,15 +197,6 @@
       "maxCompletionTokens": 128000
     },
     {
-      "id": "glm-4-flash",
-      "name": "GLM-4 Flash",
-      "providerId": "zhipu",
-      "type": "llm",
-      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
-      "contextWindow": 128000,
-      "maxCompletionTokens": 4096
-    },
-    {
       "id": "glm-4.6v",
       "name": "GLM-4.6V",
       "providerId": "zhipu",

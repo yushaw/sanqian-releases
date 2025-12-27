@@ -477,6 +477,15 @@
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "gemini-2.5-flash-image",
+      "name": "Gemini 2.5 Flash Image",
+      "providerId": "google",
+      "type": "image",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
     }
   ]
 }

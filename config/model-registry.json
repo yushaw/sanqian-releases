@@ -375,7 +375,7 @@
       "maxCompletionTokens": 0
     },
     {
-      "id": "claude-opus-4-5-20251101",
+      "id": "claude-opus-4-5",
       "name": "Claude Opus 4.5",
       "providerId": "anthropic",
       "type": "llm",
@@ -391,7 +391,7 @@
       "maxCompletionTokens": 64000
     },
     {
-      "id": "claude-sonnet-4-5-20250929",
+      "id": "claude-sonnet-4-5",
       "name": "Claude Sonnet 4.5",
       "providerId": "anthropic",
       "type": "llm",
@@ -406,7 +406,7 @@
       "maxCompletionTokens": 64000
     },
     {
-      "id": "claude-haiku-4-5-20251201",
+      "id": "claude-haiku-4-5",
       "name": "Claude Haiku 4.5",
       "providerId": "anthropic",
       "type": "llm",

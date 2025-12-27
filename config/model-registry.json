@@ -1,0 +1,491 @@
+{
+  "version": 1,
+  "providers": [
+    {
+      "id": "deepseek",
+      "icon": "deepseek",
+      "apiKeyUrl": {
+        "zh": "https://platform.deepseek.com/api_keys",
+        "en": "https://platform.deepseek.com/api_keys"
+      },
+      "validateUrls": {
+        "primary": "https://api.deepseek.com/v1/models"
+      },
+      "validateType": "openai",
+      "supportsQuotaQuery": true,
+      "supportsModelList": true
+    },
+    {
+      "id": "openai",
+      "icon": "openai",
+      "apiKeyUrl": {
+        "zh": "https://platform.openai.com/api-keys",
+        "en": "https://platform.openai.com/api-keys"
+      },
+      "validateUrls": {
+        "primary": "https://api.openai.com/v1/models"
+      },
+      "validateType": "openai",
+      "supportsModelList": true
+    },
+    {
+      "id": "anthropic",
+      "icon": "claude",
+      "apiKeyUrl": {
+        "zh": "https://console.anthropic.com/settings/keys",
+        "en": "https://console.anthropic.com/settings/keys"
+      },
+      "validateUrls": {
+        "primary": "https://api.anthropic.com/v1/messages"
+      },
+      "validateType": "anthropic"
+    },
+    {
+      "id": "google",
+      "icon": "gemini",
+      "apiKeyUrl": {
+        "zh": "https://aistudio.google.com/app/apikey",
+        "en": "https://aistudio.google.com/app/apikey"
+      },
+      "validateUrls": {
+        "primary": "https://generativelanguage.googleapis.com/v1beta/models"
+      },
+      "validateType": "google",
+      "supportsModelList": true
+    },
+    {
+      "id": "zhipu",
+      "icon": "zhipu",
+      "apiKeyUrl": {
+        "zh": "https://open.bigmodel.cn/usercenter/apikeys",
+        "en": "https://z.ai/manage-apikey/apikey-list"
+      },
+      "validateUrls": {
+        "primary": "https://open.bigmodel.cn/api/paas/v4/models",
+        "fallback": "https://api.z.ai/api/paas/v4/models"
+      },
+      "validateType": "openai",
+      "supportsModelList": true
+    },
+    {
+      "id": "qwen",
+      "icon": "qwen",
+      "apiKeyUrl": {
+        "zh": "https://bailian.console.aliyun.com/?apiKey=1#/api-key",
+        "en": "https://bailian.console.alibabacloud.com/?apiKey=1#/api-key"
+      },
+      "validateUrls": {
+        "primary": "https://dashscope.aliyuncs.com/compatible-mode/v1/models",
+        "fallback": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/models"
+      },
+      "validateType": "openai",
+      "supportsModelList": true
+    },
+    {
+      "id": "moonshot",
+      "icon": "moonshot",
+      "apiKeyUrl": {
+        "zh": "https://platform.moonshot.cn/console/api-keys",
+        "en": "https://platform.moonshot.ai/console/api-keys"
+      },
+      "validateUrls": {
+        "primary": "https://api.moonshot.cn/v1/models",
+        "fallback": "https://api.moonshot.ai/v1/models"
+      },
+      "validateType": "openai",
+      "supportsModelList": true
+    },
+    {
+      "id": "volcengine",
+      "icon": "volcengine",
+      "apiKeyUrl": {
+        "zh": "https://console.volcengine.com/ark/region:ark+cn-beijing/api-key",
+        "en": "https://console.volcengine.com/ark/region:ark+cn-beijing/api-key"
+      },
+      "validateUrls": {
+        "primary": "https://ark.cn-beijing.volces.com/api/v3/models"
+      },
+      "validateType": "openai"
+    }
+  ],
+  "models": [
+    {
+      "id": "deepseek-chat",
+      "name": "DeepSeek Chat",
+      "providerId": "deepseek",
+      "type": "llm",
+      "tags": [
+        "tool_use"
+      ],
+      "baseUrl": "https://api.deepseek.com",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 8192
+    },
+    {
+      "id": "deepseek-reasoner",
+      "name": "DeepSeek Reasoner",
+      "providerId": "deepseek",
+      "type": "llm",
+      "tags": [
+        "reasoning"
+      ],
+      "baseUrl": "https://api.deepseek.com",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 64000
+    },
+    {
+      "id": "qwen3-max",
+      "name": "Qwen3 Max",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "qwen-plus",
+      "name": "Qwen Plus",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "long_context"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 32768
+    },
+    {
+      "id": "qwq-plus",
+      "name": "QwQ Plus",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "reasoning"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 131072,
+      "maxCompletionTokens": 16384
+    },
+    {
+      "id": "qwen3-vl-max",
+      "name": "Qwen3 VL Max",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "glm-4.7",
+      "name": "GLM-4.7",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "glm-4-flash",
+      "name": "GLM-4 Flash",
+      "providerId": "zhipu",
+      "type": "llm",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 4096
+    },
+    {
+      "id": "glm-4.6v",
+      "name": "GLM-4.6V",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "vision"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 8192
+    },
+    {
+      "id": "zhipu-embedding-3",
+      "name": "Embedding-3",
+      "providerId": "zhipu",
+      "type": "embedding",
+      "modelName": "embedding-3",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "zhipu-reranker",
+      "name": "Reranker",
+      "providerId": "zhipu",
+      "type": "rerank",
+      "modelName": "rerank",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "kimi-k2-0905-preview",
+      "name": "Kimi K2",
+      "providerId": "moonshot",
+      "type": "llm",
+      "tags": [
+        "long_context"
+      ],
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "contextWindow": 256000,
+      "maxCompletionTokens": 8192
+    },
+    {
+      "id": "kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "providerId": "moonshot",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "long_context"
+      ],
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "contextWindow": 256000,
+      "maxCompletionTokens": 16384
+    },
+    {
+      "id": "gpt-5.2-chat-latest",
+      "name": "GPT-5.2 Chat",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 400000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "gpt-5.2",
+      "name": "GPT-5.2",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 400000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "gpt-5.2-pro",
+      "name": "GPT-5.2 Pro",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 400000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "gpt-5.1",
+      "name": "GPT-5.1",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 400000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "gpt-5.1-codex",
+      "name": "GPT-5.1 Codex",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "coding",
+        "tool_use"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 400000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "o3",
+      "name": "OpenAI o3",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "reasoning"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 100000
+    },
+    {
+      "id": "o3-mini",
+      "name": "OpenAI o3 Mini",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "reasoning"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 100000
+    },
+    {
+      "id": "text-embedding-3-large",
+      "name": "Text Embedding 3 Large",
+      "providerId": "openai",
+      "type": "embedding",
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "text-embedding-3-small",
+      "name": "Text Embedding 3 Small",
+      "providerId": "openai",
+      "type": "embedding",
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
+      "providerId": "anthropic",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "coding",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://api.anthropic.com/v1",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 64000
+    },
+    {
+      "id": "claude-sonnet-4-5-20250929",
+      "name": "Claude Sonnet 4.5",
+      "providerId": "anthropic",
+      "type": "llm",
+      "tags": [
+        "coding",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://api.anthropic.com/v1",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 64000
+    },
+    {
+      "id": "claude-haiku-4-5-20251201",
+      "name": "Claude Haiku 4.5",
+      "providerId": "anthropic",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "vision"
+      ],
+      "baseUrl": "https://api.anthropic.com/v1",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 8192
+    },
+    {
+      "id": "doubao-seed-1-8-251215",
+      "name": "Doubao Seed 1.8",
+      "providerId": "volcengine",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "vision"
+      ],
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 16384
+    },
+    {
+      "id": "doubao-seedream-4-5-251128",
+      "name": "Doubao Seedream 4.5",
+      "providerId": "volcengine",
+      "type": "image",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "doubao-seededit-3-0-i2i-250628",
+      "name": "Doubao Seededit 3.0",
+      "providerId": "volcengine",
+      "type": "image",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "gemini-3-pro-preview",
+      "name": "Gemini 3 Pro",
+      "providerId": "google",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 1048576,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "gemini-3-flash-preview",
+      "name": "Gemini 3 Flash",
+      "providerId": "google",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 1048576,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "gemini-3-pro-image-preview",
+      "name": "Gemini 3 Pro Image",
+      "providerId": "google",
+      "type": "image",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    }
+  ]
+}

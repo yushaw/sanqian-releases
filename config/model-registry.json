@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 6,
   "providers": [
     {
       "id": "deepseek",
@@ -58,14 +58,58 @@
       "icon": "zhipu",
       "apiKeyUrl": {
         "zh": "https://open.bigmodel.cn/usercenter/apikeys",
+        "en": "https://open.bigmodel.cn/usercenter/apikeys"
+      },
+      "validateUrls": {
+        "primary": "https://open.bigmodel.cn/api/paas/v4/models"
+      },
+      "validateType": "openai",
+      "supportsModelList": true,
+      "codingPlan": {
+        "name": {
+          "zh": "智谱编程套餐",
+          "en": "Zhipu Coding Plan"
+        },
+        "description": {
+          "zh": "专为 AI 编程助手优化的订阅计划",
+          "en": "Subscription plan optimized for AI coding assistants"
+        },
+        "learnMoreUrl": {
+          "zh": "https://docs.bigmodel.cn/cn/coding-plan/quick-start",
+          "en": "https://docs.bigmodel.cn/cn/coding-plan/quick-start"
+        },
+        "useSameApiKey": true,
+        "protocol": "openai"
+      }
+    },
+    {
+      "id": "zai",
+      "icon": "zai",
+      "apiKeyUrl": {
+        "zh": "https://z.ai/manage-apikey/apikey-list",
         "en": "https://z.ai/manage-apikey/apikey-list"
       },
       "validateUrls": {
-        "primary": "https://open.bigmodel.cn/api/paas/v4/models",
-        "fallback": "https://api.z.ai/api/paas/v4/models"
+        "primary": "https://api.z.ai/api/paas/v4/models"
       },
       "validateType": "openai",
-      "supportsModelList": true
+      "supportsModelList": true,
+      "codingPlan": {
+        "name": {
+          "zh": "Z.AI Coding Plan",
+          "en": "Z.AI Coding Plan"
+        },
+        "description": {
+          "zh": "专为 AI 编程助手优化的订阅计划",
+          "en": "Subscription plan optimized for AI coding assistants"
+        },
+        "learnMoreUrl": {
+          "zh": "https://z.ai/subscribe",
+          "en": "https://z.ai/subscribe"
+        },
+        "useSameApiKey": true,
+        "protocol": "openai"
+      }
     },
     {
       "id": "qwen",
@@ -93,7 +137,23 @@
         "fallback": "https://api.moonshot.ai/v1/models"
       },
       "validateType": "openai",
-      "supportsModelList": true
+      "supportsModelList": true,
+      "codingPlan": {
+        "name": {
+          "zh": "Kimi for Coding",
+          "en": "Kimi for Coding"
+        },
+        "description": {
+          "zh": "专为 AI 编程助手优化，支持 262K 超长上下文",
+          "en": "Optimized for AI coding assistants with 262K context window"
+        },
+        "learnMoreUrl": {
+          "zh": "https://www.kimi.com/coding",
+          "en": "https://www.kimi.com/coding"
+        },
+        "useSameApiKey": false,
+        "protocol": "openai"
+      }
     },
     {
       "id": "volcengine",
@@ -106,6 +166,35 @@
         "primary": "https://ark.cn-beijing.volces.com/api/v3/models"
       },
       "validateType": "openai"
+    },
+    {
+      "id": "minimax",
+      "icon": "minimax",
+      "apiKeyUrl": {
+        "zh": "https://platform.minimaxi.com/user-center/basic-information/interface-key",
+        "en": "https://platform.minimax.io/user-center/basic-information/interface-key"
+      },
+      "validateUrls": {
+        "primary": "https://api.minimax.io/v1/chat/completions",
+        "fallback": "https://api.minimaxi.com/v1/chat/completions"
+      },
+      "validateType": "minimax",
+      "codingPlan": {
+        "name": {
+          "zh": "MiniMax 编程套餐",
+          "en": "MiniMax Coding Plan"
+        },
+        "description": {
+          "zh": "专为 AI 编程助手优化，API Key 需单独获取",
+          "en": "Optimized for AI coding assistants, requires separate API key"
+        },
+        "learnMoreUrl": {
+          "zh": "https://platform.minimax.io/subscribe/coding-plan",
+          "en": "https://platform.minimax.io/subscribe/coding-plan"
+        },
+        "useSameApiKey": false,
+        "protocol": "openai"
+      }
     }
   ],
   "models": [
@@ -197,6 +286,21 @@
       "maxCompletionTokens": 128000
     },
     {
+      "id": "glm-4.7-coding",
+      "name": "GLM-4.7 (Coding Plan)",
+      "modelName": "glm-4.7",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "coding"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000,
+      "codingPlan": true
+    },
+    {
       "id": "glm-4.6v",
       "name": "GLM-4.6V",
       "providerId": "zhipu",
@@ -229,6 +333,68 @@
       "maxCompletionTokens": 0
     },
     {
+      "id": "zai-glm-4.7",
+      "name": "GLM-4.7",
+      "modelName": "glm-4.7",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "zai-glm-4.7-coding",
+      "name": "GLM-4.7 (Coding Plan)",
+      "modelName": "glm-4.7",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "coding"
+      ],
+      "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000,
+      "codingPlan": true
+    },
+    {
+      "id": "zai-glm-4.6v",
+      "name": "GLM-4.6V",
+      "modelName": "glm-4-flash",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "vision"
+      ],
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 8192
+    },
+    {
+      "id": "zai-embedding-3",
+      "name": "Embedding-3",
+      "modelName": "embedding-3",
+      "providerId": "zai",
+      "type": "embedding",
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "zai-reranker",
+      "name": "Reranker",
+      "modelName": "rerank",
+      "providerId": "zai",
+      "type": "rerank",
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
       "id": "kimi-k2-0905-preview",
       "name": "Kimi K2",
       "providerId": "moonshot",
@@ -252,6 +418,21 @@
       "baseUrl": "https://api.moonshot.cn/v1",
       "contextWindow": 256000,
       "maxCompletionTokens": 16384
+    },
+    {
+      "id": "kimi-for-coding",
+      "name": "Kimi for Coding",
+      "providerId": "moonshot",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "coding",
+        "long_context"
+      ],
+      "baseUrl": "https://api.kimi.com/coding/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768,
+      "codingPlan": true
     },
     {
       "id": "gpt-5.2-chat-latest",
@@ -486,6 +667,50 @@
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "MiniMax-M2.1",
+      "name": "MiniMax M2.1",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072
+    },
+    {
+      "id": "MiniMax-M2.1-lightning",
+      "name": "MiniMax M2.1 Lightning",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072
+    },
+    {
+      "id": "MiniMax-M2.1-coding",
+      "name": "MiniMax M2.1 (Coding Plan)",
+      "modelName": "MiniMax-M2.1",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "coding",
+        "long_context"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072,
+      "codingPlan": true
     }
   ]
 }

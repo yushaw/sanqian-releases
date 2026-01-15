@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "providers": [
     {
       "id": "deepseek",
@@ -591,7 +591,7 @@
       "maxCompletionTokens": 8192
     },
     {
-      "id": "doubao-seed-1-8-251215",
+      "id": "doubao-seed-1-8-251228",
       "name": "Doubao Seed 1.8",
       "providerId": "volcengine",
       "type": "llm",
@@ -618,6 +618,25 @@
       "providerId": "volcengine",
       "type": "image",
       "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "glm-image",
+      "name": "GLM-Image",
+      "providerId": "zhipu",
+      "type": "image",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "glm-image-zai",
+      "name": "GLM-Image (Z.ai)",
+      "modelName": "glm-image",
+      "providerId": "zai",
+      "type": "image",
+      "baseUrl": "https://api.z.ai/api/paas/v4",
       "contextWindow": 0,
       "maxCompletionTokens": 0
     },

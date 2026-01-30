@@ -201,6 +201,172 @@
         {"id": "apt", "kind": "apt", "package": "tmux", "bins": ["tmux"], "os": ["linux"]}
       ],
       "is_preinstalled": true
+    },
+    {
+      "id": "1password",
+      "display_zh": "1Password",
+      "display_en": "1Password",
+      "description": "1Password CLI for secure secrets management. Read, inject, and run commands with secrets.",
+      "desc_zh": "1Password 密码管理",
+      "desc_en": "Secure password management",
+      "emoji": "🔐",
+      "category": "security",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["op"]
+      },
+      "install": [
+        {"id": "brew", "kind": "brew", "formula": "1password-cli", "bins": ["op"], "os": ["darwin"]},
+        {"id": "winget", "kind": "winget", "package": "AgileBits.1Password.CLI", "bins": ["op"], "os": ["win32"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "himalaya",
+      "display_zh": "邮件管理",
+      "display_en": "Email CLI",
+      "description": "CLI to manage emails via IMAP/SMTP. List, read, write, reply, forward, search, and organize emails.",
+      "desc_zh": "命令行邮件管理",
+      "desc_en": "CLI email management",
+      "emoji": "📧",
+      "category": "productivity",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["himalaya"]
+      },
+      "install": [
+        {"id": "brew", "kind": "brew", "formula": "himalaya", "bins": ["himalaya"], "os": ["darwin"]},
+        {"id": "cargo", "kind": "cargo", "package": "himalaya", "bins": ["himalaya"], "os": ["darwin", "linux"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "openai-image-gen",
+      "display_zh": "AI 图像生成",
+      "display_en": "AI Image Generation",
+      "description": "Generate images using OpenAI DALL-E API. Supports DALL-E 2, DALL-E 3, and GPT image models.",
+      "desc_zh": "DALL-E 图像生成",
+      "desc_en": "DALL-E image generation",
+      "emoji": "🖼️",
+      "category": "media",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["python3"],
+        "env": [
+          {
+            "name": "OPENAI_API_KEY",
+            "help_url": "https://platform.openai.com/api-keys",
+            "help_text": "Create an API key in your OpenAI account"
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": true
+    },
+    {
+      "id": "spotify-player",
+      "display_zh": "Spotify 控制",
+      "display_en": "Spotify Player",
+      "description": "Terminal Spotify playback and search via spogo or spotify_player CLI tools.",
+      "desc_zh": "Spotify 播放控制",
+      "desc_en": "Spotify playback control",
+      "emoji": "🎵",
+      "category": "media",
+      "os": ["darwin", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "any_bins": ["spogo", "spotify_player"]
+      },
+      "install": [
+        {"id": "brew-spogo", "kind": "brew", "formula": "spogo", "tap": "steipete/tap", "bins": ["spogo"], "os": ["darwin"]},
+        {"id": "brew-spotify_player", "kind": "brew", "formula": "spotify_player", "bins": ["spotify_player"], "os": ["darwin"]},
+        {"id": "cargo", "kind": "cargo", "package": "spotify_player", "bins": ["spotify_player"], "os": ["darwin", "linux"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "apple-notes",
+      "display_zh": "Apple Notes",
+      "display_en": "Apple Notes",
+      "description": "Manage Apple Notes via the memo CLI on macOS. Create, view, edit, delete, search, and export notes.",
+      "desc_zh": "Apple Notes 管理",
+      "desc_en": "Apple Notes management",
+      "emoji": "📝",
+      "category": "productivity",
+      "os": ["darwin"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["memo"]
+      },
+      "install": [
+        {"id": "brew", "kind": "brew", "formula": "antoniorodr/memo/memo", "bins": ["memo"], "os": ["darwin"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "things-mac",
+      "display_zh": "Things 3",
+      "display_en": "Things 3",
+      "description": "Manage Things 3 tasks via the things CLI on macOS. Add, update, search todos and read inbox/today/upcoming.",
+      "desc_zh": "Things 3 任务管理",
+      "desc_en": "Things 3 task management",
+      "emoji": "✅",
+      "category": "productivity",
+      "os": ["darwin"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["things"]
+      },
+      "install": [
+        {"id": "go", "kind": "go", "module": "github.com/ossianhempel/things3-cli/cmd/things@latest", "bins": ["things"], "os": ["darwin"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "sonoscli",
+      "display_zh": "Sonos 控制",
+      "display_en": "Sonos Control",
+      "description": "Control Sonos speakers from the command line. Discover, play, pause, adjust volume, and manage groups.",
+      "desc_zh": "Sonos 音响控制",
+      "desc_en": "Sonos speaker control",
+      "emoji": "🔊",
+      "category": "media",
+      "os": ["darwin", "linux", "win32"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["sonos"]
+      },
+      "install": [
+        {"id": "go", "kind": "go", "module": "github.com/steipete/sonoscli/cmd/sonos@latest", "bins": ["sonos"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "openai-whisper-api",
+      "display_zh": "Whisper 语音转文字",
+      "display_en": "Whisper Speech-to-Text",
+      "description": "Transcribe audio files to text using OpenAI Whisper API. Supports multiple audio formats and languages.",
+      "desc_zh": "音频转文字",
+      "desc_en": "Audio to text transcription",
+      "emoji": "☁️",
+      "category": "media",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["python3"],
+        "env": [
+          {
+            "name": "OPENAI_API_KEY",
+            "help_url": "https://platform.openai.com/api-keys",
+            "help_text": "Create an API key in your OpenAI account"
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": true
     }
   ]
 }

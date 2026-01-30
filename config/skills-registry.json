@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "updated_at": "2025-01-31T00:00:00Z",
+  "skills": [
+    {
+      "id": "pdf",
+      "display_zh": "PDF 处理",
+      "display_en": "PDF Processing",
+      "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms.",
+      "desc_zh": "提取、合并、拆分PDF文档",
+      "desc_en": "Extract, merge, split PDF documents",
+      "emoji": "📄",
+      "category": "productivity",
+      "os": ["darwin", "win32"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "any_bins": ["pdftoppm", "pdftocairo"]
+      },
+      "install": [
+        {"id": "brew-poppler", "kind": "brew", "formula": "poppler", "bins": ["pdftoppm", "pdftocairo"], "os": ["darwin"]},
+        {"id": "choco-poppler", "kind": "choco", "package": "poppler", "bins": ["pdftoppm", "pdftocairo"], "os": ["win32"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "xlsx",
+      "display_zh": "Excel 处理",
+      "display_en": "Excel Processing",
+      "description": "Excel spreadsheet processing toolkit for reading, writing, and manipulating XLSX files.",
+      "desc_zh": "读取、写入、处理Excel文件",
+      "desc_en": "Read, write, process Excel files",
+      "emoji": "📊",
+      "category": "productivity",
+      "os": ["darwin", "win32"],
+      "skill_version": "1.0.0",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": true
+    },
+    {
+      "id": "docx",
+      "display_zh": "Word 处理",
+      "display_en": "Word Processing",
+      "description": "Word document processing toolkit for reading, writing, and manipulating DOCX files.",
+      "desc_zh": "读取、写入、处理Word文件",
+      "desc_en": "Read, write, process Word files",
+      "emoji": "📝",
+      "category": "productivity",
+      "os": ["darwin", "win32"],
+      "skill_version": "1.0.0",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": true
+    },
+    {
+      "id": "pptx",
+      "display_zh": "PPT 处理",
+      "display_en": "PowerPoint Processing",
+      "description": "PowerPoint presentation processing toolkit for reading, writing, and manipulating PPTX files.",
+      "desc_zh": "读取、写入、处理PPT文件",
+      "desc_en": "Read, write, process PowerPoint files",
+      "emoji": "📽️",
+      "category": "productivity",
+      "os": ["darwin", "win32"],
+      "skill_version": "1.0.0",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": true
+    },
+    {
+      "id": "artifacts-builder",
+      "display_zh": "Artifacts 构建",
+      "display_en": "Artifacts Builder",
+      "description": "Build interactive HTML artifacts with React, charts, and visualizations.",
+      "desc_zh": "构建交互式HTML应用",
+      "desc_en": "Build interactive HTML apps",
+      "emoji": "🎨",
+      "category": "development",
+      "os": ["darwin", "win32"],
+      "skill_version": "1.0.0",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": true
+    },
+    {
+      "id": "github",
+      "display_zh": "GitHub",
+      "display_en": "GitHub",
+      "description": "Interact with GitHub using the gh CLI. Manage repositories, PRs, issues, and CI runs.",
+      "desc_zh": "GitHub 仓库管理",
+      "desc_en": "GitHub repository management",
+      "emoji": "🐙",
+      "category": "development",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["gh"]
+      },
+      "install": [
+        {"id": "brew", "kind": "brew", "formula": "gh", "bins": ["gh"], "os": ["darwin"]},
+        {"id": "winget", "kind": "winget", "package": "GitHub.cli", "bins": ["gh"], "os": ["win32"]},
+        {"id": "apt", "kind": "apt", "package": "gh", "bins": ["gh"], "os": ["linux"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "weather",
+      "display_zh": "天气查询",
+      "display_en": "Weather",
+      "description": "Get current weather and forecasts using wttr.in (no API key required).",
+      "desc_zh": "查询天气和预报",
+      "desc_en": "Query weather and forecasts",
+      "emoji": "🌤️",
+      "category": "utility",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["curl"]
+      },
+      "install": [],
+      "is_preinstalled": true
+    },
+    {
+      "id": "notion",
+      "display_zh": "Notion",
+      "display_en": "Notion",
+      "description": "Notion API for creating and managing pages, databases, and blocks.",
+      "desc_zh": "Notion 笔记管理",
+      "desc_en": "Notion workspace management",
+      "emoji": "📓",
+      "category": "productivity",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "env": [
+          {
+            "name": "NOTION_API_KEY",
+            "help_url": "https://notion.so/my-integrations",
+            "help_text": "Create an Integration and copy the Internal Integration Secret"
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": true
+    },
+    {
+      "id": "video-frames",
+      "display_zh": "视频帧提取",
+      "display_en": "Video Frames",
+      "description": "Extract frames or short clips from videos using ffmpeg.",
+      "desc_zh": "从视频提取帧或片段",
+      "desc_en": "Extract frames or clips from videos",
+      "emoji": "🎞️",
+      "category": "media",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["ffmpeg"]
+      },
+      "install": [
+        {"id": "brew", "kind": "brew", "formula": "ffmpeg", "bins": ["ffmpeg"], "os": ["darwin"]},
+        {"id": "choco", "kind": "choco", "package": "ffmpeg", "bins": ["ffmpeg"], "os": ["win32"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "obsidian",
+      "display_zh": "Obsidian",
+      "display_en": "Obsidian",
+      "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
+      "desc_zh": "Obsidian 笔记管理",
+      "desc_en": "Obsidian note management",
+      "emoji": "💎",
+      "category": "productivity",
+      "os": ["darwin", "win32", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["obsidian-cli"]
+      },
+      "install": [
+        {"id": "brew", "kind": "brew", "formula": "yakitrak/yakitrak/obsidian-cli", "bins": ["obsidian-cli"], "os": ["darwin"]}
+      ],
+      "is_preinstalled": true
+    },
+    {
+      "id": "tmux",
+      "display_zh": "Tmux",
+      "display_en": "Tmux",
+      "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.",
+      "desc_zh": "Tmux 会话管理",
+      "desc_en": "Tmux session management",
+      "emoji": "🧵",
+      "category": "development",
+      "os": ["darwin", "linux"],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": ["tmux"]
+      },
+      "install": [
+        {"id": "brew", "kind": "brew", "formula": "tmux", "bins": ["tmux"], "os": ["darwin"]},
+        {"id": "apt", "kind": "apt", "package": "tmux", "bins": ["tmux"], "os": ["linux"]}
+      ],
+      "is_preinstalled": true
+    }
+  ]
+}

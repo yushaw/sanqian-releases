@@ -33,7 +33,9 @@
       "category": "productivity",
       "os": ["darwin", "win32"],
       "skill_version": "1.0.0",
-      "requires": {},
+      "requires": {
+        "bins": ["python3"]
+      },
       "install": [],
       "is_preinstalled": true
     },
@@ -48,7 +50,9 @@
       "category": "productivity",
       "os": ["darwin", "win32"],
       "skill_version": "1.0.0",
-      "requires": {},
+      "requires": {
+        "bins": ["python3"]
+      },
       "install": [],
       "is_preinstalled": true
     },
@@ -63,7 +67,9 @@
       "category": "productivity",
       "os": ["darwin", "win32"],
       "skill_version": "1.0.0",
-      "requires": {},
+      "requires": {
+        "bins": ["python3"]
+      },
       "install": [],
       "is_preinstalled": true
     },
@@ -76,7 +82,7 @@
       "desc_en": "Build interactive HTML apps",
       "icon": "🎨",
       "category": "development",
-      "os": ["darwin", "win32"],
+      "os": ["darwin", "win32", "linux"],
       "skill_version": "1.0.0",
       "requires": {},
       "install": [],

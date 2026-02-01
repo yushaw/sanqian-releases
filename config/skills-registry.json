@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updated_at": "2025-02-01T14:00:00Z",
   "skills": [
     {
@@ -48,7 +48,9 @@
           ]
         }
       ],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/pdf.zip",
+      "package_sha256": "156ee4a29396f7b10b72b20b146c001053271604fe60e3ed880d36a6ae524bae"
     },
     {
       "id": "xlsx",
@@ -66,7 +68,9 @@
       "skill_version": "1.0.0",
       "requires": {},
       "install": [],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/xlsx.zip",
+      "package_sha256": "d41b026110b47c0a50d58bcc79a4d994a702bcb48ed1cf60f8ffbada0599879c"
     },
     {
       "id": "docx",
@@ -84,7 +88,9 @@
       "skill_version": "1.0.0",
       "requires": {},
       "install": [],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/docx.zip",
+      "package_sha256": "0a719508d7786b9c03578bde92bd2b4296ab6369fabc9f7186c9ad64317cc21a"
     },
     {
       "id": "pptx",
@@ -102,7 +108,9 @@
       "skill_version": "1.0.0",
       "requires": {},
       "install": [],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/pptx.zip",
+      "package_sha256": "6c109a3816827ebecc4260b091c21fe359dd55f48842cb6fcde9c77b1eac7082"
     },
     {
       "id": "artifacts-builder",
@@ -120,7 +128,9 @@
       "skill_version": "1.0.0",
       "requires": {},
       "install": [],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/artifacts-builder.zip",
+      "package_sha256": "ec0dfc7468292525fa2649b570499762e6a0ff3e00b95a016fe924cdbbd89502"
     },
     {
       "id": "github",
@@ -177,7 +187,9 @@
           ]
         }
       ],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/github.zip",
+      "package_sha256": "99271266a4094f711d73c630a0967893593d58b8c87a155f3102dd22812ac2b2"
     },
     {
       "id": "weather",
@@ -200,7 +212,9 @@
         ]
       },
       "install": [],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/weather.zip",
+      "package_sha256": "6d13353ea96252fb171ec86d321c3f8c18c057b0e5a310e996acb53bcccd8f96"
     },
     {
       "id": "notion",
@@ -227,7 +241,9 @@
         ]
       },
       "install": [],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/notion.zip",
+      "package_sha256": "1201e8de991a879846f07a9e0e636e6c490933cc59c07983db34a526e8a6c585"
     },
     {
       "id": "video-frames",
@@ -236,7 +252,7 @@
       "description": "Extract frames or short clips from videos using ffmpeg.",
       "desc_zh": "从视频提取帧或片段",
       "desc_en": "Extract frames or clips from videos",
-      "icon": "🄞️",
+      "icon": "🎞️",
       "category": "media",
       "os": [
         "darwin",
@@ -273,7 +289,9 @@
           ]
         }
       ],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/video-frames.zip",
+      "package_sha256": "88464eb556bfe6eaab0741d2ad0e834b964a06e667b62d0e7d691fa060c26246"
     },
     {
       "id": "obsidian",
@@ -308,7 +326,9 @@
           ]
         }
       ],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/obsidian.zip",
+      "package_sha256": "c0149c7bf9d80458150120fd75b2dee6ae2b68b6ac13ef7a6262f88cb73b6f07"
     },
     {
       "id": "apple-notes",
@@ -341,7 +361,9 @@
           ]
         }
       ],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/apple-notes.zip",
+      "package_sha256": "bc52752a8ae8870a3015a06b9431ba48ecf38f10dacd5ca618faa70b2caeafd4"
     },
     {
       "id": "openai-whisper-api",
@@ -371,7 +393,9 @@
         ]
       },
       "install": [],
-      "is_preinstalled": true
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/openai-whisper-api.zip",
+      "package_sha256": "32b85cbd717262e5be009abb0d54979cb5b16bd9cfe4ad88ffa56ce56c5bca56"
     }
   ]
 }

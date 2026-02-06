@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 9,
   "providers": [
     {
       "id": "deepseek",
@@ -286,6 +286,32 @@
       "maxCompletionTokens": 128000
     },
     {
+      "id": "glm-4.7-flash",
+      "name": "GLM-4.7-Flash",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "glm-4.7-flashx",
+      "name": "GLM-4.7-FlashX",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
       "id": "glm-4.7-coding",
       "name": "GLM-4.7 (Coding Plan)",
       "modelName": "glm-4.7",
@@ -347,6 +373,34 @@
       "maxCompletionTokens": 128000
     },
     {
+      "id": "zai-glm-4.7-flash",
+      "name": "GLM-4.7-Flash",
+      "modelName": "glm-4.7-flash",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "zai-glm-4.7-flashx",
+      "name": "GLM-4.7-FlashX",
+      "modelName": "glm-4.7-flashx",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
       "id": "zai-glm-4.7-coding",
       "name": "GLM-4.7 (Coding Plan)",
       "modelName": "glm-4.7",
@@ -395,24 +449,13 @@
       "maxCompletionTokens": 0
     },
     {
-      "id": "kimi-k2-0905-preview",
-      "name": "Kimi K2",
+      "id": "kimi-k2.5",
+      "name": "Kimi K2.5",
       "providerId": "moonshot",
       "type": "llm",
       "tags": [
-        "long_context"
-      ],
-      "baseUrl": "https://api.moonshot.cn/v1",
-      "contextWindow": 256000,
-      "maxCompletionTokens": 8192
-    },
-    {
-      "id": "kimi-k2-thinking",
-      "name": "Kimi K2 Thinking",
-      "providerId": "moonshot",
-      "type": "llm",
-      "tags": [
-        "reasoning",
+        "tool_use",
+        "vision",
         "long_context"
       ],
       "baseUrl": "https://api.moonshot.cn/v1",
@@ -547,8 +590,8 @@
       "maxCompletionTokens": 0
     },
     {
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5",
+      "id": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
       "providerId": "anthropic",
       "type": "llm",
       "tags": [
@@ -560,7 +603,7 @@
       ],
       "baseUrl": "https://api.anthropic.com/v1",
       "contextWindow": 200000,
-      "maxCompletionTokens": 64000
+      "maxCompletionTokens": 128000
     },
     {
       "id": "claude-sonnet-4-5",

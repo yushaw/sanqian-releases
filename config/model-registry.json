@@ -1,5 +1,5 @@
 {
-  "version": 10,
+  "version": 11,
   "providers": [
     {
       "id": "deepseek",
@@ -790,6 +790,50 @@
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "MiniMax-M2.5",
+      "name": "MiniMax M2.5",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072
+    },
+    {
+      "id": "MiniMax-M2.5-lightning",
+      "name": "MiniMax M2.5 Lightning",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072
+    },
+    {
+      "id": "MiniMax-M2.5-coding",
+      "name": "MiniMax M2.5 (Coding Plan)",
+      "modelName": "MiniMax-M2.5",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "coding",
+        "long_context"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072,
+      "codingPlan": true
     },
     {
       "id": "MiniMax-M2.1",

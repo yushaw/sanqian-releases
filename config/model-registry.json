@@ -1,5 +1,5 @@
 {
-  "version": 11,
+  "version": 12,
   "providers": [
     {
       "id": "deepseek",
@@ -662,7 +662,7 @@
         "long_context",
         "vision"
       ],
-      "baseUrl": "https://api.anthropic.com/v1",
+      "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
       "maxCompletionTokens": 128000
     },
@@ -677,7 +677,7 @@
         "long_context",
         "vision"
       ],
-      "baseUrl": "https://api.anthropic.com/v1",
+      "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
       "maxCompletionTokens": 64000
     },
@@ -690,7 +690,7 @@
         "tool_use",
         "vision"
       ],
-      "baseUrl": "https://api.anthropic.com/v1",
+      "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
       "maxCompletionTokens": 8192
     },

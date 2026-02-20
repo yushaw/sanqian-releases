@@ -1,5 +1,5 @@
 {
-  "version": 12,
+  "version": 13,
   "providers": [
     {
       "id": "deepseek",
@@ -236,6 +236,19 @@
       "maxCompletionTokens": 65536
     },
     {
+      "id": "qwen-flash",
+      "name": "Qwen Flash",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 32768
+    },
+    {
       "id": "qwen-plus",
       "name": "Qwen Plus",
       "providerId": "qwen",
@@ -248,6 +261,34 @@
       "maxCompletionTokens": 32768
     },
     {
+      "id": "qwen3-coder-plus",
+      "name": "Qwen3 Coder Plus",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "coding",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "qwen3-coder-flash",
+      "name": "Qwen3 Coder Flash",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "coding",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 65536
+    },
+    {
       "id": "qwq-plus",
       "name": "QwQ Plus",
       "providerId": "qwen",
@@ -258,6 +299,32 @@
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 131072,
       "maxCompletionTokens": 16384
+    },
+    {
+      "id": "qwen3-vl-plus",
+      "name": "Qwen3 VL Plus",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768
+    },
+    {
+      "id": "qwen3-vl-flash",
+      "name": "Qwen3 VL Flash",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768
     },
     {
       "id": "qwen3-vl-max",
@@ -667,6 +734,21 @@
       "maxCompletionTokens": 128000
     },
     {
+      "id": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "providerId": "anthropic",
+      "type": "llm",
+      "tags": [
+        "coding",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://api.anthropic.com",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 64000
+    },
+    {
       "id": "claude-sonnet-4-5",
       "name": "Claude Sonnet 4.5",
       "providerId": "anthropic",
@@ -693,6 +775,62 @@
       "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
       "maxCompletionTokens": 8192
+    },
+    {
+      "id": "doubao-seed-2-0-pro-260215",
+      "name": "Doubao Seed 2.0 Pro",
+      "providerId": "volcengine",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768
+    },
+    {
+      "id": "doubao-seed-2-0-lite-260215",
+      "name": "Doubao Seed 2.0 Lite",
+      "providerId": "volcengine",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768
+    },
+    {
+      "id": "doubao-seed-2-0-mini-260215",
+      "name": "Doubao Seed 2.0 Mini",
+      "providerId": "volcengine",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "vision"
+      ],
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 128000,
+      "maxCompletionTokens": 16384
+    },
+    {
+      "id": "doubao-seed-2-0-code-preview-260215",
+      "name": "Doubao Seed 2.0 Code Preview",
+      "providerId": "volcengine",
+      "type": "llm",
+      "tags": [
+        "coding",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768
     },
     {
       "id": "doubao-seed-1-8-251228",
@@ -743,6 +881,64 @@
       "baseUrl": "https://api.z.ai/api/paas/v4",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "gemini-2.5-pro",
+      "name": "Gemini 2.5 Pro",
+      "providerId": "google",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 1048576,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "gemini-2.5-flash",
+      "name": "Gemini 2.5 Flash",
+      "providerId": "google",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 1048576,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "gemini-2.5-flash-lite",
+      "name": "Gemini 2.5 Flash Lite",
+      "providerId": "google",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 1048576,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "gemini-3.1-pro-preview",
+      "name": "Gemini 3.1 Pro Preview",
+      "providerId": "google",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 1048576,
+      "maxCompletionTokens": 65536
     },
     {
       "id": "gemini-3-pro-preview",

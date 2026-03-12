@@ -1,0 +1,2992 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-03-12T09:06:17Z",
+  "provider": {
+    "schema_version": 1,
+    "id": "sanqian-skill-curated",
+    "display_name": "Sanqian Skill Curated",
+    "maintainer": "yushaw",
+    "model": "curated-package",
+    "origin_kind": "local-workspace",
+    "default_channel": "stable",
+    "artifact_format": "zip",
+    "version_scheme": "semver",
+    "host_contract": {
+      "host": "sanqian",
+      "catalog_schema": 1,
+      "manifest_schema": 1,
+      "install_contract": "v1-minimal",
+      "auth_contract": "v1-brokered",
+      "setup_model": "install-then-connect",
+      "notes": "This curated feed uses Sanqian-specific setup semantics for auth, secret storage, and brokered runtime credential delivery."
+    },
+    "capabilities": {
+      "install_by_channel": true,
+      "install_by_version": true,
+      "rollback": true,
+      "immutable_artifacts": true
+    },
+    "catalog_path": "catalog.json",
+    "runtime_root": "skills",
+    "manifest_root": "manifests/skills",
+    "skill_manifest_glob": "manifests/skills/*.json",
+    "entrypoint_name": "SKILL.md",
+    "notes": "Provider-native curated feed with runtime instructions inside skill packages and catalog, governance, and release metadata managed from repository-level manifests."
+  },
+  "skills": [
+    {
+      "id": "algorithmic-art",
+      "manifest_path": "manifests/skills/algorithmic-art.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "算法艺术",
+        "en": "Algorithmic Art"
+      },
+      "summary": {
+        "zh-CN": "用 p5.js 创作带随机种子的生成艺术",
+        "en": "Create seeded generative art with p5.js"
+      },
+      "category": "media",
+      "tags": [
+        "art",
+        "generative-art",
+        "p5js",
+        "creative-coding",
+        "seeded-randomness"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "generative art creation",
+        "creative coding study",
+        "interactive art experiments"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "instruction-only",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "incubating",
+        "maturity": "beta",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "local-files",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Strong creative-coding workflow with bundled templates, but still niche and craft-heavy."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/algorithmic-art/algorithmic-art-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/algorithmic-art/algorithmic-art-1.0.1.zip",
+            "sha256": "091248c2fff898b5c01d6decaa849a88c6500713533e7b7428eddf7f2fb1c3ce",
+            "size": 18976
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/algorithmic-art/algorithmic-art-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/algorithmic-art/algorithmic-art-1.0.1.zip",
+              "sha256": "091248c2fff898b5c01d6decaa849a88c6500713533e7b7428eddf7f2fb1c3ce",
+              "size": 18976
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "apple-notes",
+      "manifest_path": "manifests/skills/apple-notes.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Apple 备忘录",
+        "en": "Apple Notes"
+      },
+      "summary": {
+        "zh-CN": "通过 memo CLI 管理 Apple Notes",
+        "en": "Manage Apple Notes through memo CLI"
+      },
+      "category": "productivity",
+      "tags": [
+        "notes",
+        "apple",
+        "memo",
+        "macos",
+        "productivity"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "personal note capture",
+        "note search",
+        "note organization"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin"
+        ],
+        "integration_mode": "cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "memo"
+          ],
+          "local_apps": [
+            "Apple Notes"
+          ]
+        },
+        "install": [
+          {
+            "id": "brew-memo",
+            "kind": "brew",
+            "formula": "antoniorodr/memo/memo",
+            "bins": [
+              "memo"
+            ],
+            "os": [
+              "darwin"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "desktop-app",
+          "automation"
+        ],
+        "maintainer": "yushaw",
+        "reason": "High-quality note-management skill with a narrow but clean macOS dependency surface."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.2",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/apple-notes/apple-notes-1.0.2.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/apple-notes/apple-notes-1.0.2.zip",
+            "sha256": "8b7832c9c3e6c1ae5f0ad5f7641f3c557d3a54d07c750e5d3765292cd502a1ea",
+            "size": 855
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.2",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/apple-notes/apple-notes-1.0.2.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/apple-notes/apple-notes-1.0.2.zip",
+              "sha256": "8b7832c9c3e6c1ae5f0ad5f7641f3c557d3a54d07c750e5d3765292cd502a1ea",
+              "size": 855
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "apple-reminders",
+      "manifest_path": "manifests/skills/apple-reminders.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Apple 提醒事项",
+        "en": "Apple Reminders"
+      },
+      "summary": {
+        "zh-CN": "通过 remindctl 管理提醒事项",
+        "en": "Manage reminders through remindctl"
+      },
+      "category": "productivity",
+      "tags": [
+        "reminders",
+        "apple",
+        "task",
+        "macos",
+        "productivity"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "task capture",
+        "list management",
+        "due date tracking"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin"
+        ],
+        "integration_mode": "cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "remindctl"
+          ],
+          "local_apps": [
+            "Reminders"
+          ]
+        },
+        "install": [
+          {
+            "id": "brew-remindctl",
+            "kind": "brew",
+            "formula": "steipete/tap/remindctl",
+            "bins": [
+              "remindctl"
+            ],
+            "os": [
+              "darwin"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "desktop-app",
+          "automation"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Strong everyday task-management scenario with clear CLI affordances and predictable platform scope."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.2",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/apple-reminders/apple-reminders-1.0.2.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/apple-reminders/apple-reminders-1.0.2.zip",
+            "sha256": "c073bbaf47a919714e337b236334fd1e6dc861236abf202f2620fd92899f1f45",
+            "size": 1031
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.2",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/apple-reminders/apple-reminders-1.0.2.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/apple-reminders/apple-reminders-1.0.2.zip",
+              "sha256": "c073bbaf47a919714e337b236334fd1e6dc861236abf202f2620fd92899f1f45",
+              "size": 1031
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "brand-guidelines",
+      "manifest_path": "manifests/skills/brand-guidelines.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "品牌规范",
+        "en": "Brand Guidelines"
+      },
+      "summary": {
+        "zh-CN": "将制品套用为 Anthropic 品牌风格",
+        "en": "Apply Anthropic brand styling to artifacts"
+      },
+      "category": "design",
+      "tags": [
+        "brand",
+        "style-guide",
+        "visual-identity",
+        "typography",
+        "color"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "brand styling",
+        "artifact polish",
+        "visual identity application"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "instruction-only",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [],
+        "maintainer": "yushaw",
+        "reason": "Well-packaged, but the utility is narrow because the styling is tied to Anthropic branding."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/brand-guidelines/brand-guidelines-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/brand-guidelines/brand-guidelines-1.0.1.zip",
+            "sha256": "88dc7b6846b7a62c0392673b5ee053ccd5820aa2b692e42d96b70cd9d9b8f768",
+            "size": 5186
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/brand-guidelines/brand-guidelines-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/brand-guidelines/brand-guidelines-1.0.1.zip",
+              "sha256": "88dc7b6846b7a62c0392673b5ee053ccd5820aa2b692e42d96b70cd9d9b8f768",
+              "size": 5186
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "canvas-design",
+      "manifest_path": "manifests/skills/canvas-design.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "画布设计",
+        "en": "Canvas Design"
+      },
+      "summary": {
+        "zh-CN": "基于设计哲学生成高质量静态海报和视觉作品",
+        "en": "Create polished static poster and canvas designs"
+      },
+      "category": "design",
+      "tags": [
+        "poster",
+        "visual-design",
+        "canvas",
+        "art-direction",
+        "layout"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "poster design",
+        "single-page artwork",
+        "art direction ideation"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "instruction-only",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "incubating",
+        "maturity": "beta",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "High-quality bundled assets and clear creative workflow, but still subjective and heavy-weight."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/canvas-design/canvas-design-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/canvas-design/canvas-design-1.0.1.zip",
+            "sha256": "7796eefafa69e23013d89a842e0c0daf3d28a915dad74b8e66b6cc06fd59fb4b",
+            "size": 2639640
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/canvas-design/canvas-design-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/canvas-design/canvas-design-1.0.1.zip",
+              "sha256": "7796eefafa69e23013d89a842e0c0daf3d28a915dad74b8e66b6cc06fd59fb4b",
+              "size": 2639640
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "claude-api",
+      "manifest_path": "manifests/skills/claude-api.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Claude API 开发",
+        "en": "Claude API"
+      },
+      "summary": {
+        "zh-CN": "使用 Claude API 和 Anthropic SDK 构建应用",
+        "en": "Build apps with the Claude API and Anthropic SDKs"
+      },
+      "category": "development",
+      "tags": [
+        "anthropic",
+        "claude-api",
+        "sdk",
+        "llm",
+        "agent-sdk"
+      ],
+      "audience": "developer",
+      "scenarios": [
+        "SDK integration",
+        "LLM feature development",
+        "Anthropic API usage"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "http-api",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "env": [
+            {
+              "name": "ANTHROPIC_API_KEY",
+              "source": "user",
+              "help_url": "https://console.anthropic.com/settings/keys",
+              "help_text": "Create an Anthropic API key and let Sanqian store it for this skill."
+            }
+          ]
+        },
+        "install": [],
+        "optional_env": [
+          "ANTHROPIC_BASE_URL"
+        ]
+      },
+      "auth": {
+        "mode": "api_key",
+        "provider": "anthropic",
+        "brokered": false,
+        "env_names": [
+          "ANTHROPIC_API_KEY"
+        ],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "network",
+          "secrets"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Excellent developer guidance, but only relevant to teams building on Anthropic APIs."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/claude-api/claude-api-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.1.zip",
+            "sha256": "42afe055f7a0ff4a5fa1110cb122727f21132741236ed2198c655cce5c3c7721",
+            "size": 64502
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/claude-api/claude-api-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.1.zip",
+              "sha256": "42afe055f7a0ff4a5fa1110cb122727f21132741236ed2198c655cce5c3c7721",
+              "size": 64502
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "docx",
+      "manifest_path": "manifests/skills/docx.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Word 文档",
+        "en": "Word Documents"
+      },
+      "summary": {
+        "zh-CN": "创建、编辑、修订 Word 文档",
+        "en": "Create, edit, and review Word documents"
+      },
+      "category": "productivity",
+      "tags": [
+        "docx",
+        "word",
+        "ooxml",
+        "tracked-changes",
+        "documents"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "document drafting",
+        "document redlining",
+        "docx review",
+        "tracked changes"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "pandoc"
+          ],
+          "python_packages": [
+            "defusedxml>=0.7.0"
+          ]
+        },
+        "install": [
+          {
+            "id": "brew-pandoc",
+            "kind": "brew",
+            "formula": "pandoc",
+            "bins": [
+              "pandoc"
+            ],
+            "os": [
+              "darwin"
+            ]
+          },
+          {
+            "id": "choco-pandoc",
+            "kind": "choco",
+            "package": "pandoc",
+            "bins": [
+              "pandoc"
+            ],
+            "os": [
+              "win32"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "file-read",
+          "file-write",
+          "local-cli"
+        ],
+        "maintainer": "yushaw",
+        "reason": "High-value office workflow with clear creation, editing, and redlining guidance."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.1.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/docx/docx-1.1.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/docx/docx-1.1.1.zip",
+            "sha256": "21086893412bad29b0a3143a4ae169ae1261208eb45e26858187efef25bed026",
+            "size": 154896
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.1.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/docx/docx-1.1.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/docx/docx-1.1.1.zip",
+              "sha256": "21086893412bad29b0a3143a4ae169ae1261208eb45e26858187efef25bed026",
+              "size": 154896
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "frontend-design",
+      "manifest_path": "manifests/skills/frontend-design.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "前端设计",
+        "en": "Frontend Design"
+      },
+      "summary": {
+        "zh-CN": "为网页和前端界面提供设计方向与质量门槛",
+        "en": "Provide design direction for web and frontend interfaces"
+      },
+      "category": "design",
+      "tags": [
+        "frontend",
+        "ui",
+        "design",
+        "layout",
+        "visual-quality"
+      ],
+      "audience": "developer",
+      "scenarios": [
+        "frontend design pass",
+        "UI direction",
+        "visual quality improvement"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "instruction-only",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [],
+        "maintainer": "yushaw",
+        "reason": "Portable design guidance with strong signal for developer-facing UI work."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/frontend-design/frontend-design-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/frontend-design/frontend-design-1.0.1.zip",
+            "sha256": "30672a447b533858dc302dc42077305da9be49641979c95bc77cfd0ce1dda375",
+            "size": 5881
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/frontend-design/frontend-design-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/frontend-design/frontend-design-1.0.1.zip",
+              "sha256": "30672a447b533858dc302dc42077305da9be49641979c95bc77cfd0ce1dda375",
+              "size": 5881
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "google-calendar",
+      "manifest_path": "manifests/skills/google-calendar.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google 日历",
+        "en": "Google Calendar"
+      },
+      "summary": {
+        "zh-CN": "通过经由 Sanqian 代理的 OAuth 管理 Google 日历事件。",
+        "en": "List and manage calendar events through Google Calendar with brokered OAuth."
+      },
+      "category": "productivity",
+      "tags": [
+        "google-calendar",
+        "calendar",
+        "oauth2",
+        "scheduling",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "calendar event lookup",
+        "calendar event creation",
+        "calendar event updates",
+        "schedule coordination"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ],
+          "env": [
+            {
+              "name": "GOOGLE_ACCESS_TOKEN",
+              "source": "host",
+              "help_text": "Short-lived access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here."
+            }
+          ]
+        },
+        "install": [],
+        "optional_env": [
+          "GOOGLE_CALENDAR_ID",
+          "GOOGLE_CALENDAR_IDS"
+        ]
+      },
+      "auth": {
+        "mode": "oauth2",
+        "provider": "google",
+        "brokered": true,
+        "env_names": [],
+        "runtime_env_names": [
+          "GOOGLE_ACCESS_TOKEN"
+        ],
+        "required_scopes": [
+          "https://www.googleapis.com/auth/calendar.events"
+        ],
+        "notes": [
+          "Use Sanqian account connection for Google OAuth. Do not model refresh tokens or client secrets as user-entered env vars.",
+          "Sanqian should inject a short-lived GOOGLE_ACCESS_TOKEN only at request time."
+        ]
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "beta",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Representative OAuth-backed productivity skill; curated with brokered auth expectations and without upstream refresh-token helper."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.1",
+          "released_at": "2026-03-08T10:54:59Z",
+          "artifact": {
+            "path": "dist/google-calendar/google-calendar-0.1.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.1.zip",
+            "sha256": "6f09caf2ce7c637399b4f7b8117482ff805b8bb919fdd9dfa8806a2d457afe16",
+            "size": 2684
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.1",
+            "released_at": "2026-03-08T10:54:59Z",
+            "artifact": {
+              "path": "dist/google-calendar/google-calendar-0.1.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.1.zip",
+              "sha256": "6f09caf2ce7c637399b4f7b8117482ff805b8bb919fdd9dfa8806a2d457afe16",
+              "size": 2684
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "internal-comms",
+      "manifest_path": "manifests/skills/internal-comms.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "内部沟通",
+        "en": "Internal Comms"
+      },
+      "summary": {
+        "zh-CN": "撰写组织内部更新、FAQ 和沟通稿",
+        "en": "Draft internal updates, FAQs, and communication drafts"
+      },
+      "category": "productivity",
+      "tags": [
+        "communication",
+        "internal-comms",
+        "faq",
+        "newsletter",
+        "writing"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "company newsletter",
+        "faq writing",
+        "internal updates"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "instruction-only",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "beta",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Reusable communication patterns, but the audience is narrower and often organization-specific."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/internal-comms/internal-comms-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/internal-comms/internal-comms-1.0.1.zip",
+            "sha256": "bfc9479cee83dca2346cfca277a718f8c1079e3bc5d9337936de94cf30d9f845",
+            "size": 9835
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/internal-comms/internal-comms-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/internal-comms/internal-comms-1.0.1.zip",
+              "sha256": "bfc9479cee83dca2346cfca277a718f8c1079e3bc5d9337936de94cf30d9f845",
+              "size": 9835
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "mcp-builder",
+      "manifest_path": "manifests/skills/mcp-builder.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "MCP 构建",
+        "en": "MCP Builder"
+      },
+      "summary": {
+        "zh-CN": "设计、实现和评估 MCP server",
+        "en": "Design, build, and evaluate MCP servers"
+      },
+      "category": "development",
+      "tags": [
+        "mcp",
+        "server",
+        "sdk",
+        "tooling",
+        "evaluation"
+      ],
+      "audience": "developer",
+      "scenarios": [
+        "MCP server implementation",
+        "tool design",
+        "integration evaluation"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ]
+        },
+        "install": [
+          {
+            "id": "pip-requirements",
+            "kind": "pip",
+            "run": "python3 -m pip install -r scripts/requirements.txt",
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "network",
+          "local-cli",
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "High-value developer workflow with concrete scripts and reference material."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/mcp-builder/mcp-builder-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/mcp-builder/mcp-builder-1.0.1.zip",
+            "sha256": "a2d78b99ce4e8b30f86f80653a9eba8866888507973aa7cab885133bfe54100c",
+            "size": 42074
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/mcp-builder/mcp-builder-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/mcp-builder/mcp-builder-1.0.1.zip",
+              "sha256": "a2d78b99ce4e8b30f86f80653a9eba8866888507973aa7cab885133bfe54100c",
+              "size": 42074
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "native-sentry",
+      "manifest_path": "manifests/skills/native-sentry.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Native Sentry",
+        "en": "Native Sentry"
+      },
+      "summary": {
+        "zh-CN": "Read Sentry issues and events through the Sentry REST API.",
+        "en": "Read Sentry issues and events through the Sentry REST API."
+      },
+      "category": "development",
+      "tags": [
+        "native-sentry",
+        "sentry",
+        "observability",
+        "error-triage",
+        "development"
+      ],
+      "audience": "developer",
+      "scenarios": [
+        "sentry issue triage",
+        "production incident inspection",
+        "event and stack trace lookup"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ],
+          "env": [
+            {
+              "name": "SENTRY_AUTH_TOKEN",
+              "source": "user",
+              "help_url": "https://sentry.io/settings/account/api/auth-tokens/",
+              "help_text": "Create a read-only Sentry auth token with project:read, event:read, and org:read scopes."
+            }
+          ]
+        },
+        "install": [],
+        "optional_env": [
+          "SENTRY_ORG",
+          "SENTRY_PROJECT",
+          "SENTRY_BASE_URL"
+        ]
+      },
+      "auth": {
+        "mode": "api_key",
+        "provider": "sentry",
+        "brokered": false,
+        "env_names": [
+          "SENTRY_AUTH_TOKEN"
+        ],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Use read-only token scopes: project:read, event:read, org:read.",
+          "Store the token in Sanqian secrets and avoid shell-profile based token sharing where possible."
+        ]
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "beta",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "network",
+          "local-cli",
+          "secrets"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Useful production-debug workflow with bounded read-only auth."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-11T11:08:28Z",
+          "artifact": {
+            "path": "dist/native-sentry/native-sentry-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.0.zip",
+            "sha256": "aac39763b60b0cefd32908609e64a291a1f513f1c70b5c2864dfbc3a0376a7b2",
+            "size": 4510
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-11T11:08:28Z",
+            "artifact": {
+              "path": "dist/native-sentry/native-sentry-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.0.zip",
+              "sha256": "aac39763b60b0cefd32908609e64a291a1f513f1c70b5c2864dfbc3a0376a7b2",
+              "size": 4510
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "pdf",
+      "manifest_path": "manifests/skills/pdf.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "PDF 处理",
+        "en": "PDF Processing"
+      },
+      "summary": {
+        "zh-CN": "提取、合并、拆分 PDF 文档并处理表单",
+        "en": "Extract, merge, split, and fill PDF documents"
+      },
+      "category": "productivity",
+      "tags": [
+        "pdf",
+        "forms",
+        "documents",
+        "text-extraction",
+        "tables"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "pdf extraction",
+        "pdf form filling",
+        "pdf generation",
+        "pdf review"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "any_bins": [
+            "pdftoppm",
+            "pdftocairo"
+          ],
+          "python_packages": [
+            "pypdf>=4.0.0",
+            "pdf2image>=1.17.0",
+            "Pillow>=10.0.0"
+          ]
+        },
+        "install": [
+          {
+            "id": "brew-poppler",
+            "kind": "brew",
+            "formula": "poppler",
+            "bins": [
+              "pdftoppm",
+              "pdftocairo"
+            ],
+            "os": [
+              "darwin"
+            ]
+          },
+          {
+            "id": "choco-poppler",
+            "kind": "choco",
+            "package": "poppler",
+            "bins": [
+              "pdftoppm",
+              "pdftocairo"
+            ],
+            "os": [
+              "win32"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "file-read",
+          "file-write",
+          "local-cli"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Core document-processing capability with strong scripts and common end-user scenarios."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.1.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/pdf/pdf-1.1.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/pdf/pdf-1.1.1.zip",
+            "sha256": "2cd8d4826b66f2ced22fbef4e89410a37f3d7bb8b8d356fe5b1c09560e18ffd7",
+            "size": 21440
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.1.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/pdf/pdf-1.1.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/pdf/pdf-1.1.1.zip",
+              "sha256": "2cd8d4826b66f2ced22fbef4e89410a37f3d7bb8b8d356fe5b1c09560e18ffd7",
+              "size": 21440
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "pptx",
+      "manifest_path": "manifests/skills/pptx.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "PPT 演示",
+        "en": "PowerPoint"
+      },
+      "summary": {
+        "zh-CN": "创建、编辑和分析演示文稿",
+        "en": "Create, edit, and analyze presentations"
+      },
+      "category": "productivity",
+      "tags": [
+        "pptx",
+        "powerpoint",
+        "presentations",
+        "slides",
+        "ooxml"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "slide authoring",
+        "template adaptation",
+        "presentation editing",
+        "thumbnail review"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3",
+            "node",
+            "soffice",
+            "pdftoppm"
+          ],
+          "python_packages": [
+            "python-pptx>=1.0.0",
+            "defusedxml>=0.7.0",
+            "Pillow>=10.0.0",
+            "markitdown[pptx]"
+          ],
+          "node_packages": [
+            "playwright",
+            "sharp"
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "file-read",
+          "file-write",
+          "local-cli"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Strong slide-generation and editing workflow with bundled helpers for conversion, replacement, and thumbnail review."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.1.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/pptx/pptx-1.1.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/pptx/pptx-1.1.1.zip",
+            "sha256": "a6eee9891cae271b8bf3d3b6731e626c19803797226aaaa7d4d353f3068aea37",
+            "size": 159646
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.1.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/pptx/pptx-1.1.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/pptx/pptx-1.1.1.zip",
+              "sha256": "a6eee9891cae271b8bf3d3b6731e626c19803797226aaaa7d4d353f3068aea37",
+              "size": 159646
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "shopping-list",
+      "manifest_path": "manifests/skills/shopping-list.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "购物清单",
+        "en": "Shopping List"
+      },
+      "summary": {
+        "zh-CN": "维护可归档的家庭购物清单",
+        "en": "Manage an archived household shopping list"
+      },
+      "category": "lifestyle",
+      "tags": [
+        "shopping",
+        "grocery",
+        "household",
+        "list",
+        "history"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "grocery planning",
+        "household shopping",
+        "purchase history"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux"
+        ],
+        "integration_mode": "instruction-only",
+        "network_access": false,
+        "state_dir": "$SANQIAN_DATA_DIR/skill-data/shopping-list",
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "persistent-state"
+        ],
+        "maintainer": "yushaw",
+        "reason": "High-frequency C-end scenario with a complete list, archive, and history workflow."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.6",
+          "released_at": "2026-03-08T08:06:12Z",
+          "artifact": {
+            "path": "dist/shopping-list/shopping-list-1.0.6.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/shopping-list/shopping-list-1.0.6.zip",
+            "sha256": "331055e9c5c57d502b523070ef919d9d43e697594c166e38ed3a8fe4e98ea754",
+            "size": 3513
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.6",
+            "released_at": "2026-03-08T08:06:12Z",
+            "artifact": {
+              "path": "dist/shopping-list/shopping-list-1.0.6.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/shopping-list/shopping-list-1.0.6.zip",
+              "sha256": "331055e9c5c57d502b523070ef919d9d43e697594c166e38ed3a8fe4e98ea754",
+              "size": 3513
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "skill-creator",
+      "manifest_path": "manifests/skills/skill-creator.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "技能创建",
+        "en": "Skill Creator"
+      },
+      "summary": {
+        "zh-CN": "创建、评估和迭代改进技能",
+        "en": "Create, evaluate, and iterate on skills"
+      },
+      "category": "development",
+      "tags": [
+        "skills",
+        "evaluation",
+        "benchmark",
+        "authoring",
+        "workflow"
+      ],
+      "audience": "developer",
+      "scenarios": [
+        "skill authoring",
+        "skill benchmarking",
+        "description tuning"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "beta",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "network",
+          "local-cli",
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Useful meta-workflow for maintaining skills inside the provider itself."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/skill-creator/skill-creator-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/skill-creator/skill-creator-1.0.1.zip",
+            "sha256": "0bcdc32880ee71fdddf01779967205e45fb4360b00b91aea2c0c74ac6a3ff0bc",
+            "size": 72312
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/skill-creator/skill-creator-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/skill-creator/skill-creator-1.0.1.zip",
+              "sha256": "0bcdc32880ee71fdddf01779967205e45fb4360b00b91aea2c0c74ac6a3ff0bc",
+              "size": 72312
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "slack-gif-creator",
+      "manifest_path": "manifests/skills/slack-gif-creator.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Slack GIF 制作",
+        "en": "Slack GIF Creator"
+      },
+      "summary": {
+        "zh-CN": "生成适合 Slack 的动图和表情 GIF",
+        "en": "Create Slack-optimized animated GIFs"
+      },
+      "category": "media",
+      "tags": [
+        "gif",
+        "slack",
+        "animation",
+        "emoji",
+        "media"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "Slack emoji creation",
+        "animated sticker creation",
+        "small GIF production"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ]
+        },
+        "install": [
+          {
+            "id": "pip-requirements",
+            "kind": "pip",
+            "run": "python3 -m pip install -r requirements.txt",
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "local-cli",
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Strong bundled tooling, but the target surface is mostly Slack-specific."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
+            "sha256": "5f4d5cd9675650787c5de70e0f8e1bd8a5d7d5025eed39743336d4e0319aa742",
+            "size": 15552
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
+              "sha256": "5f4d5cd9675650787c5de70e0f8e1bd8a5d7d5025eed39743336d4e0319aa742",
+              "size": 15552
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "subtitle-translator",
+      "manifest_path": "manifests/skills/subtitle-translator.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "字幕翻译",
+        "en": "Subtitle Translator"
+      },
+      "summary": {
+        "zh-CN": "保留时间轴翻译 SRT 字幕",
+        "en": "Translate SRT subtitles while preserving timing"
+      },
+      "category": "media",
+      "tags": [
+        "subtitle",
+        "srt",
+        "translation",
+        "bilingual",
+        "video"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "subtitle translation",
+        "bilingual subtitle generation",
+        "media localization"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux"
+        ],
+        "integration_mode": "cli",
+        "network_access": true,
+        "state_dir": "$SANQIAN_DATA_DIR/skill-data/subtitle-translator",
+        "requires": {
+          "bins": [
+            "python3"
+          ],
+          "env": [
+            {
+              "name": "SUBTITLE_API_KEY",
+              "source": "user",
+              "help_url": "https://platform.openai.com/api-keys",
+              "help_text": "Create an API key for an OpenAI-compatible endpoint, or override credentials per command."
+            }
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "api_key",
+        "provider": "openai-compatible",
+        "brokered": false,
+        "env_names": [
+          "SUBTITLE_API_KEY"
+        ],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "file-read",
+          "file-write",
+          "network",
+          "secrets"
+        ],
+        "maintainer": "yushaw",
+        "reason": "High-value media localization workflow with deterministic scripts and simple dependency surface."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.4",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/subtitle-translator/subtitle-translator-1.0.4.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.4.zip",
+            "sha256": "4bb44f51371cea61824aaec0c05e322efef5f0608d77122bcf81e1bbb7b5564e",
+            "size": 7260
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.4",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/subtitle-translator/subtitle-translator-1.0.4.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.4.zip",
+              "sha256": "4bb44f51371cea61824aaec0c05e322efef5f0608d77122bcf81e1bbb7b5564e",
+              "size": 7260
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "theme-factory",
+      "manifest_path": "manifests/skills/theme-factory.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "主题工厂",
+        "en": "Theme Factory"
+      },
+      "summary": {
+        "zh-CN": "为文档、网页和演示稿选择或生成主题",
+        "en": "Choose or generate themes for decks, docs, and web artifacts"
+      },
+      "category": "design",
+      "tags": [
+        "theme",
+        "styling",
+        "fonts",
+        "color-palette",
+        "presentation"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "theme selection",
+        "deck restyling",
+        "artifact theming"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "instruction-only",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Portable and reusable theming workflow with concrete bundled theme assets."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/theme-factory/theme-factory-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/theme-factory/theme-factory-1.0.1.zip",
+            "sha256": "7e4e8caa49816f93e9d1ba76b08318c1868a84866584b65d888884f298c730f0",
+            "size": 123008
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/theme-factory/theme-factory-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/theme-factory/theme-factory-1.0.1.zip",
+              "sha256": "7e4e8caa49816f93e9d1ba76b08318c1868a84866584b65d888884f298c730f0",
+              "size": 123008
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "track-flight",
+      "manifest_path": "manifests/skills/track-flight.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "航班追踪",
+        "en": "Track Flight"
+      },
+      "summary": {
+        "zh-CN": "通过 Sanqian 管理的 AviationStack API Key 查询实时航班状态。",
+        "en": "Track real-time flight status with AviationStack using a Sanqian-managed API key."
+      },
+      "category": "lifestyle",
+      "tags": [
+        "track-flight",
+        "flight",
+        "aviation",
+        "travel",
+        "api-key",
+        "lifestyle"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "flight status lookup",
+        "departure and arrival check",
+        "delay monitoring",
+        "travel planning"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ],
+          "python_packages": [
+            "requests"
+          ],
+          "env": [
+            {
+              "name": "AVIATIONSTACK_API_KEY",
+              "source": "user",
+              "help_url": "https://aviationstack.com/signup/free",
+              "help_text": "Create an AviationStack API key. Free-tier transport is HTTP-only."
+            }
+          ]
+        },
+        "install": [
+          {
+            "id": "pip-requests",
+            "kind": "pip",
+            "package": "requests",
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "api_key",
+        "provider": "aviationstack",
+        "brokered": false,
+        "env_names": [
+          "AVIATIONSTACK_API_KEY"
+        ],
+        "required_scopes": [],
+        "notes": [
+          "Sanqian should store the API key and inject it only for this skill at request time.",
+          "The upstream free-tier provider endpoint is HTTP-only. Treat this as a setup and recommendation constraint."
+        ]
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "beta",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "network",
+          "secrets"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Representative API-key-backed consumer lookup skill with small runtime surface; free-tier HTTP-only transport keeps it out of default recommendation for now."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-08T11:01:50Z",
+          "artifact": {
+            "path": "dist/track-flight/track-flight-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.0.zip",
+            "sha256": "edf19a58e3604a585a5a3f9c92715890980915931f5a89e2cc3bbd945c97e49e",
+            "size": 4006
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-08T11:01:50Z",
+            "artifact": {
+              "path": "dist/track-flight/track-flight-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.0.zip",
+              "sha256": "edf19a58e3604a585a5a3f9c92715890980915931f5a89e2cc3bbd945c97e49e",
+              "size": 4006
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "upnote",
+      "manifest_path": "manifests/skills/upnote.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "UpNote",
+        "en": "UpNote"
+      },
+      "summary": {
+        "zh-CN": "通过桌面应用回调自动化管理 UpNote",
+        "en": "Automate UpNote through desktop callbacks"
+      },
+      "category": "productivity",
+      "tags": [
+        "notes",
+        "upnote",
+        "desktop",
+        "callback",
+        "productivity"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "note creation",
+        "notebook management",
+        "desktop note automation"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin"
+        ],
+        "integration_mode": "desktop-callback",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "local_apps": [
+            "UpNote"
+          ],
+          "url_schemes": [
+            "upnote"
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "incubating",
+        "maturity": "beta",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "desktop-app",
+          "callback"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Useful consumer notes scenario, but host-side app presence and callback success are not yet detectable by the provider."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.4",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/upnote/upnote-1.0.4.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/upnote/upnote-1.0.4.zip",
+            "sha256": "558ca13f7c39766ce1766951706813201ff58a274936b0245d76609052b5d786",
+            "size": 2325
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.4",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/upnote/upnote-1.0.4.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/upnote/upnote-1.0.4.zip",
+              "sha256": "558ca13f7c39766ce1766951706813201ff58a274936b0245d76609052b5d786",
+              "size": 2325
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "water-coach",
+      "manifest_path": "manifests/skills/water-coach.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "饮水教练",
+        "en": "Water Coach"
+      },
+      "summary": {
+        "zh-CN": "记录饮水、目标和分析",
+        "en": "Track hydration, goals, and analytics"
+      },
+      "category": "health",
+      "tags": [
+        "hydration",
+        "health",
+        "tracking",
+        "water",
+        "analytics"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "hydration tracking",
+        "goal monitoring",
+        "weekly health review"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux"
+        ],
+        "integration_mode": "cli",
+        "network_access": false,
+        "state_dir": "$SANQIAN_DATA_DIR/skill-data/water-coach",
+        "requires": {
+          "bins": [
+            "python3"
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "incubating",
+        "maturity": "beta",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "persistent-state",
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Strong local self-tracking workflow with clear scripts and analytics, but reminder orchestration still depends on host integration."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.7.4",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/water-coach/water-coach-1.7.4.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/water-coach/water-coach-1.7.4.zip",
+            "sha256": "e17ae2040429fa90c9782f6c3d7b7857bfda3b12bf53c00695474f65684dc08a",
+            "size": 20962
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.7.4",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/water-coach/water-coach-1.7.4.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/water-coach/water-coach-1.7.4.zip",
+              "sha256": "e17ae2040429fa90c9782f6c3d7b7857bfda3b12bf53c00695474f65684dc08a",
+              "size": 20962
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "weather",
+      "manifest_path": "manifests/skills/weather.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "天气查询",
+        "en": "Weather"
+      },
+      "summary": {
+        "zh-CN": "查询当前天气和未来预报",
+        "en": "Get current weather and forecasts"
+      },
+      "category": "lifestyle",
+      "tags": [
+        "weather",
+        "forecast",
+        "wttr",
+        "open-meteo",
+        "location"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "weather lookup",
+        "travel planning",
+        "daily forecast",
+        "quick weather check"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "http-api",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "curl"
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "network",
+          "local-cli"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Very common everyday consumer utility with a tiny dependency surface and no secret management."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.4",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/weather/weather-1.0.4.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/weather/weather-1.0.4.zip",
+            "sha256": "c166d01f27df3c5a792714d8375c4970555d11bb80cb3ea44687f664cdd9a66b",
+            "size": 1072
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.4",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/weather/weather-1.0.4.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/weather/weather-1.0.4.zip",
+              "sha256": "c166d01f27df3c5a792714d8375c4970555d11bb80cb3ea44687f664cdd9a66b",
+              "size": 1072
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "web-artifacts-builder",
+      "manifest_path": "manifests/skills/web-artifacts-builder.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Web 制品构建",
+        "en": "Web Artifacts Builder"
+      },
+      "summary": {
+        "zh-CN": "用 React、Tailwind 和 shadcn/ui 构建复杂单文件 Web 制品",
+        "en": "Build complex single-file web artifacts with React and shadcn/ui"
+      },
+      "category": "development",
+      "tags": [
+        "react",
+        "tailwind",
+        "shadcn",
+        "artifact",
+        "frontend"
+      ],
+      "audience": "developer",
+      "scenarios": [
+        "artifact scaffolding",
+        "single-file app bundling",
+        "rich frontend prototyping"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "bash",
+            "node",
+            "npm"
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "beta",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "network",
+          "local-cli",
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Well-packaged tooling, but optimized for a specific artifact model rather than general app delivery."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/web-artifacts-builder/web-artifacts-builder-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/web-artifacts-builder/web-artifacts-builder-1.0.1.zip",
+            "sha256": "56325c136c2856d50c7caf6e3c8b377e1f72eed35c6ab49209bf8328630196b5",
+            "size": 29964
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/web-artifacts-builder/web-artifacts-builder-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/web-artifacts-builder/web-artifacts-builder-1.0.1.zip",
+              "sha256": "56325c136c2856d50c7caf6e3c8b377e1f72eed35c6ab49209bf8328630196b5",
+              "size": 29964
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "webapp-testing",
+      "manifest_path": "manifests/skills/webapp-testing.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Web 应用测试",
+        "en": "Webapp Testing"
+      },
+      "summary": {
+        "zh-CN": "使用 Playwright 自动化测试本地 Web 应用",
+        "en": "Test local web applications with Playwright"
+      },
+      "category": "development",
+      "tags": [
+        "playwright",
+        "testing",
+        "browser",
+        "frontend",
+        "automation"
+      ],
+      "audience": "developer",
+      "scenarios": [
+        "frontend regression testing",
+        "browser automation",
+        "local webapp verification"
+      ],
+      "locale_support": [
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32",
+          "linux"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ]
+        },
+        "install": [
+          {
+            "id": "pip-playwright",
+            "kind": "pip",
+            "package": "playwright",
+            "run": "python3 -m pip install playwright",
+            "bins": [
+              "playwright"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "playwright-chromium",
+            "kind": "manual",
+            "run": "playwright install chromium",
+            "notes": "Run after the Playwright Python package is installed.",
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "local-cli",
+          "local-files",
+          "browser-automation"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Concrete, reusable testing workflow with helper scripts and good portability."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/webapp-testing/webapp-testing-1.0.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/webapp-testing/webapp-testing-1.0.1.zip",
+            "sha256": "70166f23d5d81a17e3fa62ba596b25bcc89f42292ef1066342ed901e04e869f9",
+            "size": 9425
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/webapp-testing/webapp-testing-1.0.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/webapp-testing/webapp-testing-1.0.1.zip",
+              "sha256": "70166f23d5d81a17e3fa62ba596b25bcc89f42292ef1066342ed901e04e869f9",
+              "size": 9425
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "wherecaniwatch",
+      "manifest_path": "manifests/skills/wherecaniwatch.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "哪里能看",
+        "en": "Where Can I Watch"
+      },
+      "summary": {
+        "zh-CN": "查询美国区影视流媒体可看平台",
+        "en": "Find US streaming availability for movies and shows"
+      },
+      "category": "media",
+      "tags": [
+        "streaming",
+        "movie",
+        "tv",
+        "availability",
+        "subscription"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "where to watch lookup",
+        "streaming comparison",
+        "subscription filtering"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "US"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "http-api",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {},
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Very strong C-end media consumption scenario with simple public API usage and clear regional limits."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.2",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/wherecaniwatch/wherecaniwatch-1.0.2.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/wherecaniwatch/wherecaniwatch-1.0.2.zip",
+            "sha256": "e030abb0ece1960494b9215ad03fe87c1877bdcf90d8828df92c2bda99dfbfc2",
+            "size": 1311
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.2",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/wherecaniwatch/wherecaniwatch-1.0.2.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/wherecaniwatch/wherecaniwatch-1.0.2.zip",
+              "sha256": "e030abb0ece1960494b9215ad03fe87c1877bdcf90d8828df92c2bda99dfbfc2",
+              "size": 1311
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "xlsx",
+      "manifest_path": "manifests/skills/xlsx.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Excel 处理",
+        "en": "Excel Processing"
+      },
+      "summary": {
+        "zh-CN": "创建、编辑、分析电子表格并重算公式",
+        "en": "Create, edit, analyze spreadsheets, and recalculate formulas"
+      },
+      "category": "productivity",
+      "tags": [
+        "xlsx",
+        "excel",
+        "spreadsheet",
+        "formulas",
+        "openpyxl"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "spreadsheet authoring",
+        "financial modeling",
+        "formula recalculation",
+        "sheet analysis"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": false,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "python3"
+          ],
+          "conditional_bins": [
+            "soffice",
+            "gtimeout"
+          ],
+          "python_packages": [
+            "openpyxl>=3.1.0"
+          ]
+        },
+        "install": [],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "file-read",
+          "file-write",
+          "local-cli",
+          "local-files"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Core spreadsheet workflow with strong authoring guidance and bundled formula recalculation support."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.1.1",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/xlsx/xlsx-1.1.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/xlsx/xlsx-1.1.1.zip",
+            "sha256": "3419b1b287b29fe2ba978226820a10baa1e521cd982f461117b5ac7b99130a0c",
+            "size": 147220
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.1.1",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/xlsx/xlsx-1.1.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/xlsx/xlsx-1.1.1.zip",
+              "sha256": "3419b1b287b29fe2ba978226820a10baa1e521cd982f461117b5ac7b99130a0c",
+              "size": 147220
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "youtube-summary",
+      "manifest_path": "manifests/skills/youtube-summary.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "YouTube 总结",
+        "en": "YouTube Summary"
+      },
+      "summary": {
+        "zh-CN": "生成结构化视频摘要与转录文本",
+        "en": "Generate structured video summaries and transcripts"
+      },
+      "category": "media",
+      "tags": [
+        "youtube",
+        "video",
+        "summary",
+        "transcript",
+        "study"
+      ],
+      "audience": "consumer",
+      "scenarios": [
+        "video summarization",
+        "study notes",
+        "transcript extraction"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux"
+        ],
+        "integration_mode": "cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "youtube2md",
+            "python3"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-youtube2md",
+            "kind": "npm",
+            "package": "youtube2md@1.0.1",
+            "bins": [
+              "youtube2md"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": [
+          {
+            "name": "OPENAI_API_KEY",
+            "help_url": "https://platform.openai.com/api-keys",
+            "help_text": "Enables full summarization mode. Omit it to stay in extract mode for sensitive content."
+          }
+        ]
+      },
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "network",
+          "local-cli"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Strong media-consumption workflow with clear fallback behavior and bounded security notes."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "1.0.4",
+          "released_at": "2026-03-08T06:41:43Z",
+          "artifact": {
+            "path": "dist/youtube-summary/youtube-summary-1.0.4.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/youtube-summary/youtube-summary-1.0.4.zip",
+            "sha256": "ddaef27be819241f1a9d486be0b469e7882b76422cdf47e34a9bcb5a532eb231",
+            "size": 8627
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "1.0.4",
+            "released_at": "2026-03-08T06:41:43Z",
+            "artifact": {
+              "path": "dist/youtube-summary/youtube-summary-1.0.4.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/youtube-summary/youtube-summary-1.0.4.zip",
+              "sha256": "ddaef27be819241f1a9d486be0b469e7882b76422cdf47e34a9bcb5a532eb231",
+              "size": 8627
+            }
+          }
+        }
+      }
+    }
+  ]
+}

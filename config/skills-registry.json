@@ -1,116 +1,130 @@
 {
-  "version": 3,
-  "updated_at": "2025-02-01T14:00:00Z",
+  "version": 4,
+  "updated_at": "2026-03-12T09:06:17Z",
   "skills": [
     {
-      "id": "pdf",
-      "display_zh": "PDF 处理",
-      "display_en": "PDF Processing",
-      "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms.",
-      "desc_zh": "提取、合并、拆分PDF文档",
-      "desc_en": "Extract, merge, split PDF documents",
-      "icon": "📄",
-      "category": "productivity",
+      "id": "algorithmic-art",
+      "display_zh": "算法艺术",
+      "display_en": "Algorithmic Art",
+      "description": "Create seeded generative art with p5.js",
+      "desc_zh": "用 p5.js 创作带随机种子的生成艺术",
+      "desc_en": "Create seeded generative art with p5.js",
+      "icon": null,
+      "category": "media",
       "os": [
         "darwin",
-        "win32"
+        "win32",
+        "linux"
       ],
-      "skill_version": "1.0.0",
+      "skill_version": "1.0.1",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/algorithmic-art/algorithmic-art-1.0.1.zip",
+      "package_sha256": "091248c2fff898b5c01d6decaa849a88c6500713533e7b7428eddf7f2fb1c3ce",
+      "package_size": 18976,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "apple-notes",
+      "display_zh": "Apple 备忘录",
+      "display_en": "Apple Notes",
+      "description": "Manage Apple Notes through memo CLI",
+      "desc_zh": "通过 memo CLI 管理 Apple Notes",
+      "desc_en": "Manage Apple Notes through memo CLI",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin"
+      ],
+      "skill_version": "1.0.2",
       "requires": {
-        "any_bins": [
-          "pdftoppm",
-          "pdftocairo"
+        "bins": [
+          "memo"
+        ],
+        "local_apps": [
+          "Apple Notes"
         ]
       },
       "install": [
         {
-          "id": "brew-poppler",
+          "id": "brew-memo",
           "kind": "brew",
-          "formula": "poppler",
+          "formula": "antoniorodr/memo/memo",
           "bins": [
-            "pdftoppm",
-            "pdftocairo"
+            "memo"
           ],
           "os": [
             "darwin"
           ]
-        },
+        }
+      ],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/apple-notes/apple-notes-1.0.2.zip",
+      "package_sha256": "8b7832c9c3e6c1ae5f0ad5f7641f3c557d3a54d07c750e5d3765292cd502a1ea",
+      "package_size": 855,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "apple-reminders",
+      "display_zh": "Apple 提醒事项",
+      "display_en": "Apple Reminders",
+      "description": "Manage reminders through remindctl",
+      "desc_zh": "通过 remindctl 管理提醒事项",
+      "desc_en": "Manage reminders through remindctl",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin"
+      ],
+      "skill_version": "1.0.2",
+      "requires": {
+        "bins": [
+          "remindctl"
+        ],
+        "local_apps": [
+          "Reminders"
+        ]
+      },
+      "install": [
         {
-          "id": "choco-poppler",
-          "kind": "choco",
-          "package": "poppler",
+          "id": "brew-remindctl",
+          "kind": "brew",
+          "formula": "steipete/tap/remindctl",
           "bins": [
-            "pdftoppm",
-            "pdftocairo"
+            "remindctl"
           ],
           "os": [
-            "win32"
+            "darwin"
           ]
         }
       ],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/pdf.zip",
-      "package_sha256": "156ee4a29396f7b10b72b20b146c001053271604fe60e3ed880d36a6ae524bae"
-    },
-    {
-      "id": "xlsx",
-      "display_zh": "Excel 处理",
-      "display_en": "Excel Processing",
-      "description": "Excel spreadsheet processing toolkit for reading, writing, and manipulating XLSX files.",
-      "desc_zh": "读取、写入、处理Excel文件",
-      "desc_en": "Read, write, process Excel files",
-      "icon": "📊",
-      "category": "productivity",
-      "os": [
-        "darwin",
-        "win32"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {},
-      "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/xlsx.zip",
-      "package_sha256": "d41b026110b47c0a50d58bcc79a4d994a702bcb48ed1cf60f8ffbada0599879c"
-    },
-    {
-      "id": "docx",
-      "display_zh": "Word 处理",
-      "display_en": "Word Processing",
-      "description": "Word document processing toolkit for reading, writing, and manipulating DOCX files.",
-      "desc_zh": "读取、写入、处理Word文件",
-      "desc_en": "Read, write, process Word files",
-      "icon": "📝",
-      "category": "productivity",
-      "os": [
-        "darwin",
-        "win32"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {},
-      "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/docx.zip",
-      "package_sha256": "0a719508d7786b9c03578bde92bd2b4296ab6369fabc9f7186c9ad64317cc21a"
-    },
-    {
-      "id": "pptx",
-      "display_zh": "PPT 处理",
-      "display_en": "PowerPoint Processing",
-      "description": "PowerPoint presentation processing toolkit for reading, writing, and manipulating PPTX files.",
-      "desc_zh": "读取、写入、处理PPT文件",
-      "desc_en": "Read, write, process PowerPoint files",
-      "icon": "📽️",
-      "category": "productivity",
-      "os": [
-        "darwin",
-        "win32"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {},
-      "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/pptx.zip",
-      "package_sha256": "6c109a3816827ebecc4260b091c21fe359dd55f48842cb6fcde9c77b1eac7082"
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/apple-reminders/apple-reminders-1.0.2.zip",
+      "package_sha256": "c073bbaf47a919714e337b236334fd1e6dc861236abf202f2620fd92899f1f45",
+      "package_size": 1031,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
     },
     {
       "id": "artifacts-builder",
@@ -131,6 +145,196 @@
       "is_preinstalled": true,
       "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/artifacts-builder.zip",
       "package_sha256": "ec0dfc7468292525fa2649b570499762e6a0ff3e00b95a016fe924cdbbd89502"
+    },
+    {
+      "id": "brand-guidelines",
+      "display_zh": "品牌规范",
+      "display_en": "Brand Guidelines",
+      "description": "Apply Anthropic brand styling to artifacts",
+      "desc_zh": "将制品套用为 Anthropic 品牌风格",
+      "desc_en": "Apply Anthropic brand styling to artifacts",
+      "icon": null,
+      "category": "design",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/brand-guidelines/brand-guidelines-1.0.1.zip",
+      "package_sha256": "88dc7b6846b7a62c0392673b5ee053ccd5820aa2b692e42d96b70cd9d9b8f768",
+      "package_size": 5186,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "canvas-design",
+      "display_zh": "画布设计",
+      "display_en": "Canvas Design",
+      "description": "Create polished static poster and canvas designs",
+      "desc_zh": "基于设计哲学生成高质量静态海报和视觉作品",
+      "desc_en": "Create polished static poster and canvas designs",
+      "icon": null,
+      "category": "design",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/canvas-design/canvas-design-1.0.1.zip",
+      "package_sha256": "7796eefafa69e23013d89a842e0c0daf3d28a915dad74b8e66b6cc06fd59fb4b",
+      "package_size": 2639640,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "claude-api",
+      "display_zh": "Claude API 开发",
+      "display_en": "Claude API",
+      "description": "Build apps with the Claude API and Anthropic SDKs",
+      "desc_zh": "使用 Claude API 和 Anthropic SDK 构建应用",
+      "desc_en": "Build apps with the Claude API and Anthropic SDKs",
+      "icon": null,
+      "category": "development",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {
+        "env": [
+          {
+            "name": "ANTHROPIC_API_KEY",
+            "source": "user",
+            "help_url": "https://console.anthropic.com/settings/keys",
+            "help_text": "Create an Anthropic API key and let Sanqian store it for this skill."
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.1.zip",
+      "package_sha256": "42afe055f7a0ff4a5fa1110cb122727f21132741236ed2198c655cce5c3c7721",
+      "package_size": 64502,
+      "auth": {
+        "mode": "api_key",
+        "provider": "anthropic",
+        "brokered": false,
+        "env_names": [
+          "ANTHROPIC_API_KEY"
+        ],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "docx",
+      "display_zh": "Word 文档",
+      "display_en": "Word Documents",
+      "description": "Create, edit, and review Word documents",
+      "desc_zh": "创建、编辑、修订 Word 文档",
+      "desc_en": "Create, edit, and review Word documents",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin",
+        "win32"
+      ],
+      "skill_version": "1.1.1",
+      "requires": {
+        "bins": [
+          "pandoc"
+        ],
+        "python_packages": [
+          "defusedxml>=0.7.0"
+        ]
+      },
+      "install": [
+        {
+          "id": "brew-pandoc",
+          "kind": "brew",
+          "formula": "pandoc",
+          "bins": [
+            "pandoc"
+          ],
+          "os": [
+            "darwin"
+          ]
+        },
+        {
+          "id": "choco-pandoc",
+          "kind": "choco",
+          "package": "pandoc",
+          "bins": [
+            "pandoc"
+          ],
+          "os": [
+            "win32"
+          ]
+        }
+      ],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/docx/docx-1.1.1.zip",
+      "package_sha256": "21086893412bad29b0a3143a4ae169ae1261208eb45e26858187efef25bed026",
+      "package_size": 154896,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "frontend-design",
+      "display_zh": "前端设计",
+      "display_en": "Frontend Design",
+      "description": "Provide design direction for web and frontend interfaces",
+      "desc_zh": "为网页和前端界面提供设计方向与质量门槛",
+      "desc_en": "Provide design direction for web and frontend interfaces",
+      "icon": null,
+      "category": "design",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/frontend-design/frontend-design-1.0.1.zip",
+      "package_sha256": "30672a447b533858dc302dc42077305da9be49641979c95bc77cfd0ce1dda375",
+      "package_size": 5881,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
     },
     {
       "id": "github",
@@ -192,29 +396,175 @@
       "package_sha256": "99271266a4094f711d73c630a0967893593d58b8c87a155f3102dd22812ac2b2"
     },
     {
-      "id": "weather",
-      "display_zh": "天气查询",
-      "display_en": "Weather",
-      "description": "Get current weather and forecasts using wttr.in (no API key required).",
-      "desc_zh": "查询天气和预报",
-      "desc_en": "Query weather and forecasts",
-      "icon": "🌤️",
-      "category": "utility",
+      "id": "google-calendar",
+      "display_zh": "Google 日历",
+      "display_en": "Google Calendar",
+      "description": "List and manage calendar events through Google Calendar with brokered OAuth.",
+      "desc_zh": "通过经由 Sanqian 代理的 OAuth 管理 Google 日历事件。",
+      "desc_en": "List and manage calendar events through Google Calendar with brokered OAuth.",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin",
+        "linux",
+        "win32"
+      ],
+      "skill_version": "0.1.1",
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_ACCESS_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here."
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.1.zip",
+      "package_sha256": "6f09caf2ce7c637399b4f7b8117482ff805b8bb919fdd9dfa8806a2d457afe16",
+      "package_size": 2684,
+      "auth": {
+        "mode": "oauth2",
+        "provider": "google",
+        "brokered": true,
+        "env_names": [],
+        "runtime_env_names": [
+          "GOOGLE_ACCESS_TOKEN"
+        ],
+        "required_scopes": [
+          "https://www.googleapis.com/auth/calendar.events"
+        ],
+        "notes": [
+          "Use Sanqian account connection for Google OAuth. Do not model refresh tokens or client secrets as user-entered env vars.",
+          "Sanqian should inject a short-lived GOOGLE_ACCESS_TOKEN only at request time."
+        ]
+      }
+    },
+    {
+      "id": "internal-comms",
+      "display_zh": "内部沟通",
+      "display_en": "Internal Comms",
+      "description": "Draft internal updates, FAQs, and communication drafts",
+      "desc_zh": "撰写组织内部更新、FAQ 和沟通稿",
+      "desc_en": "Draft internal updates, FAQs, and communication drafts",
+      "icon": null,
+      "category": "productivity",
       "os": [
         "darwin",
         "win32",
         "linux"
       ],
-      "skill_version": "1.0.0",
+      "skill_version": "1.0.1",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/internal-comms/internal-comms-1.0.1.zip",
+      "package_sha256": "bfc9479cee83dca2346cfca277a718f8c1079e3bc5d9337936de94cf30d9f845",
+      "package_size": 9835,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "mcp-builder",
+      "display_zh": "MCP 构建",
+      "display_en": "MCP Builder",
+      "description": "Design, build, and evaluate MCP servers",
+      "desc_zh": "设计、实现和评估 MCP server",
+      "desc_en": "Design, build, and evaluate MCP servers",
+      "icon": null,
+      "category": "development",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
       "requires": {
         "bins": [
-          "curl"
+          "python3"
+        ]
+      },
+      "install": [
+        {
+          "id": "pip-requirements",
+          "kind": "pip",
+          "run": "python3 -m pip install -r scripts/requirements.txt",
+          "os": [
+            "darwin",
+            "linux",
+            "win32"
+          ]
+        }
+      ],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/mcp-builder/mcp-builder-1.0.1.zip",
+      "package_sha256": "a2d78b99ce4e8b30f86f80653a9eba8866888507973aa7cab885133bfe54100c",
+      "package_size": 42074,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "native-sentry",
+      "display_zh": "Native Sentry",
+      "display_en": "Native Sentry",
+      "description": "Read Sentry issues and events through the Sentry REST API.",
+      "desc_zh": "Read Sentry issues and events through the Sentry REST API.",
+      "desc_en": "Read Sentry issues and events through the Sentry REST API.",
+      "icon": null,
+      "category": "development",
+      "os": [
+        "darwin",
+        "linux"
+      ],
+      "skill_version": "0.1.0",
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          {
+            "name": "SENTRY_AUTH_TOKEN",
+            "source": "user",
+            "help_url": "https://sentry.io/settings/account/api/auth-tokens/",
+            "help_text": "Create a read-only Sentry auth token with project:read, event:read, and org:read scopes."
+          }
         ]
       },
       "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/weather.zip",
-      "package_sha256": "6d13353ea96252fb171ec86d321c3f8c18c057b0e5a310e996acb53bcccd8f96"
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.0.zip",
+      "package_sha256": "aac39763b60b0cefd32908609e64a291a1f513f1c70b5c2864dfbc3a0376a7b2",
+      "package_size": 4510,
+      "auth": {
+        "mode": "api_key",
+        "provider": "sentry",
+        "brokered": false,
+        "env_names": [
+          "SENTRY_AUTH_TOKEN"
+        ],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Use read-only token scopes: project:read, event:read, org:read.",
+          "Store the token in Sanqian secrets and avoid shell-profile based token sharing where possible."
+        ]
+      }
     },
     {
       "id": "notion",
@@ -244,6 +594,462 @@
       "is_preinstalled": true,
       "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/notion.zip",
       "package_sha256": "1201e8de991a879846f07a9e0e636e6c490933cc59c07983db34a526e8a6c585"
+    },
+    {
+      "id": "obsidian",
+      "display_zh": "Obsidian",
+      "display_en": "Obsidian",
+      "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
+      "desc_zh": "Obsidian 笔记管理",
+      "desc_en": "Obsidian note management",
+      "icon": "💎",
+      "category": "productivity",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": [
+          "obsidian-cli"
+        ]
+      },
+      "install": [
+        {
+          "id": "brew",
+          "kind": "brew",
+          "formula": "yakitrak/yakitrak/obsidian-cli",
+          "bins": [
+            "obsidian-cli"
+          ],
+          "os": [
+            "darwin"
+          ]
+        }
+      ],
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/obsidian.zip",
+      "package_sha256": "c0149c7bf9d80458150120fd75b2dee6ae2b68b6ac13ef7a6262f88cb73b6f07"
+    },
+    {
+      "id": "openai-whisper-api",
+      "display_zh": "Whisper 语音转文字",
+      "display_en": "Whisper Speech-to-Text",
+      "description": "Transcribe audio files to text using OpenAI Whisper API. Supports multiple audio formats and languages.",
+      "desc_zh": "音频转文字",
+      "desc_en": "Audio to text transcription",
+      "icon": "☁️",
+      "category": "media",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.0",
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          {
+            "name": "OPENAI_API_KEY",
+            "help_url": "https://platform.openai.com/api-keys",
+            "help_text": "Create an API key in your OpenAI account"
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": true,
+      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/openai-whisper-api.zip",
+      "package_sha256": "32b85cbd717262e5be009abb0d54979cb5b16bd9cfe4ad88ffa56ce56c5bca56"
+    },
+    {
+      "id": "pdf",
+      "display_zh": "PDF 处理",
+      "display_en": "PDF Processing",
+      "description": "Extract, merge, split, and fill PDF documents",
+      "desc_zh": "提取、合并、拆分 PDF 文档并处理表单",
+      "desc_en": "Extract, merge, split, and fill PDF documents",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin",
+        "win32"
+      ],
+      "skill_version": "1.1.1",
+      "requires": {
+        "any_bins": [
+          "pdftoppm",
+          "pdftocairo"
+        ],
+        "python_packages": [
+          "pypdf>=4.0.0",
+          "pdf2image>=1.17.0",
+          "Pillow>=10.0.0"
+        ]
+      },
+      "install": [
+        {
+          "id": "brew-poppler",
+          "kind": "brew",
+          "formula": "poppler",
+          "bins": [
+            "pdftoppm",
+            "pdftocairo"
+          ],
+          "os": [
+            "darwin"
+          ]
+        },
+        {
+          "id": "choco-poppler",
+          "kind": "choco",
+          "package": "poppler",
+          "bins": [
+            "pdftoppm",
+            "pdftocairo"
+          ],
+          "os": [
+            "win32"
+          ]
+        }
+      ],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/pdf/pdf-1.1.1.zip",
+      "package_sha256": "2cd8d4826b66f2ced22fbef4e89410a37f3d7bb8b8d356fe5b1c09560e18ffd7",
+      "package_size": 21440,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "pptx",
+      "display_zh": "PPT 演示",
+      "display_en": "PowerPoint",
+      "description": "Create, edit, and analyze presentations",
+      "desc_zh": "创建、编辑和分析演示文稿",
+      "desc_en": "Create, edit, and analyze presentations",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin",
+        "win32"
+      ],
+      "skill_version": "1.1.1",
+      "requires": {
+        "bins": [
+          "python3",
+          "node",
+          "soffice",
+          "pdftoppm"
+        ],
+        "python_packages": [
+          "python-pptx>=1.0.0",
+          "defusedxml>=0.7.0",
+          "Pillow>=10.0.0",
+          "markitdown[pptx]"
+        ],
+        "node_packages": [
+          "playwright",
+          "sharp"
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/pptx/pptx-1.1.1.zip",
+      "package_sha256": "a6eee9891cae271b8bf3d3b6731e626c19803797226aaaa7d4d353f3068aea37",
+      "package_size": 159646,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "shopping-list",
+      "display_zh": "购物清单",
+      "display_en": "Shopping List",
+      "description": "Manage an archived household shopping list",
+      "desc_zh": "维护可归档的家庭购物清单",
+      "desc_en": "Manage an archived household shopping list",
+      "icon": null,
+      "category": "lifestyle",
+      "os": [
+        "darwin",
+        "linux"
+      ],
+      "skill_version": "1.0.6",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/shopping-list/shopping-list-1.0.6.zip",
+      "package_sha256": "331055e9c5c57d502b523070ef919d9d43e697594c166e38ed3a8fe4e98ea754",
+      "package_size": 3513,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "skill-creator",
+      "display_zh": "技能创建",
+      "display_en": "Skill Creator",
+      "description": "Create, evaluate, and iterate on skills",
+      "desc_zh": "创建、评估和迭代改进技能",
+      "desc_en": "Create, evaluate, and iterate on skills",
+      "icon": null,
+      "category": "development",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {
+        "bins": [
+          "python3"
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/skill-creator/skill-creator-1.0.1.zip",
+      "package_sha256": "0bcdc32880ee71fdddf01779967205e45fb4360b00b91aea2c0c74ac6a3ff0bc",
+      "package_size": 72312,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "slack-gif-creator",
+      "display_zh": "Slack GIF 制作",
+      "display_en": "Slack GIF Creator",
+      "description": "Create Slack-optimized animated GIFs",
+      "desc_zh": "生成适合 Slack 的动图和表情 GIF",
+      "desc_en": "Create Slack-optimized animated GIFs",
+      "icon": null,
+      "category": "media",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {
+        "bins": [
+          "python3"
+        ]
+      },
+      "install": [
+        {
+          "id": "pip-requirements",
+          "kind": "pip",
+          "run": "python3 -m pip install -r requirements.txt",
+          "os": [
+            "darwin",
+            "linux",
+            "win32"
+          ]
+        }
+      ],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
+      "package_sha256": "5f4d5cd9675650787c5de70e0f8e1bd8a5d7d5025eed39743336d4e0319aa742",
+      "package_size": 15552,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "subtitle-translator",
+      "display_zh": "字幕翻译",
+      "display_en": "Subtitle Translator",
+      "description": "Translate SRT subtitles while preserving timing",
+      "desc_zh": "保留时间轴翻译 SRT 字幕",
+      "desc_en": "Translate SRT subtitles while preserving timing",
+      "icon": null,
+      "category": "media",
+      "os": [
+        "darwin",
+        "linux"
+      ],
+      "skill_version": "1.0.4",
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          {
+            "name": "SUBTITLE_API_KEY",
+            "source": "user",
+            "help_url": "https://platform.openai.com/api-keys",
+            "help_text": "Create an API key for an OpenAI-compatible endpoint, or override credentials per command."
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.4.zip",
+      "package_sha256": "4bb44f51371cea61824aaec0c05e322efef5f0608d77122bcf81e1bbb7b5564e",
+      "package_size": 7260,
+      "auth": {
+        "mode": "api_key",
+        "provider": "openai-compatible",
+        "brokered": false,
+        "env_names": [
+          "SUBTITLE_API_KEY"
+        ],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "theme-factory",
+      "display_zh": "主题工厂",
+      "display_en": "Theme Factory",
+      "description": "Choose or generate themes for decks, docs, and web artifacts",
+      "desc_zh": "为文档、网页和演示稿选择或生成主题",
+      "desc_en": "Choose or generate themes for decks, docs, and web artifacts",
+      "icon": null,
+      "category": "design",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/theme-factory/theme-factory-1.0.1.zip",
+      "package_sha256": "7e4e8caa49816f93e9d1ba76b08318c1868a84866584b65d888884f298c730f0",
+      "package_size": 123008,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "track-flight",
+      "display_zh": "航班追踪",
+      "display_en": "Track Flight",
+      "description": "Track real-time flight status with AviationStack using a Sanqian-managed API key.",
+      "desc_zh": "通过 Sanqian 管理的 AviationStack API Key 查询实时航班状态。",
+      "desc_en": "Track real-time flight status with AviationStack using a Sanqian-managed API key.",
+      "icon": null,
+      "category": "lifestyle",
+      "os": [
+        "darwin",
+        "linux",
+        "win32"
+      ],
+      "skill_version": "0.1.0",
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "python_packages": [
+          "requests"
+        ],
+        "env": [
+          {
+            "name": "AVIATIONSTACK_API_KEY",
+            "source": "user",
+            "help_url": "https://aviationstack.com/signup/free",
+            "help_text": "Create an AviationStack API key. Free-tier transport is HTTP-only."
+          }
+        ]
+      },
+      "install": [
+        {
+          "id": "pip-requests",
+          "kind": "pip",
+          "package": "requests",
+          "os": [
+            "darwin",
+            "linux",
+            "win32"
+          ]
+        }
+      ],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.0.zip",
+      "package_sha256": "edf19a58e3604a585a5a3f9c92715890980915931f5a89e2cc3bbd945c97e49e",
+      "package_size": 4006,
+      "auth": {
+        "mode": "api_key",
+        "provider": "aviationstack",
+        "brokered": false,
+        "env_names": [
+          "AVIATIONSTACK_API_KEY"
+        ],
+        "required_scopes": [],
+        "notes": [
+          "Sanqian should store the API key and inject it only for this skill at request time.",
+          "The upstream free-tier provider endpoint is HTTP-only. Treat this as a setup and recommendation constraint."
+        ]
+      }
+    },
+    {
+      "id": "upnote",
+      "display_zh": "UpNote",
+      "display_en": "UpNote",
+      "description": "Automate UpNote through desktop callbacks",
+      "desc_zh": "通过桌面应用回调自动化管理 UpNote",
+      "desc_en": "Automate UpNote through desktop callbacks",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin"
+      ],
+      "skill_version": "1.0.4",
+      "requires": {
+        "local_apps": [
+          "UpNote"
+        ],
+        "url_schemes": [
+          "upnote"
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/upnote/upnote-1.0.4.zip",
+      "package_sha256": "558ca13f7c39766ce1766951706813201ff58a274936b0245d76609052b5d786",
+      "package_size": 2325,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
     },
     {
       "id": "video-frames",
@@ -294,108 +1100,283 @@
       "package_sha256": "88464eb556bfe6eaab0741d2ad0e834b964a06e667b62d0e7d691fa060c26246"
     },
     {
-      "id": "obsidian",
-      "display_zh": "Obsidian",
-      "display_en": "Obsidian",
-      "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
-      "desc_zh": "Obsidian 笔记管理",
-      "desc_en": "Obsidian note management",
-      "icon": "💎",
-      "category": "productivity",
+      "id": "water-coach",
+      "display_zh": "饮水教练",
+      "display_en": "Water Coach",
+      "description": "Track hydration, goals, and analytics",
+      "desc_zh": "记录饮水、目标和分析",
+      "desc_en": "Track hydration, goals, and analytics",
+      "icon": null,
+      "category": "health",
+      "os": [
+        "darwin",
+        "linux"
+      ],
+      "skill_version": "1.7.4",
+      "requires": {
+        "bins": [
+          "python3"
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/water-coach/water-coach-1.7.4.zip",
+      "package_sha256": "e17ae2040429fa90c9782f6c3d7b7857bfda3b12bf53c00695474f65684dc08a",
+      "package_size": 20962,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "weather",
+      "display_zh": "天气查询",
+      "display_en": "Weather",
+      "description": "Get current weather and forecasts",
+      "desc_zh": "查询当前天气和未来预报",
+      "desc_en": "Get current weather and forecasts",
+      "icon": null,
+      "category": "lifestyle",
       "os": [
         "darwin",
         "win32",
         "linux"
       ],
-      "skill_version": "1.0.0",
+      "skill_version": "1.0.4",
       "requires": {
         "bins": [
-          "obsidian-cli"
+          "curl"
         ]
       },
-      "install": [
-        {
-          "id": "brew",
-          "kind": "brew",
-          "formula": "yakitrak/yakitrak/obsidian-cli",
-          "bins": [
-            "obsidian-cli"
-          ],
-          "os": [
-            "darwin"
-          ]
-        }
-      ],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/obsidian.zip",
-      "package_sha256": "c0149c7bf9d80458150120fd75b2dee6ae2b68b6ac13ef7a6262f88cb73b6f07"
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/weather/weather-1.0.4.zip",
+      "package_sha256": "c166d01f27df3c5a792714d8375c4970555d11bb80cb3ea44687f664cdd9a66b",
+      "package_size": 1072,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
     },
     {
-      "id": "apple-notes",
-      "display_zh": "Apple Notes",
-      "display_en": "Apple Notes",
-      "description": "Manage Apple Notes via the memo CLI on macOS. Create, view, edit, delete, search, and export notes.",
-      "desc_zh": "Apple Notes 管理",
-      "desc_en": "Apple Notes management",
-      "icon": "📝",
-      "category": "productivity",
+      "id": "web-artifacts-builder",
+      "display_zh": "Web 制品构建",
+      "display_en": "Web Artifacts Builder",
+      "description": "Build complex single-file web artifacts with React and shadcn/ui",
+      "desc_zh": "用 React、Tailwind 和 shadcn/ui 构建复杂单文件 Web 制品",
+      "desc_en": "Build complex single-file web artifacts with React and shadcn/ui",
+      "icon": null,
+      "category": "development",
       "os": [
-        "darwin"
+        "darwin",
+        "linux"
       ],
-      "skill_version": "1.0.0",
+      "skill_version": "1.0.1",
       "requires": {
         "bins": [
-          "memo"
+          "bash",
+          "node",
+          "npm"
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/web-artifacts-builder/web-artifacts-builder-1.0.1.zip",
+      "package_sha256": "56325c136c2856d50c7caf6e3c8b377e1f72eed35c6ab49209bf8328630196b5",
+      "package_size": 29964,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "webapp-testing",
+      "display_zh": "Web 应用测试",
+      "display_en": "Webapp Testing",
+      "description": "Test local web applications with Playwright",
+      "desc_zh": "使用 Playwright 自动化测试本地 Web 应用",
+      "desc_en": "Test local web applications with Playwright",
+      "icon": null,
+      "category": "development",
+      "os": [
+        "darwin",
+        "win32",
+        "linux"
+      ],
+      "skill_version": "1.0.1",
+      "requires": {
+        "bins": [
+          "python3"
         ]
       },
       "install": [
         {
-          "id": "brew",
-          "kind": "brew",
-          "formula": "antoniorodr/memo/memo",
+          "id": "pip-playwright",
+          "kind": "pip",
+          "package": "playwright",
+          "run": "python3 -m pip install playwright",
           "bins": [
-            "memo"
+            "playwright"
           ],
           "os": [
-            "darwin"
+            "darwin",
+            "linux",
+            "win32"
+          ]
+        },
+        {
+          "id": "playwright-chromium",
+          "kind": "manual",
+          "run": "playwright install chromium",
+          "notes": "Run after the Playwright Python package is installed.",
+          "os": [
+            "darwin",
+            "linux",
+            "win32"
           ]
         }
       ],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/apple-notes.zip",
-      "package_sha256": "bc52752a8ae8870a3015a06b9431ba48ecf38f10dacd5ca618faa70b2caeafd4"
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/webapp-testing/webapp-testing-1.0.1.zip",
+      "package_sha256": "70166f23d5d81a17e3fa62ba596b25bcc89f42292ef1066342ed901e04e869f9",
+      "package_size": 9425,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
     },
     {
-      "id": "openai-whisper-api",
-      "display_zh": "Whisper 语音转文字",
-      "display_en": "Whisper Speech-to-Text",
-      "description": "Transcribe audio files to text using OpenAI Whisper API. Supports multiple audio formats and languages.",
-      "desc_zh": "音频转文字",
-      "desc_en": "Audio to text transcription",
-      "icon": "☁️",
+      "id": "wherecaniwatch",
+      "display_zh": "哪里能看",
+      "display_en": "Where Can I Watch",
+      "description": "Find US streaming availability for movies and shows",
+      "desc_zh": "查询美国区影视流媒体可看平台",
+      "desc_en": "Find US streaming availability for movies and shows",
+      "icon": null,
       "category": "media",
       "os": [
         "darwin",
-        "win32",
-        "linux"
+        "linux",
+        "win32"
       ],
-      "skill_version": "1.0.0",
+      "skill_version": "1.0.2",
+      "requires": {},
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/wherecaniwatch/wherecaniwatch-1.0.2.zip",
+      "package_sha256": "e030abb0ece1960494b9215ad03fe87c1877bdcf90d8828df92c2bda99dfbfc2",
+      "package_size": 1311,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "xlsx",
+      "display_zh": "Excel 处理",
+      "display_en": "Excel Processing",
+      "description": "Create, edit, analyze spreadsheets, and recalculate formulas",
+      "desc_zh": "创建、编辑、分析电子表格并重算公式",
+      "desc_en": "Create, edit, analyze spreadsheets, and recalculate formulas",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin",
+        "win32"
+      ],
+      "skill_version": "1.1.1",
       "requires": {
         "bins": [
           "python3"
         ],
-        "env": [
-          {
-            "name": "OPENAI_API_KEY",
-            "help_url": "https://platform.openai.com/api-keys",
-            "help_text": "Create an API key in your OpenAI account"
-          }
+        "conditional_bins": [
+          "soffice",
+          "gtimeout"
+        ],
+        "python_packages": [
+          "openpyxl>=3.1.0"
         ]
       },
       "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/openai-whisper-api.zip",
-      "package_sha256": "32b85cbd717262e5be009abb0d54979cb5b16bd9cfe4ad88ffa56ce56c5bca56"
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/xlsx/xlsx-1.1.1.zip",
+      "package_sha256": "3419b1b287b29fe2ba978226820a10baa1e521cd982f461117b5ac7b99130a0c",
+      "package_size": 147220,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "youtube-summary",
+      "display_zh": "YouTube 总结",
+      "display_en": "YouTube Summary",
+      "description": "Generate structured video summaries and transcripts",
+      "desc_zh": "生成结构化视频摘要与转录文本",
+      "desc_en": "Generate structured video summaries and transcripts",
+      "icon": null,
+      "category": "media",
+      "os": [
+        "darwin",
+        "linux"
+      ],
+      "skill_version": "1.0.4",
+      "requires": {
+        "bins": [
+          "youtube2md",
+          "python3"
+        ]
+      },
+      "install": [
+        {
+          "id": "npm-youtube2md",
+          "kind": "npm",
+          "package": "youtube2md@1.0.1",
+          "bins": [
+            "youtube2md"
+          ],
+          "os": [
+            "darwin",
+            "linux"
+          ]
+        }
+      ],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/youtube-summary/youtube-summary-1.0.4.zip",
+      "package_sha256": "ddaef27be819241f1a9d486be0b469e7882b76422cdf47e34a9bcb5a532eb231",
+      "package_size": 8627,
+      "auth": {
+        "mode": "none",
+        "provider": null,
+        "brokered": false,
+        "env_names": [],
+        "required_scopes": [],
+        "notes": []
+      }
     }
   ]
 }

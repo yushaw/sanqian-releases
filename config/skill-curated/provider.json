@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "sanqian-skill-curated",
+  "display_name": "Sanqian Skill Curated",
+  "maintainer": "yushaw",
+  "model": "curated-package",
+  "origin_kind": "local-workspace",
+  "default_channel": "stable",
+  "artifact_format": "zip",
+  "version_scheme": "semver",
+  "host_contract": {
+    "host": "sanqian",
+    "catalog_schema": 1,
+    "manifest_schema": 1,
+    "install_contract": "v1-minimal",
+    "auth_contract": "v1-brokered",
+    "setup_model": "install-then-connect",
+    "notes": "This curated feed uses Sanqian-specific setup semantics for auth, secret storage, and brokered runtime credential delivery."
+  },
+  "capabilities": {
+    "install_by_channel": true,
+    "install_by_version": true,
+    "rollback": true,
+    "immutable_artifacts": true
+  },
+  "catalog_path": "catalog.json",
+  "runtime_root": "skills",
+  "manifest_root": "manifests/skills",
+  "skill_manifest_glob": "manifests/skills/*.json",
+  "entrypoint_name": "SKILL.md",
+  "notes": "Provider-native curated feed with runtime instructions inside skill packages and catalog, governance, and release metadata managed from repository-level manifests."
+}

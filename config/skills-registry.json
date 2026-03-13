@@ -1,6 +1,6 @@
 {
-  "version": 8,
-  "updated_at": "2026-03-13T04:26:42Z",
+  "version": 9,
+  "updated_at": "2026-03-13T21:24:26Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -145,6 +145,95 @@
       "is_preinstalled": true,
       "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/artifacts-builder.zip",
       "package_sha256": "ec0dfc7468292525fa2649b570499762e6a0ff3e00b95a016fe924cdbbd89502"
+    },
+    {
+      "id": "asana",
+      "display_zh": "Asana 任务管理",
+      "display_en": "Asana",
+      "description": "Manage Asana tasks, projects, and workspaces through a Sanqian-managed OAuth connection.",
+      "desc_zh": "通过 Sanqian 托管的 OAuth 连接管理 Asana 任务、项目和工作区。",
+      "desc_en": "Manage Asana tasks, projects, and workspaces through a Sanqian-managed OAuth connection.",
+      "icon": null,
+      "category": "productivity",
+      "os": [
+        "darwin",
+        "linux",
+        "win32"
+      ],
+      "skill_version": "0.1.0",
+      "requires": {
+        "bins": [
+          "node"
+        ],
+        "env": [
+          {
+            "name": "ASANA_ACCESS_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Asana access token injected by Sanqian after account connection. Do not ask users to paste refresh tokens or client secrets here.",
+            "help_url": "https://developers.asana.com/docs/oauth"
+          }
+        ]
+      },
+      "install": [],
+      "is_preinstalled": false,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/asana/asana-0.1.0.zip",
+      "package_sha256": "0d68cf85113710c9182926ded3d8473cc2fd5028c8069edd3824388974e1aef0",
+      "package_size": 5690,
+      "auth": {
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.asana.default",
+        "provider": "asana",
+        "brokered": true,
+        "env_names": [],
+        "runtime_env_names": [
+          "ASANA_ACCESS_TOKEN"
+        ],
+        "required_scopes": [
+          "users:read",
+          "workspaces:read",
+          "projects:read",
+          "tasks:read",
+          "tasks:write",
+          "stories:write"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Asana OAuth client ID for the Sanqian hosted callback app.",
+              "help_url": "https://developers.asana.com/docs/oauth"
+            },
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Asana OAuth client secret used by Sanqian to exchange authorization codes.",
+              "help_url": "https://developers.asana.com/docs/oauth"
+            }
+          ],
+          "notes": [
+            "Configure the Asana app redirect URI as https://auth.sanqian.ai/skills/auth/callback before asking end users to connect accounts."
+          ]
+        },
+        "notes": [
+          "Sanqian should keep Asana refresh state on the host side and inject ASANA_ACCESS_TOKEN only for this skill at request time.",
+          "Do not ask end users to paste authorization codes, refresh tokens, client IDs, or client secrets into the skill."
+        ]
+      }
     },
     {
       "id": "brand-guidelines",

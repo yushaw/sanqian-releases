@@ -1,6 +1,6 @@
 {
-  "version": 5,
-  "updated_at": "2026-03-13T01:04:40Z",
+  "version": 6,
+  "updated_at": "2026-03-13T01:06:18Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -430,6 +430,7 @@
       "package_size": 2684,
       "auth": {
         "mode": "oauth2",
+        "profile_id": "oauth2.google.calendar-events",
         "provider": "google",
         "brokered": true,
         "env_names": [],
@@ -439,6 +440,17 @@
         "required_scopes": [
           "https://www.googleapis.com/auth/calendar.events"
         ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id"
+          ],
+          "notes": [
+            "OAuth provider settings are preconfigured by Sanqian host/release owners, not by end users."
+          ]
+        },
         "notes": [
           "Use Sanqian account connection for Google OAuth. Do not model refresh tokens or client secrets as user-entered env vars.",
           "Sanqian should inject a short-lived GOOGLE_ACCESS_TOKEN only at request time."
@@ -554,6 +566,7 @@
       "package_size": 4510,
       "auth": {
         "mode": "api_key",
+        "profile_id": "api_key.sentry.default",
         "provider": "sentry",
         "brokered": false,
         "env_names": [
@@ -917,6 +930,7 @@
       "package_size": 7260,
       "auth": {
         "mode": "api_key",
+        "profile_id": "api_key.openai-compatible.default",
         "provider": "openai-compatible",
         "brokered": false,
         "env_names": [
@@ -1005,6 +1019,7 @@
       "package_size": 4006,
       "auth": {
         "mode": "api_key",
+        "profile_id": "api_key.aviationstack.default",
         "provider": "aviationstack",
         "brokered": false,
         "env_names": [

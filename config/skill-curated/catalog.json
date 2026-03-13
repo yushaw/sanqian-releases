@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-03-13T01:06:18Z",
+  "generated_at": "2026-03-13T04:26:32Z",
   "provider": {
     "schema_version": 1,
     "id": "sanqian-skill-curated",
@@ -854,134 +854,6 @@
       }
     },
     {
-      "id": "google-calendar",
-      "manifest_path": "manifests/skills/google-calendar.json",
-      "entrypoint": "SKILL.md",
-      "display": {
-        "zh-CN": "Google 日历",
-        "en": "Google Calendar"
-      },
-      "summary": {
-        "zh-CN": "通过经由 Sanqian 代理的 OAuth 管理 Google 日历事件。",
-        "en": "List and manage calendar events through Google Calendar with brokered OAuth."
-      },
-      "category": "productivity",
-      "tags": [
-        "google-calendar",
-        "calendar",
-        "oauth2",
-        "scheduling",
-        "productivity"
-      ],
-      "audience": "prosumer",
-      "scenarios": [
-        "calendar event lookup",
-        "calendar event creation",
-        "calendar event updates",
-        "schedule coordination"
-      ],
-      "locale_support": [
-        "zh-CN",
-        "en"
-      ],
-      "region_support": [
-        "global"
-      ],
-      "runtime": {
-        "platforms": [
-          "darwin",
-          "linux",
-          "win32"
-        ],
-        "integration_mode": "cli",
-        "network_access": true,
-        "state_dir": null,
-        "requires": {
-          "bins": [
-            "python3"
-          ],
-          "env": [
-            {
-              "name": "GOOGLE_ACCESS_TOKEN",
-              "source": "host",
-              "help_text": "Short-lived access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here."
-            }
-          ]
-        },
-        "install": [],
-        "optional_env": [
-          "GOOGLE_CALENDAR_ID",
-          "GOOGLE_CALENDAR_IDS"
-        ]
-      },
-      "auth": {
-        "mode": "oauth2",
-        "profile_id": "oauth2.google.calendar-events",
-        "provider": "google",
-        "brokered": true,
-        "env_names": [],
-        "runtime_env_names": [
-          "GOOGLE_ACCESS_TOKEN"
-        ],
-        "required_scopes": [
-          "https://www.googleapis.com/auth/calendar.events"
-        ],
-        "host_setup": {
-          "required": true,
-          "owner": "host",
-          "end_user_flow": "connect_account_only",
-          "required_provider_config_keys": [
-            "client_id"
-          ],
-          "notes": [
-            "OAuth provider settings are preconfigured by Sanqian host/release owners, not by end users."
-          ]
-        },
-        "notes": [
-          "Use Sanqian account connection for Google OAuth. Do not model refresh tokens or client secrets as user-entered env vars.",
-          "Sanqian should inject a short-lived GOOGLE_ACCESS_TOKEN only at request time."
-        ]
-      },
-      "governance": {
-        "current_status": "platform-fit",
-        "maturity": "beta",
-        "risk_level": "medium",
-        "human_confirmation_required": false,
-        "data_sensitivity": "high",
-        "permissions": [
-          "network"
-        ],
-        "maintainer": "yushaw",
-        "reason": "Representative OAuth-backed productivity skill; curated with brokered auth expectations and without upstream refresh-token helper."
-      },
-      "distribution": {
-        "default_channel": "stable",
-        "current": {
-          "channel": "stable",
-          "version": "0.1.1",
-          "released_at": "2026-03-08T10:54:59Z",
-          "artifact": {
-            "path": "dist/google-calendar/google-calendar-0.1.1.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.1.zip",
-            "sha256": "6f09caf2ce7c637399b4f7b8117482ff805b8bb919fdd9dfa8806a2d457afe16",
-            "size": 2684
-          }
-        },
-        "channels": {
-          "stable": {
-            "version": "0.1.1",
-            "released_at": "2026-03-08T10:54:59Z",
-            "artifact": {
-              "path": "dist/google-calendar/google-calendar-0.1.1.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.1.zip",
-              "sha256": "6f09caf2ce7c637399b4f7b8117482ff805b8bb919fdd9dfa8806a2d457afe16",
-              "size": 2684
-            }
-          }
-        }
-      }
-    },
-    {
       "id": "internal-comms",
       "manifest_path": "manifests/skills/internal-comms.json",
       "entrypoint": "SKILL.md",
@@ -1276,24 +1148,24 @@
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "0.1.0",
-          "released_at": "2026-03-11T11:08:28Z",
+          "version": "0.1.1",
+          "released_at": "2026-03-13T03:02:36Z",
           "artifact": {
-            "path": "dist/native-sentry/native-sentry-0.1.0.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.0.zip",
-            "sha256": "aac39763b60b0cefd32908609e64a291a1f513f1c70b5c2864dfbc3a0376a7b2",
-            "size": 4510
+            "path": "dist/native-sentry/native-sentry-0.1.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.1.zip",
+            "sha256": "b9a4ea1beb9db15412b3c9794605808c131bbdcefd3910eddcd10383d4380b53",
+            "size": 4693
           }
         },
         "channels": {
           "stable": {
-            "version": "0.1.0",
-            "released_at": "2026-03-11T11:08:28Z",
+            "version": "0.1.1",
+            "released_at": "2026-03-13T03:02:36Z",
             "artifact": {
-              "path": "dist/native-sentry/native-sentry-0.1.0.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.0.zip",
-              "sha256": "aac39763b60b0cefd32908609e64a291a1f513f1c70b5c2864dfbc3a0376a7b2",
-              "size": 4510
+              "path": "dist/native-sentry/native-sentry-0.1.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.1.zip",
+              "sha256": "b9a4ea1beb9db15412b3c9794605808c131bbdcefd3910eddcd10383d4380b53",
+              "size": 4693
             }
           }
         }
@@ -1926,24 +1798,24 @@
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "1.0.4",
-          "released_at": "2026-03-08T06:41:43Z",
+          "version": "1.0.5",
+          "released_at": "2026-03-13T03:02:36Z",
           "artifact": {
-            "path": "dist/subtitle-translator/subtitle-translator-1.0.4.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.4.zip",
-            "sha256": "4bb44f51371cea61824aaec0c05e322efef5f0608d77122bcf81e1bbb7b5564e",
-            "size": 7260
+            "path": "dist/subtitle-translator/subtitle-translator-1.0.5.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.5.zip",
+            "sha256": "58bad8998422070aab6056449111219eab1e3e4908b1efb4ed1569b62e3cc4b0",
+            "size": 7427
           }
         },
         "channels": {
           "stable": {
-            "version": "1.0.4",
-            "released_at": "2026-03-08T06:41:43Z",
+            "version": "1.0.5",
+            "released_at": "2026-03-13T03:02:36Z",
             "artifact": {
-              "path": "dist/subtitle-translator/subtitle-translator-1.0.4.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.4.zip",
-              "sha256": "4bb44f51371cea61824aaec0c05e322efef5f0608d77122bcf81e1bbb7b5564e",
-              "size": 7260
+              "path": "dist/subtitle-translator/subtitle-translator-1.0.5.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.5.zip",
+              "sha256": "58bad8998422070aab6056449111219eab1e3e4908b1efb4ed1569b62e3cc4b0",
+              "size": 7427
             }
           }
         }

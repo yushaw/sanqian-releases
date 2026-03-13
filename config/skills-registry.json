@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "updated_at": "2026-03-13T01:06:18Z",
+  "version": 8,
+  "updated_at": "2026-03-13T04:26:42Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -397,67 +397,6 @@
       "package_sha256": "99271266a4094f711d73c630a0967893593d58b8c87a155f3102dd22812ac2b2"
     },
     {
-      "id": "google-calendar",
-      "display_zh": "Google 日历",
-      "display_en": "Google Calendar",
-      "description": "List and manage calendar events through Google Calendar with brokered OAuth.",
-      "desc_zh": "通过经由 Sanqian 代理的 OAuth 管理 Google 日历事件。",
-      "desc_en": "List and manage calendar events through Google Calendar with brokered OAuth.",
-      "icon": null,
-      "category": "productivity",
-      "os": [
-        "darwin",
-        "linux",
-        "win32"
-      ],
-      "skill_version": "0.1.1",
-      "requires": {
-        "bins": [
-          "python3"
-        ],
-        "env": [
-          {
-            "name": "GOOGLE_ACCESS_TOKEN",
-            "source": "host",
-            "help_text": "Short-lived access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here."
-          }
-        ]
-      },
-      "install": [],
-      "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.1.zip",
-      "package_sha256": "6f09caf2ce7c637399b4f7b8117482ff805b8bb919fdd9dfa8806a2d457afe16",
-      "package_size": 2684,
-      "auth": {
-        "mode": "oauth2",
-        "profile_id": "oauth2.google.calendar-events",
-        "provider": "google",
-        "brokered": true,
-        "env_names": [],
-        "runtime_env_names": [
-          "GOOGLE_ACCESS_TOKEN"
-        ],
-        "required_scopes": [
-          "https://www.googleapis.com/auth/calendar.events"
-        ],
-        "host_setup": {
-          "required": true,
-          "owner": "host",
-          "end_user_flow": "connect_account_only",
-          "required_provider_config_keys": [
-            "client_id"
-          ],
-          "notes": [
-            "OAuth provider settings are preconfigured by Sanqian host/release owners, not by end users."
-          ]
-        },
-        "notes": [
-          "Use Sanqian account connection for Google OAuth. Do not model refresh tokens or client secrets as user-entered env vars.",
-          "Sanqian should inject a short-lived GOOGLE_ACCESS_TOKEN only at request time."
-        ]
-      }
-    },
-    {
       "id": "internal-comms",
       "display_zh": "内部沟通",
       "display_en": "Internal Comms",
@@ -545,7 +484,7 @@
         "darwin",
         "linux"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "python3"
@@ -561,9 +500,9 @@
       },
       "install": [],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.0.zip",
-      "package_sha256": "aac39763b60b0cefd32908609e64a291a1f513f1c70b5c2864dfbc3a0376a7b2",
-      "package_size": 4510,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.1.zip",
+      "package_sha256": "b9a4ea1beb9db15412b3c9794605808c131bbdcefd3910eddcd10383d4380b53",
+      "package_size": 4693,
       "auth": {
         "mode": "api_key",
         "profile_id": "api_key.sentry.default",
@@ -909,7 +848,7 @@
         "darwin",
         "linux"
       ],
-      "skill_version": "1.0.4",
+      "skill_version": "1.0.5",
       "requires": {
         "bins": [
           "python3"
@@ -925,9 +864,9 @@
       },
       "install": [],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.4.zip",
-      "package_sha256": "4bb44f51371cea61824aaec0c05e322efef5f0608d77122bcf81e1bbb7b5564e",
-      "package_size": 7260,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.5.zip",
+      "package_sha256": "58bad8998422070aab6056449111219eab1e3e4908b1efb4ed1569b62e3cc4b0",
+      "package_size": 7427,
       "auth": {
         "mode": "api_key",
         "profile_id": "api_key.openai-compatible.default",

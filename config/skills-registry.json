@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "updated_at": "2026-03-12T09:06:17Z",
+  "version": 5,
+  "updated_at": "2026-03-13T01:04:40Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -220,7 +220,7 @@
         "win32",
         "linux"
       ],
-      "skill_version": "1.0.1",
+      "skill_version": "1.0.2",
       "requires": {
         "env": [
           {
@@ -233,11 +233,12 @@
       },
       "install": [],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.1.zip",
-      "package_sha256": "42afe055f7a0ff4a5fa1110cb122727f21132741236ed2198c655cce5c3c7721",
-      "package_size": 64502,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.2.zip",
+      "package_sha256": "82373df4071902273ddeb18398520e10ecec9f388097bfc7ec150db46d7cbb40",
+      "package_size": 64599,
       "auth": {
         "mode": "api_key",
+        "profile_id": "api_key.anthropic.default",
         "provider": "anthropic",
         "brokered": false,
         "env_names": [

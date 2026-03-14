@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-03-13T21:24:26Z",
+  "generated_at": "2026-03-14T18:17:33Z",
   "provider": {
     "schema_version": 1,
     "id": "sanqian-skill-curated",
@@ -1004,6 +1004,308 @@
               "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/frontend-design/frontend-design-1.0.1.zip",
               "sha256": "30672a447b533858dc302dc42077305da9be49641979c95bc77cfd0ce1dda375",
               "size": 5881
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "google-calendar",
+      "manifest_path": "manifests/skills/google-calendar.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google 日历",
+        "en": "Google Calendar"
+      },
+      "summary": {
+        "zh-CN": "通过你在这台设备上配置的 Google OAuth 应用管理 Google 日历事件。",
+        "en": "Manage Google Calendar events through a Google OAuth app configured on this device."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "calendar",
+        "scheduling",
+        "oauth2",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "calendar event inspection",
+        "event creation and updates"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "node"
+          ],
+          "env": [
+            {
+              "name": "GOOGLE_ACCESS_TOKEN",
+              "source": "host",
+              "help_text": "Short-lived Google access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here.",
+              "help_url": "https://developers.google.com/calendar/api/guides/auth"
+            }
+          ]
+        },
+        "install": [],
+        "optional_env": [
+          "GOOGLE_CALENDAR_ID"
+        ]
+      },
+      "auth": {
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.calendar-events",
+        "provider": "google",
+        "brokered": true,
+        "env_names": [],
+        "runtime_env_names": [
+          "GOOGLE_ACCESS_TOKEN"
+        ],
+        "required_scopes": [
+          "https://www.googleapis.com/auth/calendar.events"
+        ],
+        "notes": [],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+            },
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+            }
+          ],
+          "notes": [
+            "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform.",
+            "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device.",
+            "Create an OAuth Client ID of type 'Web application'.",
+            "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret into Sanqian once.",
+            "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
+          ]
+        }
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "beta",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "network",
+          "local-cli",
+          "secrets"
+        ],
+        "maintainer": "yushaw",
+        "reason": "First-party-fit Google calendar workflow that validates brokered Google OAuth for scheduling actions."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.2",
+          "released_at": "2026-03-15T02:21:00Z",
+          "artifact": {
+            "path": "dist/google-calendar/google-calendar-0.1.2.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.2.zip",
+            "sha256": "2c996164994871fbf4cdf1ca483de24ca54212fbef9ff0dc7d3b614be6ee44a8",
+            "size": 3439
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.2",
+            "released_at": "2026-03-15T02:21:00Z",
+            "artifact": {
+              "path": "dist/google-calendar/google-calendar-0.1.2.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.2.zip",
+              "sha256": "2c996164994871fbf4cdf1ca483de24ca54212fbef9ff0dc7d3b614be6ee44a8",
+              "size": 3439
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "google-tasks",
+      "manifest_path": "manifests/skills/google-tasks.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google Tasks",
+        "en": "Google Tasks"
+      },
+      "summary": {
+        "zh-CN": "通过你在这台设备上配置的 Google OAuth 应用管理 Google Tasks 任务列表和任务。",
+        "en": "Manage Google Tasks lists and tasks through a Google OAuth app configured on this device."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "tasks",
+        "todo",
+        "oauth2",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "task list inspection",
+        "task creation and completion"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "node"
+          ],
+          "env": [
+            {
+              "name": "GOOGLE_ACCESS_TOKEN",
+              "source": "host",
+              "help_text": "Short-lived Google access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here.",
+              "help_url": "https://developers.google.com/workspace/tasks/auth"
+            }
+          ]
+        },
+        "install": [],
+        "optional_env": [
+          "GOOGLE_TASKS_LIST_ID"
+        ]
+      },
+      "auth": {
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.tasks",
+        "provider": "google",
+        "brokered": true,
+        "env_names": [],
+        "runtime_env_names": [
+          "GOOGLE_ACCESS_TOKEN"
+        ],
+        "required_scopes": [
+          "https://www.googleapis.com/auth/tasks"
+        ],
+        "notes": [],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+            },
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+            }
+          ],
+          "notes": [
+            "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform.",
+            "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device.",
+            "Create an OAuth Client ID of type 'Web application'.",
+            "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret into Sanqian once.",
+            "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
+          ]
+        }
+      },
+      "governance": {
+        "current_status": "platform-fit",
+        "maturity": "beta",
+        "risk_level": "medium",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "network",
+          "local-cli",
+          "secrets"
+        ],
+        "maintainer": "yushaw",
+        "reason": "First-party-fit Google productivity workflow that validates brokered Google OAuth for lightweight task management."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.2",
+          "released_at": "2026-03-15T02:20:00Z",
+          "artifact": {
+            "path": "dist/google-tasks/google-tasks-0.1.2.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-tasks/google-tasks-0.1.2.zip",
+            "sha256": "a5fb401fc97d954ceeb55c0571cd26905a90273fddf27695f1bb52b93f3fb0b7",
+            "size": 3672
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.2",
+            "released_at": "2026-03-15T02:20:00Z",
+            "artifact": {
+              "path": "dist/google-tasks/google-tasks-0.1.2.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-tasks/google-tasks-0.1.2.zip",
+              "sha256": "a5fb401fc97d954ceeb55c0571cd26905a90273fddf27695f1bb52b93f3fb0b7",
+              "size": 3672
             }
           }
         }

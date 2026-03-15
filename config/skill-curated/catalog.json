@@ -455,7 +455,14 @@
             }
           ],
           "notes": [
-            "Configure the Asana app redirect URI as https://auth.sanqian.ai/skills/auth/callback before asking end users to connect accounts."
+            {
+              "zh": "先创建或复用你自己的 Asana OAuth 应用，再把 https://auth.sanqian.ai/skills/auth/callback 加到允许的回调地址里。",
+              "en": "Create or reuse your own Asana OAuth app, then add https://auth.sanqian.ai/skills/auth/callback as an allowed redirect URI."
+            },
+            {
+              "zh": "把这个应用的 client_id 和 client_secret 在 Sanqian 里填一次即可。这台设备上的其他 Asana skill 都可以复用这份配置。",
+              "en": "Paste that app's client_id and client_secret into Sanqian once. Other Asana skills on this device can reuse the same provider configuration."
+            }
           ]
         },
         "notes": [
@@ -1111,11 +1118,26 @@
             }
           ],
           "notes": [
-            "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform.",
-            "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device.",
-            "Create an OAuth Client ID of type 'Web application'.",
-            "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret into Sanqian once.",
-            "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 里配置 OAuth consent screen。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform."
+            },
+            {
+              "zh": "为这台设备上要使用的 Google skill 启用 Google Tasks API 和/或 Google Calendar API。",
+              "en": "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device."
+            },
+            {
+              "zh": "创建一个类型为 Web application 的 OAuth Client ID。",
+              "en": "Create an OAuth Client ID of type 'Web application'."
+            },
+            {
+              "zh": "把 https://auth.sanqian.ai/skills/auth/callback 加到授权回调地址里，然后把这个应用的 client_id 和 client_secret 在 Sanqian 里填一次。",
+              "en": "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret into Sanqian once."
+            },
+            {
+              "zh": "如果这个 OAuth 应用还处于测试模式，把你准备连接的 Google 账号加入 test users。",
+              "en": "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
+            }
           ]
         }
       },
@@ -1262,11 +1284,26 @@
             }
           ],
           "notes": [
-            "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform.",
-            "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device.",
-            "Create an OAuth Client ID of type 'Web application'.",
-            "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret into Sanqian once.",
-            "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 里配置 OAuth consent screen。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform."
+            },
+            {
+              "zh": "为这台设备上要使用的 Google skill 启用 Google Tasks API 和/或 Google Calendar API。",
+              "en": "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device."
+            },
+            {
+              "zh": "创建一个类型为 Web application 的 OAuth Client ID。",
+              "en": "Create an OAuth Client ID of type 'Web application'."
+            },
+            {
+              "zh": "把 https://auth.sanqian.ai/skills/auth/callback 加到授权回调地址里，然后把这个应用的 client_id 和 client_secret 在 Sanqian 里填一次。",
+              "en": "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret into Sanqian once."
+            },
+            {
+              "zh": "如果这个 OAuth 应用还处于测试模式，把你准备连接的 Google 账号加入 test users。",
+              "en": "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
+            }
           ]
         }
       },

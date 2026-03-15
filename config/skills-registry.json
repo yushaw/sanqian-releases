@@ -1,6 +1,6 @@
 {
-  "version": 10,
-  "updated_at": "2026-03-14T18:17:33Z",
+  "version": 11,
+  "updated_at": "2026-03-15T05:38:04Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -150,9 +150,9 @@
       "id": "asana",
       "display_zh": "Asana 任务管理",
       "display_en": "Asana",
-      "description": "Manage Asana tasks, projects, and workspaces through a Sanqian-managed OAuth connection.",
-      "desc_zh": "通过 Sanqian 托管的 OAuth 连接管理 Asana 任务、项目和工作区。",
-      "desc_en": "Manage Asana tasks, projects, and workspaces through a Sanqian-managed OAuth connection.",
+      "description": "Manage Asana tasks, projects, and workspaces through an OAuth app.",
+      "desc_zh": "通过 OAuth 应用管理 Asana 任务、项目和工作区。",
+      "desc_en": "Manage Asana tasks, projects, and workspaces through an OAuth app.",
       "icon": null,
       "category": "productivity",
       "os": [
@@ -160,7 +160,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.2",
       "requires": {
         "bins": [
           "node"
@@ -176,9 +176,9 @@
       },
       "install": [],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/asana/asana-0.1.0.zip",
-      "package_sha256": "0d68cf85113710c9182926ded3d8473cc2fd5028c8069edd3824388974e1aef0",
-      "package_size": 5690,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/asana/asana-0.1.2.zip",
+      "package_sha256": "cd071011cdce3519d8ce2bcd34911a717ddc9367641a4e6b8edd3b493f5841ff",
+      "package_size": 5268,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -212,7 +212,7 @@
               "type": "text",
               "required": true,
               "secret": false,
-              "help_text": "Asana OAuth client ID for the Sanqian hosted callback app.",
+              "help_text": "Asana OAuth client ID for the OAuth app you configure for this device.",
               "help_url": "https://developers.asana.com/docs/oauth"
             },
             {
@@ -221,7 +221,7 @@
               "type": "password",
               "required": true,
               "secret": true,
-              "help_text": "Asana OAuth client secret used by Sanqian to exchange authorization codes.",
+              "help_text": "Asana OAuth client secret from the OAuth app you configure for this device.",
               "help_url": "https://developers.asana.com/docs/oauth"
             }
           ],
@@ -237,8 +237,8 @@
           ]
         },
         "notes": [
-          "Sanqian should keep Asana refresh state on the host side and inject ASANA_ACCESS_TOKEN only for this skill at request time.",
-          "Do not ask end users to paste authorization codes, refresh tokens, client IDs, or client secrets into the skill."
+          "Sanqian keeps Asana refresh state on this device and injects ASANA_ACCESS_TOKEN only for this skill at request time.",
+          "Do not ask end users to paste authorization codes or refresh tokens into the skill runtime. Configure the OAuth app once in Sanqian settings instead."
         ]
       }
     },
@@ -316,7 +316,7 @@
         "win32",
         "linux"
       ],
-      "skill_version": "1.0.2",
+      "skill_version": "1.0.3",
       "requires": {
         "env": [
           {
@@ -329,9 +329,9 @@
       },
       "install": [],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.2.zip",
-      "package_sha256": "82373df4071902273ddeb18398520e10ecec9f388097bfc7ec150db46d7cbb40",
-      "package_size": 64599,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.3.zip",
+      "package_sha256": "e45fdfb7fa90cad9c61f8e1c29f08087bc1003bb3c0f335959a822cee92f7727",
+      "package_size": 64562,
       "auth": {
         "mode": "api_key",
         "profile_id": "api_key.anthropic.default",
@@ -788,7 +788,7 @@
         "darwin",
         "linux"
       ],
-      "skill_version": "0.1.1",
+      "skill_version": "0.1.2",
       "requires": {
         "bins": [
           "python3"
@@ -804,9 +804,9 @@
       },
       "install": [],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.1.zip",
-      "package_sha256": "b9a4ea1beb9db15412b3c9794605808c131bbdcefd3910eddcd10383d4380b53",
-      "package_size": 4693,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.2.zip",
+      "package_sha256": "aa2a52dde5a884c63062828c18a60fc2122c68cb80b820952951c8f2dbcfeba2",
+      "package_size": 4411,
       "auth": {
         "mode": "api_key",
         "profile_id": "api_key.sentry.default",
@@ -1152,7 +1152,7 @@
         "darwin",
         "linux"
       ],
-      "skill_version": "1.0.5",
+      "skill_version": "1.0.6",
       "requires": {
         "bins": [
           "python3"
@@ -1168,9 +1168,9 @@
       },
       "install": [],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.5.zip",
-      "package_sha256": "58bad8998422070aab6056449111219eab1e3e4908b1efb4ed1569b62e3cc4b0",
-      "package_size": 7427,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.6.zip",
+      "package_sha256": "e3f3263696fdb085acb3757e9ea3933664a71cbd4ba8d2461b6ba8b5087e009e",
+      "package_size": 7325,
       "auth": {
         "mode": "api_key",
         "profile_id": "api_key.openai-compatible.default",
@@ -1217,9 +1217,9 @@
       "id": "track-flight",
       "display_zh": "航班追踪",
       "display_en": "Track Flight",
-      "description": "Track real-time flight status with AviationStack using a Sanqian-managed API key.",
-      "desc_zh": "通过 Sanqian 管理的 AviationStack API Key 查询实时航班状态。",
-      "desc_en": "Track real-time flight status with AviationStack using a Sanqian-managed API key.",
+      "description": "Track real-time flight status with AviationStack.",
+      "desc_zh": "通过 AviationStack API 查询实时航班状态。",
+      "desc_en": "Track real-time flight status with AviationStack.",
       "icon": null,
       "category": "lifestyle",
       "os": [
@@ -1227,7 +1227,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "python3"
@@ -1257,9 +1257,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.0.zip",
-      "package_sha256": "edf19a58e3604a585a5a3f9c92715890980915931f5a89e2cc3bbd945c97e49e",
-      "package_size": 4006,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.1.zip",
+      "package_sha256": "c7cb2e64627e3b0652b6e9a71b1f235df2647b8d3ea721be861ff6393262ee27",
+      "package_size": 3972,
       "auth": {
         "mode": "api_key",
         "profile_id": "api_key.aviationstack.default",
@@ -1270,7 +1270,6 @@
         ],
         "required_scopes": [],
         "notes": [
-          "Sanqian should store the API key and inject it only for this skill at request time.",
           "The upstream free-tier provider endpoint is HTTP-only. Treat this as a setup and recommendation constraint."
         ]
       }

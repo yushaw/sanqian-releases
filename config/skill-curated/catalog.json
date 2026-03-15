@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-03-14T18:17:33Z",
+  "generated_at": "2026-03-15T05:38:04Z",
   "provider": {
     "schema_version": 1,
     "id": "sanqian-skill-curated",
@@ -358,8 +358,8 @@
         "en": "Asana"
       },
       "summary": {
-        "zh-CN": "通过 Sanqian 托管的 OAuth 连接管理 Asana 任务、项目和工作区。",
-        "en": "Manage Asana tasks, projects, and workspaces through a Sanqian-managed OAuth connection."
+        "zh-CN": "通过 OAuth 应用管理 Asana 任务、项目和工作区。",
+        "en": "Manage Asana tasks, projects, and workspaces through an OAuth app."
       },
       "category": "productivity",
       "tags": [
@@ -441,7 +441,7 @@
               "type": "text",
               "required": true,
               "secret": false,
-              "help_text": "Asana OAuth client ID for the Sanqian hosted callback app.",
+              "help_text": "Asana OAuth client ID for the OAuth app you configure for this device.",
               "help_url": "https://developers.asana.com/docs/oauth"
             },
             {
@@ -450,7 +450,7 @@
               "type": "password",
               "required": true,
               "secret": true,
-              "help_text": "Asana OAuth client secret used by Sanqian to exchange authorization codes.",
+              "help_text": "Asana OAuth client secret from the OAuth app you configure for this device.",
               "help_url": "https://developers.asana.com/docs/oauth"
             }
           ],
@@ -466,8 +466,8 @@
           ]
         },
         "notes": [
-          "Sanqian should keep Asana refresh state on the host side and inject ASANA_ACCESS_TOKEN only for this skill at request time.",
-          "Do not ask end users to paste authorization codes, refresh tokens, client IDs, or client secrets into the skill."
+          "Sanqian keeps Asana refresh state on this device and injects ASANA_ACCESS_TOKEN only for this skill at request time.",
+          "Do not ask end users to paste authorization codes or refresh tokens into the skill runtime. Configure the OAuth app once in Sanqian settings instead."
         ]
       },
       "governance": {
@@ -489,24 +489,24 @@
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "0.1.0",
-          "released_at": "2026-03-13T21:16:30Z",
+          "version": "0.1.2",
+          "released_at": "2026-03-15T12:00:00Z",
           "artifact": {
-            "path": "dist/asana/asana-0.1.0.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/asana/asana-0.1.0.zip",
-            "sha256": "0d68cf85113710c9182926ded3d8473cc2fd5028c8069edd3824388974e1aef0",
-            "size": 5690
+            "path": "dist/asana/asana-0.1.2.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/asana/asana-0.1.2.zip",
+            "sha256": "cd071011cdce3519d8ce2bcd34911a717ddc9367641a4e6b8edd3b493f5841ff",
+            "size": 5268
           }
         },
         "channels": {
           "stable": {
-            "version": "0.1.0",
-            "released_at": "2026-03-13T21:16:30Z",
+            "version": "0.1.2",
+            "released_at": "2026-03-15T12:00:00Z",
             "artifact": {
-              "path": "dist/asana/asana-0.1.0.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/asana/asana-0.1.0.zip",
-              "sha256": "0d68cf85113710c9182926ded3d8473cc2fd5028c8069edd3824388974e1aef0",
-              "size": 5690
+              "path": "dist/asana/asana-0.1.2.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/asana/asana-0.1.2.zip",
+              "sha256": "cd071011cdce3519d8ce2bcd34911a717ddc9367641a4e6b8edd3b493f5841ff",
+              "size": 5268
             }
           }
         }
@@ -778,24 +778,24 @@
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "1.0.2",
-          "released_at": "2026-03-13T00:59:36Z",
+          "version": "1.0.3",
+          "released_at": "2026-03-15T12:00:00Z",
           "artifact": {
-            "path": "dist/claude-api/claude-api-1.0.2.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.2.zip",
-            "sha256": "82373df4071902273ddeb18398520e10ecec9f388097bfc7ec150db46d7cbb40",
-            "size": 64599
+            "path": "dist/claude-api/claude-api-1.0.3.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.3.zip",
+            "sha256": "e45fdfb7fa90cad9c61f8e1c29f08087bc1003bb3c0f335959a822cee92f7727",
+            "size": 64562
           }
         },
         "channels": {
           "stable": {
-            "version": "1.0.2",
-            "released_at": "2026-03-13T00:59:36Z",
+            "version": "1.0.3",
+            "released_at": "2026-03-15T12:00:00Z",
             "artifact": {
-              "path": "dist/claude-api/claude-api-1.0.2.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.2.zip",
-              "sha256": "82373df4071902273ddeb18398520e10ecec9f388097bfc7ec150db46d7cbb40",
-              "size": 64599
+              "path": "dist/claude-api/claude-api-1.0.3.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/claude-api/claude-api-1.0.3.zip",
+              "sha256": "e45fdfb7fa90cad9c61f8e1c29f08087bc1003bb3c0f335959a822cee92f7727",
+              "size": 64562
             }
           }
         }
@@ -1651,24 +1651,24 @@
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "0.1.1",
-          "released_at": "2026-03-13T03:02:36Z",
+          "version": "0.1.2",
+          "released_at": "2026-03-15T12:00:00Z",
           "artifact": {
-            "path": "dist/native-sentry/native-sentry-0.1.1.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.1.zip",
-            "sha256": "b9a4ea1beb9db15412b3c9794605808c131bbdcefd3910eddcd10383d4380b53",
-            "size": 4693
+            "path": "dist/native-sentry/native-sentry-0.1.2.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.2.zip",
+            "sha256": "aa2a52dde5a884c63062828c18a60fc2122c68cb80b820952951c8f2dbcfeba2",
+            "size": 4411
           }
         },
         "channels": {
           "stable": {
-            "version": "0.1.1",
-            "released_at": "2026-03-13T03:02:36Z",
+            "version": "0.1.2",
+            "released_at": "2026-03-15T12:00:00Z",
             "artifact": {
-              "path": "dist/native-sentry/native-sentry-0.1.1.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.1.zip",
-              "sha256": "b9a4ea1beb9db15412b3c9794605808c131bbdcefd3910eddcd10383d4380b53",
-              "size": 4693
+              "path": "dist/native-sentry/native-sentry-0.1.2.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/native-sentry/native-sentry-0.1.2.zip",
+              "sha256": "aa2a52dde5a884c63062828c18a60fc2122c68cb80b820952951c8f2dbcfeba2",
+              "size": 4411
             }
           }
         }
@@ -2107,114 +2107,6 @@
       }
     },
     {
-      "id": "slack-gif-creator",
-      "manifest_path": "manifests/skills/slack-gif-creator.json",
-      "entrypoint": "SKILL.md",
-      "display": {
-        "zh-CN": "Slack GIF 制作",
-        "en": "Slack GIF Creator"
-      },
-      "summary": {
-        "zh-CN": "生成适合 Slack 的动图和表情 GIF",
-        "en": "Create Slack-optimized animated GIFs"
-      },
-      "category": "media",
-      "tags": [
-        "gif",
-        "slack",
-        "animation",
-        "emoji",
-        "media"
-      ],
-      "audience": "prosumer",
-      "scenarios": [
-        "Slack emoji creation",
-        "animated sticker creation",
-        "small GIF production"
-      ],
-      "locale_support": [
-        "en"
-      ],
-      "region_support": [
-        "global"
-      ],
-      "runtime": {
-        "platforms": [
-          "darwin",
-          "win32",
-          "linux"
-        ],
-        "integration_mode": "local-cli",
-        "network_access": false,
-        "state_dir": null,
-        "requires": {
-          "bins": [
-            "python3"
-          ]
-        },
-        "install": [
-          {
-            "id": "pip-requirements",
-            "kind": "pip",
-            "run": "python3 -m pip install -r requirements.txt",
-            "os": [
-              "darwin",
-              "linux",
-              "win32"
-            ]
-          }
-        ],
-        "optional_env": []
-      },
-      "auth": {
-        "mode": "none",
-        "provider": null,
-        "brokered": false,
-        "env_names": [],
-        "required_scopes": [],
-        "notes": []
-      },
-      "governance": {
-        "current_status": "platform-fit",
-        "maturity": "stable",
-        "risk_level": "low",
-        "human_confirmation_required": false,
-        "data_sensitivity": "low",
-        "permissions": [
-          "local-cli",
-          "local-files"
-        ],
-        "maintainer": "yushaw",
-        "reason": "Strong bundled tooling, but the target surface is mostly Slack-specific."
-      },
-      "distribution": {
-        "default_channel": "stable",
-        "current": {
-          "channel": "stable",
-          "version": "1.0.1",
-          "released_at": "2026-03-08T06:41:43Z",
-          "artifact": {
-            "path": "dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
-            "sha256": "5f4d5cd9675650787c5de70e0f8e1bd8a5d7d5025eed39743336d4e0319aa742",
-            "size": 15552
-          }
-        },
-        "channels": {
-          "stable": {
-            "version": "1.0.1",
-            "released_at": "2026-03-08T06:41:43Z",
-            "artifact": {
-              "path": "dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
-              "sha256": "5f4d5cd9675650787c5de70e0f8e1bd8a5d7d5025eed39743336d4e0319aa742",
-              "size": 15552
-            }
-          }
-        }
-      }
-    },
-    {
       "id": "subtitle-translator",
       "manifest_path": "manifests/skills/subtitle-translator.json",
       "entrypoint": "SKILL.md",
@@ -2301,24 +2193,24 @@
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "1.0.5",
-          "released_at": "2026-03-13T03:02:36Z",
+          "version": "1.0.6",
+          "released_at": "2026-03-15T12:00:00Z",
           "artifact": {
-            "path": "dist/subtitle-translator/subtitle-translator-1.0.5.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.5.zip",
-            "sha256": "58bad8998422070aab6056449111219eab1e3e4908b1efb4ed1569b62e3cc4b0",
-            "size": 7427
+            "path": "dist/subtitle-translator/subtitle-translator-1.0.6.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.6.zip",
+            "sha256": "e3f3263696fdb085acb3757e9ea3933664a71cbd4ba8d2461b6ba8b5087e009e",
+            "size": 7325
           }
         },
         "channels": {
           "stable": {
-            "version": "1.0.5",
-            "released_at": "2026-03-13T03:02:36Z",
+            "version": "1.0.6",
+            "released_at": "2026-03-15T12:00:00Z",
             "artifact": {
-              "path": "dist/subtitle-translator/subtitle-translator-1.0.5.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.5.zip",
-              "sha256": "58bad8998422070aab6056449111219eab1e3e4908b1efb4ed1569b62e3cc4b0",
-              "size": 7427
+              "path": "dist/subtitle-translator/subtitle-translator-1.0.6.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.6.zip",
+              "sha256": "e3f3263696fdb085acb3757e9ea3933664a71cbd4ba8d2461b6ba8b5087e009e",
+              "size": 7325
             }
           }
         }
@@ -2425,8 +2317,8 @@
         "en": "Track Flight"
       },
       "summary": {
-        "zh-CN": "通过 Sanqian 管理的 AviationStack API Key 查询实时航班状态。",
-        "en": "Track real-time flight status with AviationStack using a Sanqian-managed API key."
+        "zh-CN": "通过 AviationStack API 查询实时航班状态。",
+        "en": "Track real-time flight status with AviationStack."
       },
       "category": "lifestyle",
       "tags": [
@@ -2500,7 +2392,6 @@
         ],
         "required_scopes": [],
         "notes": [
-          "Sanqian should store the API key and inject it only for this skill at request time.",
           "The upstream free-tier provider endpoint is HTTP-only. Treat this as a setup and recommendation constraint."
         ]
       },
@@ -2521,123 +2412,24 @@
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "0.1.0",
-          "released_at": "2026-03-08T11:01:50Z",
+          "version": "0.1.1",
+          "released_at": "2026-03-15T12:00:00Z",
           "artifact": {
-            "path": "dist/track-flight/track-flight-0.1.0.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.0.zip",
-            "sha256": "edf19a58e3604a585a5a3f9c92715890980915931f5a89e2cc3bbd945c97e49e",
-            "size": 4006
+            "path": "dist/track-flight/track-flight-0.1.1.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.1.zip",
+            "sha256": "c7cb2e64627e3b0652b6e9a71b1f235df2647b8d3ea721be861ff6393262ee27",
+            "size": 3972
           }
         },
         "channels": {
           "stable": {
-            "version": "0.1.0",
-            "released_at": "2026-03-08T11:01:50Z",
+            "version": "0.1.1",
+            "released_at": "2026-03-15T12:00:00Z",
             "artifact": {
-              "path": "dist/track-flight/track-flight-0.1.0.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.0.zip",
-              "sha256": "edf19a58e3604a585a5a3f9c92715890980915931f5a89e2cc3bbd945c97e49e",
-              "size": 4006
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "upnote",
-      "manifest_path": "manifests/skills/upnote.json",
-      "entrypoint": "SKILL.md",
-      "display": {
-        "zh-CN": "UpNote",
-        "en": "UpNote"
-      },
-      "summary": {
-        "zh-CN": "通过桌面应用回调自动化管理 UpNote",
-        "en": "Automate UpNote through desktop callbacks"
-      },
-      "category": "productivity",
-      "tags": [
-        "notes",
-        "upnote",
-        "desktop",
-        "callback",
-        "productivity"
-      ],
-      "audience": "consumer",
-      "scenarios": [
-        "note creation",
-        "notebook management",
-        "desktop note automation"
-      ],
-      "locale_support": [
-        "zh-CN",
-        "en"
-      ],
-      "region_support": [
-        "global"
-      ],
-      "runtime": {
-        "platforms": [
-          "darwin"
-        ],
-        "integration_mode": "desktop-callback",
-        "network_access": false,
-        "state_dir": null,
-        "requires": {
-          "local_apps": [
-            "UpNote"
-          ],
-          "url_schemes": [
-            "upnote"
-          ]
-        },
-        "install": [],
-        "optional_env": []
-      },
-      "auth": {
-        "mode": "none",
-        "provider": null,
-        "brokered": false,
-        "env_names": [],
-        "required_scopes": [],
-        "notes": []
-      },
-      "governance": {
-        "current_status": "incubating",
-        "maturity": "beta",
-        "risk_level": "low",
-        "human_confirmation_required": false,
-        "data_sensitivity": "high",
-        "permissions": [
-          "desktop-app",
-          "callback"
-        ],
-        "maintainer": "yushaw",
-        "reason": "Useful consumer notes scenario, but host-side app presence and callback success are not yet detectable by the provider."
-      },
-      "distribution": {
-        "default_channel": "stable",
-        "current": {
-          "channel": "stable",
-          "version": "1.0.4",
-          "released_at": "2026-03-08T06:41:43Z",
-          "artifact": {
-            "path": "dist/upnote/upnote-1.0.4.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/upnote/upnote-1.0.4.zip",
-            "sha256": "558ca13f7c39766ce1766951706813201ff58a274936b0245d76609052b5d786",
-            "size": 2325
-          }
-        },
-        "channels": {
-          "stable": {
-            "version": "1.0.4",
-            "released_at": "2026-03-08T06:41:43Z",
-            "artifact": {
-              "path": "dist/upnote/upnote-1.0.4.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/upnote/upnote-1.0.4.zip",
-              "sha256": "558ca13f7c39766ce1766951706813201ff58a274936b0245d76609052b5d786",
-              "size": 2325
+              "path": "dist/track-flight/track-flight-0.1.1.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.1.zip",
+              "sha256": "c7cb2e64627e3b0652b6e9a71b1f235df2647b8d3ea721be861ff6393262ee27",
+              "size": 3972
             }
           }
         }

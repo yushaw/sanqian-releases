@@ -573,8 +573,8 @@
               "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform."
             },
             {
-              "zh": "为这台设备上要使用的 Google skill 启用 Google Tasks API 和/或 Google Calendar API。",
-              "en": "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device."
+              "zh": "如果你要用 Google Tasks，先在当前项目里启用 Google Tasks API；如果你要用 Google Calendar，先启用 Google Calendar API。否则连接成功后第一次调用通常会直接报 403 / SERVICE_DISABLED。",
+              "en": "If you want to use Google Tasks, enable the Google Tasks API in the current project first; if you want to use Google Calendar, enable the Google Calendar API first. Otherwise the first API call after connecting usually fails with 403 / SERVICE_DISABLED."
             },
             {
               "zh": "创建一个类型为 Web application 的 OAuth Client ID。",
@@ -677,8 +677,8 @@
               "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform."
             },
             {
-              "zh": "为这台设备上要使用的 Google skill 启用 Google Tasks API 和/或 Google Calendar API。",
-              "en": "Enable the Google Tasks API and/or Google Calendar API for the Google skills you want to use on this device."
+              "zh": "如果你要用 Google Tasks，先在当前项目里启用 Google Tasks API；如果你要用 Google Calendar，先启用 Google Calendar API。否则连接成功后第一次调用通常会直接报 403 / SERVICE_DISABLED。",
+              "en": "If you want to use Google Tasks, enable the Google Tasks API in the current project first; if you want to use Google Calendar, enable the Google Calendar API first. Otherwise the first API call after connecting usually fails with 403 / SERVICE_DISABLED."
             },
             {
               "zh": "创建一个类型为 Web application 的 OAuth Client ID。",

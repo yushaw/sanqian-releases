@@ -1,6 +1,6 @@
 {
-  "version": 11,
-  "updated_at": "2026-03-15T05:38:04Z",
+  "version": 12,
+  "updated_at": "2026-03-15T06:04:08Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -125,26 +125,6 @@
         "required_scopes": [],
         "notes": []
       }
-    },
-    {
-      "id": "artifacts-builder",
-      "display_zh": "Artifacts 构建",
-      "display_en": "Artifacts Builder",
-      "description": "Build interactive HTML artifacts with React, charts, and visualizations.",
-      "desc_zh": "构建交互式HTML应用",
-      "desc_en": "Build interactive HTML apps",
-      "icon": "🎨",
-      "category": "development",
-      "os": [
-        "darwin",
-        "win32"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {},
-      "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/artifacts-builder.zip",
-      "package_sha256": "ec0dfc7468292525fa2649b570499762e6a0ff3e00b95a016fe924cdbbd89502"
     },
     {
       "id": "asana",
@@ -432,65 +412,6 @@
         "required_scopes": [],
         "notes": []
       }
-    },
-    {
-      "id": "github",
-      "display_zh": "GitHub",
-      "display_en": "GitHub",
-      "description": "Interact with GitHub using the gh CLI. Manage repositories, PRs, issues, and CI runs.",
-      "desc_zh": "GitHub 仓库管理",
-      "desc_en": "GitHub repository management",
-      "icon": "🐙",
-      "category": "development",
-      "os": [
-        "darwin",
-        "win32",
-        "linux"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {
-        "bins": [
-          "gh"
-        ]
-      },
-      "install": [
-        {
-          "id": "brew",
-          "kind": "brew",
-          "formula": "gh",
-          "bins": [
-            "gh"
-          ],
-          "os": [
-            "darwin"
-          ]
-        },
-        {
-          "id": "winget",
-          "kind": "winget",
-          "package": "GitHub.cli",
-          "bins": [
-            "gh"
-          ],
-          "os": [
-            "win32"
-          ]
-        },
-        {
-          "id": "apt",
-          "kind": "apt",
-          "package": "gh",
-          "bins": [
-            "gh"
-          ],
-          "os": [
-            "linux"
-          ]
-        }
-      ],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/github.zip",
-      "package_sha256": "99271266a4094f711d73c630a0967893593d58b8c87a155f3102dd22812ac2b2"
     },
     {
       "id": "google-calendar",
@@ -824,104 +745,6 @@
       }
     },
     {
-      "id": "notion",
-      "display_zh": "Notion",
-      "display_en": "Notion",
-      "description": "Notion API for creating and managing pages, databases, and blocks.",
-      "desc_zh": "Notion 笔记管理",
-      "desc_en": "Notion workspace management",
-      "icon": "📓",
-      "category": "productivity",
-      "os": [
-        "darwin",
-        "win32",
-        "linux"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {
-        "env": [
-          {
-            "name": "NOTION_API_KEY",
-            "help_url": "https://notion.so/my-integrations",
-            "help_text": "Create an Integration and copy the Internal Integration Secret"
-          }
-        ]
-      },
-      "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/notion.zip",
-      "package_sha256": "1201e8de991a879846f07a9e0e636e6c490933cc59c07983db34a526e8a6c585"
-    },
-    {
-      "id": "obsidian",
-      "display_zh": "Obsidian",
-      "display_en": "Obsidian",
-      "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
-      "desc_zh": "Obsidian 笔记管理",
-      "desc_en": "Obsidian note management",
-      "icon": "💎",
-      "category": "productivity",
-      "os": [
-        "darwin",
-        "win32",
-        "linux"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {
-        "bins": [
-          "obsidian-cli"
-        ]
-      },
-      "install": [
-        {
-          "id": "brew",
-          "kind": "brew",
-          "formula": "yakitrak/yakitrak/obsidian-cli",
-          "bins": [
-            "obsidian-cli"
-          ],
-          "os": [
-            "darwin"
-          ]
-        }
-      ],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/obsidian.zip",
-      "package_sha256": "c0149c7bf9d80458150120fd75b2dee6ae2b68b6ac13ef7a6262f88cb73b6f07"
-    },
-    {
-      "id": "openai-whisper-api",
-      "display_zh": "Whisper 语音转文字",
-      "display_en": "Whisper Speech-to-Text",
-      "description": "Transcribe audio files to text using OpenAI Whisper API. Supports multiple audio formats and languages.",
-      "desc_zh": "音频转文字",
-      "desc_en": "Audio to text transcription",
-      "icon": "☁️",
-      "category": "media",
-      "os": [
-        "darwin",
-        "win32",
-        "linux"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {
-        "bins": [
-          "python3"
-        ],
-        "env": [
-          {
-            "name": "OPENAI_API_KEY",
-            "help_url": "https://platform.openai.com/api-keys",
-            "help_text": "Create an API key in your OpenAI account"
-          }
-        ]
-      },
-      "install": [],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/openai-whisper-api.zip",
-      "package_sha256": "32b85cbd717262e5be009abb0d54979cb5b16bd9cfe4ad88ffa56ce56c5bca56"
-    },
-    {
       "id": "pdf",
       "display_zh": "PDF 处理",
       "display_en": "PDF Processing",
@@ -1095,51 +918,6 @@
       }
     },
     {
-      "id": "slack-gif-creator",
-      "display_zh": "Slack GIF 制作",
-      "display_en": "Slack GIF Creator",
-      "description": "Create Slack-optimized animated GIFs",
-      "desc_zh": "生成适合 Slack 的动图和表情 GIF",
-      "desc_en": "Create Slack-optimized animated GIFs",
-      "icon": null,
-      "category": "media",
-      "os": [
-        "darwin",
-        "win32",
-        "linux"
-      ],
-      "skill_version": "1.0.1",
-      "requires": {
-        "bins": [
-          "python3"
-        ]
-      },
-      "install": [
-        {
-          "id": "pip-requirements",
-          "kind": "pip",
-          "run": "python3 -m pip install -r requirements.txt",
-          "os": [
-            "darwin",
-            "linux",
-            "win32"
-          ]
-        }
-      ],
-      "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/slack-gif-creator/slack-gif-creator-1.0.1.zip",
-      "package_sha256": "5f4d5cd9675650787c5de70e0f8e1bd8a5d7d5025eed39743336d4e0319aa742",
-      "package_size": 15552,
-      "auth": {
-        "mode": "none",
-        "provider": null,
-        "brokered": false,
-        "env_names": [],
-        "required_scopes": [],
-        "notes": []
-      }
-    },
-    {
       "id": "subtitle-translator",
       "display_zh": "字幕翻译",
       "display_en": "Subtitle Translator",
@@ -1273,89 +1051,6 @@
           "The upstream free-tier provider endpoint is HTTP-only. Treat this as a setup and recommendation constraint."
         ]
       }
-    },
-    {
-      "id": "upnote",
-      "display_zh": "UpNote",
-      "display_en": "UpNote",
-      "description": "Automate UpNote through desktop callbacks",
-      "desc_zh": "通过桌面应用回调自动化管理 UpNote",
-      "desc_en": "Automate UpNote through desktop callbacks",
-      "icon": null,
-      "category": "productivity",
-      "os": [
-        "darwin"
-      ],
-      "skill_version": "1.0.4",
-      "requires": {
-        "local_apps": [
-          "UpNote"
-        ],
-        "url_schemes": [
-          "upnote"
-        ]
-      },
-      "install": [],
-      "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/upnote/upnote-1.0.4.zip",
-      "package_sha256": "558ca13f7c39766ce1766951706813201ff58a274936b0245d76609052b5d786",
-      "package_size": 2325,
-      "auth": {
-        "mode": "none",
-        "provider": null,
-        "brokered": false,
-        "env_names": [],
-        "required_scopes": [],
-        "notes": []
-      }
-    },
-    {
-      "id": "video-frames",
-      "display_zh": "视频帧提取",
-      "display_en": "Video Frames",
-      "description": "Extract frames or short clips from videos using ffmpeg.",
-      "desc_zh": "从视频提取帧或片段",
-      "desc_en": "Extract frames or clips from videos",
-      "icon": "🎞️",
-      "category": "media",
-      "os": [
-        "darwin",
-        "win32",
-        "linux"
-      ],
-      "skill_version": "1.0.0",
-      "requires": {
-        "bins": [
-          "ffmpeg"
-        ]
-      },
-      "install": [
-        {
-          "id": "brew",
-          "kind": "brew",
-          "formula": "ffmpeg",
-          "bins": [
-            "ffmpeg"
-          ],
-          "os": [
-            "darwin"
-          ]
-        },
-        {
-          "id": "choco",
-          "kind": "choco",
-          "package": "ffmpeg",
-          "bins": [
-            "ffmpeg"
-          ],
-          "os": [
-            "win32"
-          ]
-        }
-      ],
-      "is_preinstalled": true,
-      "package_url": "https://github.com/yushaw/sanqian-releases/releases/download/skills-v1.0.0/video-frames.zip",
-      "package_sha256": "88464eb556bfe6eaab0741d2ad0e834b964a06e667b62d0e7d691fa060c26246"
     },
     {
       "id": "water-coach",

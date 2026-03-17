@@ -1,6 +1,6 @@
 {
-  "version": 12,
-  "updated_at": "2026-03-15T06:04:08Z",
+  "version": 13,
+  "updated_at": "2026-03-17T05:26:12Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -918,50 +918,6 @@
       }
     },
     {
-      "id": "subtitle-translator",
-      "display_zh": "字幕翻译",
-      "display_en": "Subtitle Translator",
-      "description": "Translate SRT subtitles while preserving timing",
-      "desc_zh": "保留时间轴翻译 SRT 字幕",
-      "desc_en": "Translate SRT subtitles while preserving timing",
-      "icon": null,
-      "category": "media",
-      "os": [
-        "darwin",
-        "linux"
-      ],
-      "skill_version": "1.0.6",
-      "requires": {
-        "bins": [
-          "python3"
-        ],
-        "env": [
-          {
-            "name": "SUBTITLE_API_KEY",
-            "source": "user",
-            "help_url": "https://platform.openai.com/api-keys",
-            "help_text": "Create an API key for an OpenAI-compatible endpoint, or override credentials per command."
-          }
-        ]
-      },
-      "install": [],
-      "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/subtitle-translator/subtitle-translator-1.0.6.zip",
-      "package_sha256": "e3f3263696fdb085acb3757e9ea3933664a71cbd4ba8d2461b6ba8b5087e009e",
-      "package_size": 7325,
-      "auth": {
-        "mode": "api_key",
-        "profile_id": "api_key.openai-compatible.default",
-        "provider": "openai-compatible",
-        "brokered": false,
-        "env_names": [
-          "SUBTITLE_API_KEY"
-        ],
-        "required_scopes": [],
-        "notes": []
-      }
-    },
-    {
       "id": "theme-factory",
       "display_zh": "主题工厂",
       "display_en": "Theme Factory",
@@ -989,67 +945,6 @@
         "env_names": [],
         "required_scopes": [],
         "notes": []
-      }
-    },
-    {
-      "id": "track-flight",
-      "display_zh": "航班追踪",
-      "display_en": "Track Flight",
-      "description": "Track real-time flight status with AviationStack.",
-      "desc_zh": "通过 AviationStack API 查询实时航班状态。",
-      "desc_en": "Track real-time flight status with AviationStack.",
-      "icon": null,
-      "category": "lifestyle",
-      "os": [
-        "darwin",
-        "linux",
-        "win32"
-      ],
-      "skill_version": "0.1.1",
-      "requires": {
-        "bins": [
-          "python3"
-        ],
-        "python_packages": [
-          "requests"
-        ],
-        "env": [
-          {
-            "name": "AVIATIONSTACK_API_KEY",
-            "source": "user",
-            "help_url": "https://aviationstack.com/signup/free",
-            "help_text": "Create an AviationStack API key. Free-tier transport is HTTP-only."
-          }
-        ]
-      },
-      "install": [
-        {
-          "id": "pip-requests",
-          "kind": "pip",
-          "package": "requests",
-          "os": [
-            "darwin",
-            "linux",
-            "win32"
-          ]
-        }
-      ],
-      "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/track-flight/track-flight-0.1.1.zip",
-      "package_sha256": "c7cb2e64627e3b0652b6e9a71b1f235df2647b8d3ea721be861ff6393262ee27",
-      "package_size": 3972,
-      "auth": {
-        "mode": "api_key",
-        "profile_id": "api_key.aviationstack.default",
-        "provider": "aviationstack",
-        "brokered": false,
-        "env_names": [
-          "AVIATIONSTACK_API_KEY"
-        ],
-        "required_scopes": [],
-        "notes": [
-          "The upstream free-tier provider endpoint is HTTP-only. Treat this as a setup and recommendation constraint."
-        ]
       }
     },
     {
@@ -1205,36 +1100,6 @@
       "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/webapp-testing/webapp-testing-1.0.1.zip",
       "package_sha256": "70166f23d5d81a17e3fa62ba596b25bcc89f42292ef1066342ed901e04e869f9",
       "package_size": 9425,
-      "auth": {
-        "mode": "none",
-        "provider": null,
-        "brokered": false,
-        "env_names": [],
-        "required_scopes": [],
-        "notes": []
-      }
-    },
-    {
-      "id": "wherecaniwatch",
-      "display_zh": "哪里能看",
-      "display_en": "Where Can I Watch",
-      "description": "Find US streaming availability for movies and shows",
-      "desc_zh": "查询美国区影视流媒体可看平台",
-      "desc_en": "Find US streaming availability for movies and shows",
-      "icon": null,
-      "category": "media",
-      "os": [
-        "darwin",
-        "linux",
-        "win32"
-      ],
-      "skill_version": "1.0.2",
-      "requires": {},
-      "install": [],
-      "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/wherecaniwatch/wherecaniwatch-1.0.2.zip",
-      "package_sha256": "e030abb0ece1960494b9215ad03fe87c1877bdcf90d8828df92c2bda99dfbfc2",
-      "package_size": 1311,
       "auth": {
         "mode": "none",
         "provider": null,

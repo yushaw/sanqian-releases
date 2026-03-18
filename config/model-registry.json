@@ -1,5 +1,5 @@
 {
-  "version": 14,
+  "version": 27,
   "providers": [
     {
       "id": "deepseek",
@@ -26,6 +26,50 @@
         "primary": "https://api.openai.com/v1/models"
       },
       "validateType": "openai",
+      "supportsModelList": true
+    },
+    {
+      "id": "ollama",
+      "icon": "ollama",
+      "extraCapabilities": [
+        "llm"
+      ],
+      "apiKeyUrl": {
+        "zh": "https://ollama.com/download",
+        "en": "https://ollama.com/download"
+      },
+      "validateUrls": {
+        "primary": "http://127.0.0.1:11434/api/tags",
+        "fallback": "http://localhost:11434/api/tags"
+      },
+      "validateType": "ollama",
+      "authType": "none",
+      "localProfile": {
+        "defaultBaseUrl": "http://127.0.0.1:11434/v1",
+        "modelDiscoveryType": "ollama"
+      },
+      "supportsModelList": true
+    },
+    {
+      "id": "lmstudio",
+      "icon": "lmstudio",
+      "extraCapabilities": [
+        "llm"
+      ],
+      "apiKeyUrl": {
+        "zh": "https://lmstudio.ai/docs",
+        "en": "https://lmstudio.ai/docs"
+      },
+      "validateUrls": {
+        "primary": "http://127.0.0.1:1234/v1/models",
+        "fallback": "http://localhost:1234/v1/models"
+      },
+      "validateType": "openai",
+      "authType": "none",
+      "localProfile": {
+        "defaultBaseUrl": "http://127.0.0.1:1234/v1",
+        "modelDiscoveryType": "openai"
+      },
       "supportsModelList": true
     },
     {
@@ -236,6 +280,48 @@
       "maxCompletionTokens": 65536
     },
     {
+      "id": "qwen3.5-plus",
+      "name": "Qwen3.5 Plus",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
+    },
+    {
+      "id": "qwen3.5-flash",
+      "name": "Qwen3.5 Flash",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
+    },
+    {
       "id": "qwen-flash",
       "name": "Qwen Flash",
       "providerId": "qwen",
@@ -259,6 +345,20 @@
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 1000000,
       "maxCompletionTokens": 32768
+    },
+    {
+      "id": "qwen3-coder-next",
+      "name": "Qwen3 Coder Next",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "coding",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536
     },
     {
       "id": "qwen3-coder-plus",
@@ -301,17 +401,109 @@
       "maxCompletionTokens": 16384
     },
     {
-      "id": "qwen3-vl-plus",
-      "name": "Qwen3 VL Plus",
+      "id": "qwen3.5-397b-a17b",
+      "name": "Qwen3.5 397B A17B",
       "providerId": "qwen",
       "type": "llm",
       "tags": [
+        "computer_use",
+        "tool_use",
         "long_context",
         "vision"
       ],
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 262144,
-      "maxCompletionTokens": 32768
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
+    },
+    {
+      "id": "qwen3.5-122b-a10b",
+      "name": "Qwen3.5 122B A10B",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
+    },
+    {
+      "id": "qwen3.5-35b-a3b",
+      "name": "Qwen3.5 35B A3B",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
+    },
+    {
+      "id": "qwen3.5-27b",
+      "name": "Qwen3.5 27B",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
+    },
+    {
+      "id": "qwen3-vl-plus",
+      "name": "Qwen3 VL Plus",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "normalized_0_999",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
     },
     {
       "id": "qwen3-vl-flash",
@@ -319,18 +511,27 @@
       "providerId": "qwen",
       "type": "llm",
       "tags": [
+        "computer_use",
+        "tool_use",
         "long_context",
         "vision"
       ],
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 262144,
-      "maxCompletionTokens": 32768
+      "maxCompletionTokens": 32768,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "normalized_0_999",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
     },
     {
       "id": "qwen3-vl-max",
-      "name": "Qwen3 VL Max",
+      "name": "Qwen VL Max",
       "providerId": "qwen",
       "type": "llm",
+      "modelName": "qwen-vl-max",
       "tags": [
         "long_context",
         "vision"
@@ -342,6 +543,20 @@
     {
       "id": "glm-5",
       "name": "GLM-5",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "reasoning"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "glm-5-turbo",
+      "name": "GLM-5-Turbo",
       "providerId": "zhipu",
       "type": "llm",
       "tags": [
@@ -409,6 +624,22 @@
       "codingPlan": true
     },
     {
+      "id": "glm-5-turbo-coding",
+      "name": "GLM-5-Turbo (Coding Plan)",
+      "modelName": "glm-5-turbo",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "coding",
+        "reasoning"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000,
+      "codingPlan": true
+    },
+    {
       "id": "glm-4.7-coding",
       "name": "GLM-4.7 (Coding Plan)",
       "modelName": "glm-4.7",
@@ -443,7 +674,14 @@
       "modelName": "embedding-3",
       "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "defaultDimension": 2048,
+      "supportedDimensions": [256, 512, 1024, 2048],
+      "dimensionStrategy": "selectable",
+      "dimensionParam": "dimensions",
+      "taskPrefixStrategy": "none",
+      "vectorSpaceFamily": "zhipu:embedding-3",
+      "capabilitySource": "registry"
     },
     {
       "id": "zhipu-reranker",
@@ -459,6 +697,21 @@
       "id": "zai-glm-5",
       "name": "GLM-5",
       "modelName": "glm-5",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "long_context",
+        "reasoning"
+      ],
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "zai-glm-5-turbo",
+      "name": "GLM-5-Turbo",
+      "modelName": "glm-5-turbo",
       "providerId": "zai",
       "type": "llm",
       "tags": [
@@ -529,6 +782,22 @@
       "codingPlan": true
     },
     {
+      "id": "zai-glm-5-turbo-coding",
+      "name": "GLM-5-Turbo (Coding Plan)",
+      "modelName": "glm-5-turbo",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "coding",
+        "reasoning"
+      ],
+      "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000,
+      "codingPlan": true
+    },
+    {
       "id": "zai-glm-4.7-coding",
       "name": "GLM-4.7 (Coding Plan)",
       "modelName": "glm-4.7",
@@ -564,7 +833,14 @@
       "type": "embedding",
       "baseUrl": "https://api.z.ai/api/paas/v4",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "defaultDimension": 2048,
+      "supportedDimensions": [256, 512, 1024, 2048],
+      "dimensionStrategy": "selectable",
+      "dimensionParam": "dimensions",
+      "taskPrefixStrategy": "none",
+      "vectorSpaceFamily": "zai:embedding-3",
+      "capabilitySource": "registry"
     },
     {
       "id": "zai-reranker",
@@ -620,6 +896,76 @@
       "maxCompletionTokens": 128000
     },
     {
+      "id": "gpt-5.4",
+      "name": "GPT-5.4",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "image_generation",
+        "vision",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 1050000,
+      "maxCompletionTokens": 128000,
+      "apiMode": "chat_completions",
+      "capabilities": {
+        "native_cu_protocol": "openai_computer",
+        "protocol_version": "openai-computer-v1",
+        "tool_version": null,
+        "environment": "mac",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool", "custom_harness", "code_exec"],
+        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "provider_native_pixels",
+        "display_contract": "logical_points",
+        "screenshot_contract": "provider_managed_png",
+        "safety_contract": "provider_confirmation_optional",
+        "confirmation_contract": "runtime_managed_or_provider_required",
+        "action_batching_contract": "serial_actions",
+        "preferred_capture_policy": "window"
+      }
+    },
+    {
+      "id": "gpt-5.4-pro",
+      "name": "GPT-5.4 Pro",
+      "providerId": "openai",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "image_generation",
+        "vision",
+        "tool_use",
+        "reasoning",
+        "long_context"
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 1050000,
+      "maxCompletionTokens": 128000,
+      "apiMode": "responses",
+      "responsesOnly": true,
+      "capabilities": {
+        "native_cu_protocol": "openai_computer",
+        "protocol_version": "openai-computer-v1",
+        "tool_version": null,
+        "environment": "mac",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool", "custom_harness", "code_exec"],
+        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "provider_native_pixels",
+        "display_contract": "logical_points",
+        "screenshot_contract": "provider_managed_png",
+        "safety_contract": "provider_confirmation_optional",
+        "confirmation_contract": "runtime_managed_or_provider_required",
+        "action_batching_contract": "serial_actions",
+        "preferred_capture_policy": "window"
+      }
+    },
+    {
       "id": "gpt-5.2",
       "name": "GPT-5.2",
       "providerId": "openai",
@@ -643,33 +989,6 @@
         "tool_use",
         "long_context",
         "vision"
-      ],
-      "baseUrl": "https://api.openai.com/v1",
-      "contextWindow": 400000,
-      "maxCompletionTokens": 128000
-    },
-    {
-      "id": "gpt-5.1",
-      "name": "GPT-5.1",
-      "providerId": "openai",
-      "type": "llm",
-      "tags": [
-        "tool_use",
-        "long_context",
-        "vision"
-      ],
-      "baseUrl": "https://api.openai.com/v1",
-      "contextWindow": 400000,
-      "maxCompletionTokens": 128000
-    },
-    {
-      "id": "gpt-5.1-codex",
-      "name": "GPT-5.1 Codex",
-      "providerId": "openai",
-      "type": "llm",
-      "tags": [
-        "coding",
-        "tool_use"
       ],
       "baseUrl": "https://api.openai.com/v1",
       "contextWindow": 400000,
@@ -706,13 +1025,99 @@
       "type": "embedding",
       "baseUrl": "https://api.openai.com/v1",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "defaultDimension": 3072,
+      "dimensionStrategy": "selectable",
+      "dimensionParam": "dimensions",
+      "taskPrefixStrategy": "none",
+      "vectorSpaceFamily": "openai:text-embedding-3-large",
+      "capabilitySource": "registry"
     },
     {
       "id": "text-embedding-3-small",
       "name": "Text Embedding 3 Small",
       "providerId": "openai",
       "type": "embedding",
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0,
+      "defaultDimension": 1536,
+      "dimensionStrategy": "selectable",
+      "dimensionParam": "dimensions",
+      "taskPrefixStrategy": "none",
+      "vectorSpaceFamily": "openai:text-embedding-3-small",
+      "capabilitySource": "registry"
+    },
+    {
+      "id": "gpt-4o-transcribe",
+      "name": "GPT-4o Transcribe",
+      "providerId": "openai",
+      "type": "stt",
+      "capabilities": {
+        "realtime_stt": true
+      },
+      "modalities": {
+        "input": ["audio"],
+        "output": ["text"]
+      },
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "gpt-4o-mini-transcribe",
+      "name": "GPT-4o Mini Transcribe",
+      "providerId": "openai",
+      "type": "stt",
+      "capabilities": {
+        "realtime_stt": true
+      },
+      "modalities": {
+        "input": ["audio"],
+        "output": ["text"]
+      },
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "qwen3-asr-flash",
+      "name": "Qwen3 ASR Flash",
+      "providerId": "qwen",
+      "type": "stt",
+      "capabilities": {
+        "realtime_stt": true
+      },
+      "modalities": {
+        "input": ["audio"],
+        "output": ["text"]
+      },
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "qwen3-tts-flash",
+      "name": "Qwen3 TTS Flash",
+      "providerId": "qwen",
+      "type": "tts",
+      "modalities": {
+        "input": ["text"],
+        "output": ["audio"]
+      },
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "gpt-4o-mini-tts",
+      "name": "GPT-4o Mini TTS",
+      "providerId": "openai",
+      "type": "tts",
+      "modalities": {
+        "input": ["text"],
+        "output": ["audio"]
+      },
       "baseUrl": "https://api.openai.com/v1",
       "contextWindow": 0,
       "maxCompletionTokens": 0
@@ -723,15 +1128,33 @@
       "providerId": "anthropic",
       "type": "llm",
       "tags": [
+        "computer_use",
+        "vision",
+        "tool_use",
         "reasoning",
         "coding",
-        "tool_use",
-        "long_context",
-        "vision"
+        "long_context"
       ],
       "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
-      "maxCompletionTokens": 128000
+      "maxCompletionTokens": 128000,
+      "capabilities": {
+        "native_cu_protocol": "anthropic_computer",
+        "protocol_version": "anthropic-computer-v1",
+        "tool_version": "computer_20251124",
+        "environment": "mac",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool"],
+        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "provider_native_pixels",
+        "display_contract": "logical_points",
+        "screenshot_contract": "runtime_scaled_jpeg",
+        "safety_contract": "runtime_managed",
+        "confirmation_contract": "runtime_managed",
+        "action_batching_contract": "serial_actions",
+        "preferred_capture_policy": "window"
+      }
     },
     {
       "id": "claude-sonnet-4-6",
@@ -739,14 +1162,32 @@
       "providerId": "anthropic",
       "type": "llm",
       "tags": [
-        "coding",
+        "computer_use",
+        "vision",
         "tool_use",
-        "long_context",
-        "vision"
+        "coding",
+        "long_context"
       ],
       "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
-      "maxCompletionTokens": 64000
+      "maxCompletionTokens": 64000,
+      "capabilities": {
+        "native_cu_protocol": "anthropic_computer",
+        "protocol_version": "anthropic-computer-v1",
+        "tool_version": "computer_20251124",
+        "environment": "mac",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool"],
+        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "provider_native_pixels",
+        "display_contract": "logical_points",
+        "screenshot_contract": "runtime_scaled_jpeg",
+        "safety_contract": "runtime_managed",
+        "confirmation_contract": "runtime_managed",
+        "action_batching_contract": "serial_actions",
+        "preferred_capture_policy": "window"
+      }
     },
     {
       "id": "claude-sonnet-4-5",
@@ -754,14 +1195,32 @@
       "providerId": "anthropic",
       "type": "llm",
       "tags": [
-        "coding",
+        "computer_use",
+        "vision",
         "tool_use",
-        "long_context",
-        "vision"
+        "coding",
+        "long_context"
       ],
       "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
-      "maxCompletionTokens": 64000
+      "maxCompletionTokens": 64000,
+      "capabilities": {
+        "native_cu_protocol": "anthropic_computer",
+        "protocol_version": "anthropic-computer-v1",
+        "tool_version": "computer_20250124",
+        "environment": "mac",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool"],
+        "supported_actions": ["click", "right_click", "double_click", "drag", "hover", "scroll", "type", "keypress", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "provider_native_pixels",
+        "display_contract": "logical_points",
+        "screenshot_contract": "runtime_scaled_jpeg",
+        "safety_contract": "runtime_managed",
+        "confirmation_contract": "runtime_managed",
+        "action_batching_contract": "serial_actions",
+        "preferred_capture_policy": "window"
+      }
     },
     {
       "id": "claude-haiku-4-5",
@@ -769,12 +1228,30 @@
       "providerId": "anthropic",
       "type": "llm",
       "tags": [
-        "tool_use",
-        "vision"
+        "computer_use",
+        "vision",
+        "tool_use"
       ],
       "baseUrl": "https://api.anthropic.com",
       "contextWindow": 200000,
-      "maxCompletionTokens": 8192
+      "maxCompletionTokens": 8192,
+      "capabilities": {
+        "native_cu_protocol": "anthropic_computer",
+        "protocol_version": "anthropic-computer-v1",
+        "tool_version": "computer_20250124",
+        "environment": "mac",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool"],
+        "supported_actions": ["click", "right_click", "double_click", "drag", "hover", "scroll", "type", "keypress", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "provider_native_pixels",
+        "display_contract": "logical_points",
+        "screenshot_contract": "runtime_scaled_jpeg",
+        "safety_contract": "runtime_managed",
+        "confirmation_contract": "runtime_managed",
+        "action_batching_contract": "serial_actions",
+        "preferred_capture_policy": "window"
+      }
     },
     {
       "id": "doubao-seed-2-0-pro-260215",
@@ -789,7 +1266,7 @@
       ],
       "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
       "contextWindow": 262144,
-      "maxCompletionTokens": 32768
+      "maxCompletionTokens": 131072
     },
     {
       "id": "doubao-seed-2-0-lite-260215",
@@ -797,6 +1274,7 @@
       "providerId": "volcengine",
       "type": "llm",
       "tags": [
+        "reasoning",
         "tool_use",
         "long_context",
         "vision"
@@ -811,12 +1289,14 @@
       "providerId": "volcengine",
       "type": "llm",
       "tags": [
+        "reasoning",
         "tool_use",
+        "long_context",
         "vision"
       ],
       "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
-      "contextWindow": 128000,
-      "maxCompletionTokens": 16384
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768
     },
     {
       "id": "doubao-seed-2-0-code-preview-260215",
@@ -825,12 +1305,13 @@
       "type": "llm",
       "tags": [
         "coding",
+        "reasoning",
         "tool_use",
         "long_context"
       ],
       "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
       "contextWindow": 262144,
-      "maxCompletionTokens": 32768
+      "maxCompletionTokens": 131072
     },
     {
       "id": "doubao-seed-1-8-251228",
@@ -838,12 +1319,14 @@
       "providerId": "volcengine",
       "type": "llm",
       "tags": [
+        "reasoning",
         "tool_use",
+        "long_context",
         "vision"
       ],
       "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
-      "contextWindow": 128000,
-      "maxCompletionTokens": 16384
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536
     },
     {
       "id": "doubao-seedream-4-5-251128",
@@ -946,6 +1429,7 @@
       "providerId": "google",
       "type": "llm",
       "tags": [
+        "computer_use",
         "reasoning",
         "tool_use",
         "long_context",
@@ -953,7 +1437,24 @@
       ],
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 1048576,
-      "maxCompletionTokens": 65536
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "native_cu_protocol": "google_computer_use",
+        "protocol_version": "google-computer-use-v1",
+        "tool_version": null,
+        "environment": "browser",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool"],
+        "supported_actions": ["click", "hover", "drag", "scroll", "type", "keypress", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "normalized_0_999",
+        "display_contract": "logical_points",
+        "screenshot_contract": "provider_managed_png",
+        "safety_contract": "provider_confirmation_required",
+        "confirmation_contract": "provider_required",
+        "action_batching_contract": "parallel_actions_allowed",
+        "preferred_capture_policy": "window"
+      }
     },
     {
       "id": "gemini-3-flash-preview",
@@ -961,13 +1462,31 @@
       "providerId": "google",
       "type": "llm",
       "tags": [
+        "computer_use",
+        "vision",
         "tool_use",
-        "long_context",
-        "vision"
+        "long_context"
       ],
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 1048576,
-      "maxCompletionTokens": 65536
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "native_cu_protocol": "google_computer_use",
+        "protocol_version": "google-computer-use-v1",
+        "tool_version": null,
+        "environment": "browser",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool"],
+        "supported_actions": ["click", "hover", "drag", "scroll", "type", "keypress", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "normalized_0_999",
+        "display_contract": "logical_points",
+        "screenshot_contract": "provider_managed_png",
+        "safety_contract": "provider_confirmation_required",
+        "confirmation_contract": "provider_required",
+        "action_batching_contract": "parallel_actions_allowed",
+        "preferred_capture_policy": "window"
+      }
     },
     {
       "id": "gemini-3.1-flash-image-preview",
@@ -995,6 +1514,93 @@
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "gemini-2.5-flash-transcribe",
+      "name": "Gemini 2.5 Flash (Audio)",
+      "modelName": "gemini-2.5-flash",
+      "providerId": "google",
+      "type": "stt",
+      "capabilities": {
+        "realtime_stt": true
+      },
+      "modalities": {
+        "input": ["audio"],
+        "output": ["text"]
+      },
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "gemini-2.5-flash-preview-tts",
+      "name": "Gemini 2.5 Flash Preview TTS",
+      "providerId": "google",
+      "type": "tts",
+      "modalities": {
+        "input": ["text"],
+        "output": ["audio"]
+      },
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "gemini-2.5-pro-preview-tts",
+      "name": "Gemini 2.5 Pro Preview TTS",
+      "providerId": "google",
+      "type": "tts",
+      "modalities": {
+        "input": ["text"],
+        "output": ["audio"]
+      },
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "MiniMax-M2.7",
+      "name": "MiniMax M2.7",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072
+    },
+    {
+      "id": "MiniMax-M2.7-highspeed",
+      "name": "MiniMax M2.7 Highspeed",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072
+    },
+    {
+      "id": "MiniMax-M2.7-coding",
+      "name": "MiniMax M2.7 (Coding Plan)",
+      "modelName": "MiniMax-M2.7",
+      "providerId": "minimax",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "coding",
+        "long_context"
+      ],
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072,
+      "codingPlan": true
     },
     {
       "id": "MiniMax-M2.5",
@@ -1083,6 +1689,32 @@
       "contextWindow": 204800,
       "maxCompletionTokens": 131072,
       "codingPlan": true
+    },
+    {
+      "id": "speech-2.8-turbo",
+      "name": "MiniMax Speech 2.8 Turbo",
+      "providerId": "minimax",
+      "type": "tts",
+      "modalities": {
+        "input": ["text"],
+        "output": ["audio"]
+      },
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "speech-02-turbo",
+      "name": "MiniMax Speech 02 Turbo",
+      "providerId": "minimax",
+      "type": "tts",
+      "modalities": {
+        "input": ["text"],
+        "output": ["audio"]
+      },
+      "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
     }
   ]
 }

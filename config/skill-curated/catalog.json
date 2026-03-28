@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-03-17T05:26:12Z",
+  "generated_at": "2026-03-28T06:34:32Z",
   "provider": {
     "schema_version": 1,
     "id": "sanqian-skill-curated",
@@ -1017,29 +1017,29 @@
       }
     },
     {
-      "id": "google-calendar",
-      "manifest_path": "manifests/skills/google-calendar.json",
+      "id": "github",
+      "manifest_path": "manifests/skills/github.json",
       "entrypoint": "SKILL.md",
       "display": {
-        "zh-CN": "Google 日历",
-        "en": "Google Calendar"
+        "zh-CN": "GitHub",
+        "en": "GitHub"
       },
       "summary": {
-        "zh-CN": "通过你在这台设备上配置的 Google OAuth 应用管理 Google 日历事件。",
-        "en": "Manage Google Calendar events through a Google OAuth app configured on this device."
+        "zh-CN": "GitHub CLI",
+        "en": "Manage GitHub repos, PRs, issues, and CI via the gh CLI."
       },
-      "category": "productivity",
+      "category": "development",
       "tags": [
-        "google",
-        "calendar",
-        "scheduling",
-        "oauth2",
-        "productivity"
+        "github",
+        "cli",
+        "git",
+        "development"
       ],
-      "audience": "prosumer",
+      "audience": "developer",
       "scenarios": [
-        "calendar event inspection",
-        "event creation and updates"
+        "create and manage pull requests",
+        "triage and manage issues",
+        "check CI workflow status"
       ],
       "locale_support": [
         "zh-CN",
@@ -1054,162 +1054,151 @@
           "linux",
           "win32"
         ],
-        "integration_mode": "cli",
+        "integration_mode": "local-cli",
         "network_access": true,
         "state_dir": null,
         "requires": {
           "bins": [
-            "node"
-          ],
-          "env": [
-            {
-              "name": "GOOGLE_ACCESS_TOKEN",
-              "source": "host",
-              "help_text": "Short-lived Google access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here.",
-              "help_url": "https://developers.google.com/calendar/api/guides/auth"
-            }
+            "gh"
           ]
         },
-        "install": [],
-        "optional_env": [
-          "GOOGLE_CALENDAR_ID"
-        ]
+        "install": [
+          {
+            "id": "brew-gh",
+            "kind": "brew",
+            "formula": "gh",
+            "bins": [
+              "gh"
+            ],
+            "os": [
+              "darwin"
+            ]
+          },
+          {
+            "id": "winget-gh",
+            "kind": "winget",
+            "package": "GitHub.cli",
+            "bins": [
+              "gh"
+            ],
+            "os": [
+              "win32"
+            ]
+          },
+          {
+            "id": "apt-gh",
+            "kind": "apt",
+            "package": "gh",
+            "bins": [
+              "gh"
+            ],
+            "os": [
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
       },
       "auth": {
-        "mode": "oauth2",
-        "kind": "generic_oauth2",
-        "profile_id": "oauth2.google.calendar-events",
-        "provider": "google",
-        "brokered": true,
+        "mode": "external",
+        "profile_id": "external.github.default",
+        "provider": "github",
+        "brokered": false,
         "env_names": [],
-        "runtime_env_names": [
-          "GOOGLE_ACCESS_TOKEN"
-        ],
-        "required_scopes": [
-          "https://www.googleapis.com/auth/calendar.events"
-        ],
-        "notes": [],
-        "host_setup": {
-          "required": true,
-          "owner": "host",
-          "end_user_flow": "connect_account_only",
-          "required_provider_config_keys": [
-            "client_id",
-            "client_secret"
-          ],
-          "fields": [
-            {
-              "name": "client_id",
-              "scope": "provider",
-              "type": "text",
-              "required": true,
-              "secret": false,
-              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
-              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "check_command": "gh auth status",
+        "check_success_pattern": "Logged in to",
+        "setup_steps": [
+          {
+            "id": "login",
+            "title": {
+              "zh": "GitHub CLI",
+              "en": "Login to GitHub"
             },
-            {
-              "name": "client_secret",
-              "scope": "provider",
-              "type": "password",
-              "required": true,
-              "secret": true,
-              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
-              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+            "description": {
+              "zh": "gh auth login",
+              "en": "Authenticate with your GitHub account via the GitHub CLI."
+            },
+            "commands": [
+              "gh auth login"
+            ],
+            "help_url": "https://cli.github.com/manual/gh_auth_login",
+            "check": {
+              "command": "gh auth status",
+              "success_pattern": "Logged in to"
             }
-          ],
-          "notes": [
-            {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 里配置 OAuth consent screen。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform."
-            },
-            {
-              "zh": "如果你要用 Google Tasks，先在当前项目里启用 Google Tasks API；如果你要用 Google Calendar，先启用 Google Calendar API。否则连接成功后第一次调用通常会直接报 403 / SERVICE_DISABLED。",
-              "en": "If you want to use Google Tasks, enable the Google Tasks API in the current project first; if you want to use Google Calendar, enable the Google Calendar API first. Otherwise the first API call after connecting usually fails with 403 / SERVICE_DISABLED."
-            },
-            {
-              "zh": "创建一个类型为 Web application 的 OAuth Client ID。",
-              "en": "Create an OAuth Client ID of type 'Web application'."
-            },
-            {
-              "zh": "把 https://auth.sanqian.ai/skills/auth/callback 加到授权回调地址里，然后把这个应用的 client_id 和 client_secret 填在下方。",
-              "en": "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret in the fields below."
-            },
-            {
-              "zh": "如果这个 OAuth 应用还处于测试模式，把你准备连接的 Google 账号加入 test users。",
-              "en": "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
-            },
-            {
-              "zh": "测试中的未验证应用通常会看到 Google 的风险提示页。确认这是你自己创建的应用后，点击 Advanced，再继续进入该应用完成授权即可。",
-              "en": "Unverified apps in testing usually show Google's warning page. After confirming this is the OAuth app you created, click Advanced and continue to the app to finish authorization."
-            }
-          ]
-        }
+          }
+        ],
+        "notes": [
+          "Requires GitHub CLI (gh) authenticated via 'gh auth login'. Sanqian does not store or inject GitHub tokens."
+        ]
       },
       "governance": {
-        "current_status": "platform-fit",
-        "maturity": "beta",
-        "risk_level": "medium",
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
         "human_confirmation_required": false,
-        "data_sensitivity": "high",
+        "data_sensitivity": "low",
         "permissions": [
-          "network",
           "local-cli",
-          "secrets"
+          "network"
         ],
         "maintainer": "yushaw",
-        "reason": "First-party-fit Google calendar workflow that validates brokered Google OAuth for scheduling actions."
+        "reason": "GitHub CLI is the most widely used developer CLI with clean auth status detection, ideal as the first external-mode skill."
       },
       "distribution": {
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "0.1.3",
-          "released_at": "2026-03-15T12:00:00Z",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T02:33:37Z",
           "artifact": {
-            "path": "dist/google-calendar/google-calendar-0.1.3.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.3.zip",
-            "sha256": "8b183f620cbb7ef81f5655e3222d5bcc95277cbfaf68c91fc9678450d4367ee6",
-            "size": 3258
+            "path": "dist/github/github-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/github/github-0.1.0.zip",
+            "sha256": "58f5cf9892d1e235bc75f49f76f945786844ce7d585c0f54848380b1b33a724f",
+            "size": 800
           }
         },
         "channels": {
           "stable": {
-            "version": "0.1.3",
-            "released_at": "2026-03-15T12:00:00Z",
+            "version": "0.1.0",
+            "released_at": "2026-03-28T02:33:37Z",
             "artifact": {
-              "path": "dist/google-calendar/google-calendar-0.1.3.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-calendar/google-calendar-0.1.3.zip",
-              "sha256": "8b183f620cbb7ef81f5655e3222d5bcc95277cbfaf68c91fc9678450d4367ee6",
-              "size": 3258
+              "path": "dist/github/github-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/github/github-0.1.0.zip",
+              "sha256": "58f5cf9892d1e235bc75f49f76f945786844ce7d585c0f54848380b1b33a724f",
+              "size": 800
             }
           }
         }
       }
     },
     {
-      "id": "google-tasks",
-      "manifest_path": "manifests/skills/google-tasks.json",
+      "id": "gws-calendar",
+      "manifest_path": "manifests/skills/gws-calendar.json",
       "entrypoint": "SKILL.md",
       "display": {
-        "zh-CN": "Google Tasks",
-        "en": "Google Tasks"
+        "zh-CN": "Google 日历",
+        "en": "Google Calendar"
       },
       "summary": {
-        "zh-CN": "通过你在这台设备上配置的 Google OAuth 应用管理 Google Tasks 任务列表和任务。",
-        "en": "Manage Google Tasks lists and tasks through a Google OAuth app configured on this device."
+        "zh-CN": "通过 gws CLI 查看日程、创建和管理 Google 日历事件。",
+        "en": "View agenda, create, and manage Google Calendar events via the gws CLI."
       },
       "category": "productivity",
       "tags": [
         "google",
-        "tasks",
-        "todo",
-        "oauth2",
+        "calendar",
+        "scheduling",
+        "cli",
         "productivity"
       ],
       "audience": "prosumer",
       "scenarios": [
-        "task list inspection",
-        "task creation and completion"
+        "view today's agenda",
+        "create and edit events",
+        "manage calendar"
       ],
       "locale_support": [
         "zh-CN",
@@ -1224,133 +1213,1489 @@
           "linux",
           "win32"
         ],
-        "integration_mode": "cli",
+        "integration_mode": "local-cli",
         "network_access": true,
         "state_dir": null,
         "requires": {
           "bins": [
-            "node"
-          ],
-          "env": [
-            {
-              "name": "GOOGLE_ACCESS_TOKEN",
-              "source": "host",
-              "help_text": "Short-lived Google access token injected by Sanqian after Google account connection. Do not ask users to paste refresh tokens or client secrets here.",
-              "help_url": "https://developers.google.com/workspace/tasks/auth"
-            }
+            "gws"
           ]
         },
-        "install": [],
-        "optional_env": [
-          "GOOGLE_TASKS_LIST_ID"
-        ]
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
       },
       "auth": {
-        "mode": "oauth2",
-        "kind": "generic_oauth2",
-        "profile_id": "oauth2.google.tasks",
+        "mode": "external",
+        "profile_id": "external.gws.default",
         "provider": "google",
-        "brokered": true,
+        "brokered": false,
         "env_names": [],
-        "runtime_env_names": [
-          "GOOGLE_ACCESS_TOKEN"
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
         ],
-        "required_scopes": [
-          "https://www.googleapis.com/auth/tasks"
-        ],
-        "notes": [],
-        "host_setup": {
-          "required": true,
-          "owner": "host",
-          "end_user_flow": "connect_account_only",
-          "required_provider_config_keys": [
-            "client_id",
-            "client_secret"
-          ],
-          "fields": [
-            {
-              "name": "client_id",
-              "scope": "provider",
-              "type": "text",
-              "required": true,
-              "secret": false,
-              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
-              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
             },
-            {
-              "name": "client_secret",
-              "scope": "provider",
-              "type": "password",
-              "required": true,
-              "secret": true,
-              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
-              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
             }
-          ],
-          "notes": [
-            {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 里配置 OAuth consent screen。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform."
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
             },
-            {
-              "zh": "如果你要用 Google Tasks，先在当前项目里启用 Google Tasks API；如果你要用 Google Calendar，先启用 Google Calendar API。否则连接成功后第一次调用通常会直接报 403 / SERVICE_DISABLED。",
-              "en": "If you want to use Google Tasks, enable the Google Tasks API in the current project first; if you want to use Google Calendar, enable the Google Calendar API first. Otherwise the first API call after connecting usually fails with 403 / SERVICE_DISABLED."
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
             },
-            {
-              "zh": "创建一个类型为 Web application 的 OAuth Client ID。",
-              "en": "Create an OAuth Client ID of type 'Web application'."
-            },
-            {
-              "zh": "把 https://auth.sanqian.ai/skills/auth/callback 加到授权回调地址里，然后把这个应用的 client_id 和 client_secret 填在下方。",
-              "en": "Add https://auth.sanqian.ai/skills/auth/callback as an authorized redirect URI, then paste that app's client_id and client_secret in the fields below."
-            },
-            {
-              "zh": "如果这个 OAuth 应用还处于测试模式，把你准备连接的 Google 账号加入 test users。",
-              "en": "If the OAuth app is still in testing mode, add the Google account you plan to connect as a test user."
-            },
-            {
-              "zh": "测试中的未验证应用通常会看到 Google 的风险提示页。确认这是你自己创建的应用后，点击 Advanced，再继续进入该应用完成授权即可。",
-              "en": "Unverified apps in testing usually show Google's warning page. After confirming this is the OAuth app you created, click Advanced and continue to the app to finish authorization."
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
             }
-          ]
-        }
+          }
+        ]
       },
       "governance": {
-        "current_status": "platform-fit",
-        "maturity": "beta",
-        "risk_level": "medium",
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
         "human_confirmation_required": false,
-        "data_sensitivity": "high",
+        "data_sensitivity": "medium",
         "permissions": [
-          "network",
           "local-cli",
-          "secrets"
+          "network"
         ],
         "maintainer": "yushaw",
-        "reason": "First-party-fit Google productivity workflow that validates brokered Google OAuth for lightweight task management."
+        "reason": "Google Calendar is a core Workspace productivity tool. gws CLI provides agenda and event management."
       },
       "distribution": {
         "default_channel": "stable",
         "current": {
           "channel": "stable",
-          "version": "0.1.3",
-          "released_at": "2026-03-15T12:00:00Z",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
           "artifact": {
-            "path": "dist/google-tasks/google-tasks-0.1.3.zip",
-            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-tasks/google-tasks-0.1.3.zip",
-            "sha256": "3da3bf028c946326ce9a82a57974561c487f665f003501289a059c9a53ce96d1",
-            "size": 3422
+            "path": "dist/gws-calendar/gws-calendar-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-calendar/gws-calendar-0.1.0.zip",
+            "sha256": "3725f61e44555b41c2f76744540dce539fd22bd3a345129b2c66e9bc2b453157",
+            "size": 941
           }
         },
         "channels": {
           "stable": {
-            "version": "0.1.3",
-            "released_at": "2026-03-15T12:00:00Z",
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
             "artifact": {
-              "path": "dist/google-tasks/google-tasks-0.1.3.zip",
-              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/google-tasks/google-tasks-0.1.3.zip",
-              "sha256": "3da3bf028c946326ce9a82a57974561c487f665f003501289a059c9a53ce96d1",
-              "size": 3422
+              "path": "dist/gws-calendar/gws-calendar-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-calendar/gws-calendar-0.1.0.zip",
+              "sha256": "3725f61e44555b41c2f76744540dce539fd22bd3a345129b2c66e9bc2b453157",
+              "size": 941
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-chat",
+      "manifest_path": "manifests/skills/gws-chat.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google Chat",
+        "en": "Google Chat"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 发送消息和管理 Google Chat 空间。",
+        "en": "Send messages and manage Google Chat spaces via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "chat",
+        "messaging",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "send messages to spaces",
+        "list chat spaces",
+        "manage conversations"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Google Chat is the Workspace messaging platform. gws CLI provides structured message and space management."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-chat/gws-chat-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-chat/gws-chat-0.1.0.zip",
+            "sha256": "e38d9ff3ba3e29e8585e333160fdc377595067d48af68139a2bda787040ea7a0",
+            "size": 662
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-chat/gws-chat-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-chat/gws-chat-0.1.0.zip",
+              "sha256": "e38d9ff3ba3e29e8585e333160fdc377595067d48af68139a2bda787040ea7a0",
+              "size": 662
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-docs",
+      "manifest_path": "manifests/skills/gws-docs.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google Docs",
+        "en": "Google Docs"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 创建、阅读和编辑 Google Docs 文档。",
+        "en": "Create, read, and edit Google Docs documents via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "docs",
+        "documents",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "create documents",
+        "read and edit document content"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Google Docs is a core Workspace document editor. gws CLI supports create and batch update."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-docs/gws-docs-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-docs/gws-docs-0.1.0.zip",
+            "sha256": "1a3c1096cbe4fe39b9f28d81ea98f68fdd70c4b02b2939ce95fc863482ed6f33",
+            "size": 786
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-docs/gws-docs-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-docs/gws-docs-0.1.0.zip",
+              "sha256": "1a3c1096cbe4fe39b9f28d81ea98f68fdd70c4b02b2939ce95fc863482ed6f33",
+              "size": 786
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-drive",
+      "manifest_path": "manifests/skills/gws-drive.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google Drive",
+        "en": "Google Drive"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 上传、下载、列出和搜索 Google Drive 文件。",
+        "en": "Upload, download, list, and search Google Drive files via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "drive",
+        "files",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "upload and download files",
+        "list and search files",
+        "manage file sharing"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Google Drive is the primary file storage in Workspace. gws CLI supports upload, download, and search."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-drive/gws-drive-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-drive/gws-drive-0.1.0.zip",
+            "sha256": "da65e7cb64b08975edb0ffcf15197dcc7bf5e3785376e3d41410065d8683ee5a",
+            "size": 871
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-drive/gws-drive-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-drive/gws-drive-0.1.0.zip",
+              "sha256": "da65e7cb64b08975edb0ffcf15197dcc7bf5e3785376e3d41410065d8683ee5a",
+              "size": 871
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-gmail",
+      "manifest_path": "manifests/skills/gws-gmail.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Gmail",
+        "en": "Gmail"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 发送、阅读、搜索和整理 Gmail 邮件。",
+        "en": "Send, read, search, and triage Gmail messages via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "gmail",
+        "email",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "send and read emails",
+        "triage inbox",
+        "search messages"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "high",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Gmail is the most-used Workspace service. gws CLI provides structured send/reply/triage helpers."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-gmail/gws-gmail-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-gmail/gws-gmail-0.1.0.zip",
+            "sha256": "ca45d1ae5e615f2c47e2d981b047dc16d552b847fea598a8f4b84fc8cacc53b9",
+            "size": 722
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-gmail/gws-gmail-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-gmail/gws-gmail-0.1.0.zip",
+              "sha256": "ca45d1ae5e615f2c47e2d981b047dc16d552b847fea598a8f4b84fc8cacc53b9",
+              "size": 722
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-people",
+      "manifest_path": "manifests/skills/gws-people.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google 通讯录",
+        "en": "Google Contacts"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 查找和管理 Google 通讯录联系人。",
+        "en": "Look up and manage Google contacts via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "contacts",
+        "people",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "look up contacts",
+        "search people",
+        "manage contact information"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Google People API provides contact management. gws CLI supports search, create, and update contacts."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-people/gws-people-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-people/gws-people-0.1.0.zip",
+            "sha256": "3e7d7f13dde2af40ad4cc2aa0b88933b40f33c7a834417f22d9b4a6ff12e723e",
+            "size": 862
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-people/gws-people-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-people/gws-people-0.1.0.zip",
+              "sha256": "3e7d7f13dde2af40ad4cc2aa0b88933b40f33c7a834417f22d9b4a6ff12e723e",
+              "size": 862
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-sheets",
+      "manifest_path": "manifests/skills/gws-sheets.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google Sheets",
+        "en": "Google Sheets"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 读写和管理 Google Sheets 电子表格。",
+        "en": "Read, write, and manage Google Sheets spreadsheets via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "sheets",
+        "spreadsheet",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "read spreadsheet data",
+        "write and append rows",
+        "create spreadsheets"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Google Sheets is a primary data tool in Workspace. gws CLI supports structured read/write/append."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-sheets/gws-sheets-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-sheets/gws-sheets-0.1.0.zip",
+            "sha256": "da255c466d6928222e2045e274b047cd09a1a1559cf5b800c3fc51d682f1a5fc",
+            "size": 942
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-sheets/gws-sheets-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-sheets/gws-sheets-0.1.0.zip",
+              "sha256": "da255c466d6928222e2045e274b047cd09a1a1559cf5b800c3fc51d682f1a5fc",
+              "size": 942
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-slides",
+      "manifest_path": "manifests/skills/gws-slides.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google Slides",
+        "en": "Google Slides"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 创建和编辑 Google Slides 演示文稿。",
+        "en": "Create and edit Google Slides presentations via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "slides",
+        "presentations",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "create presentations",
+        "edit slides"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "medium",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Google Slides is a Workspace presentation tool. gws CLI supports create and batch update."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-slides/gws-slides-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-slides/gws-slides-0.1.0.zip",
+            "sha256": "c7e02bd463698f35b9c1f886807f60fc8e08c4bbbe4ee71cd21096004f47b65c",
+            "size": 865
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-slides/gws-slides-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-slides/gws-slides-0.1.0.zip",
+              "sha256": "c7e02bd463698f35b9c1f886807f60fc8e08c4bbbe4ee71cd21096004f47b65c",
+              "size": 865
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gws-tasks",
+      "manifest_path": "manifests/skills/gws-tasks.json",
+      "entrypoint": "SKILL.md",
+      "display": {
+        "zh-CN": "Google Tasks",
+        "en": "Google Tasks"
+      },
+      "summary": {
+        "zh-CN": "通过 gws CLI 管理 Google Tasks 任务列表和任务。",
+        "en": "Manage Google Tasks lists and tasks via the gws CLI."
+      },
+      "category": "productivity",
+      "tags": [
+        "google",
+        "tasks",
+        "todo",
+        "cli",
+        "productivity"
+      ],
+      "audience": "prosumer",
+      "scenarios": [
+        "list and create tasks",
+        "complete and organize tasks"
+      ],
+      "locale_support": [
+        "zh-CN",
+        "en"
+      ],
+      "region_support": [
+        "global"
+      ],
+      "runtime": {
+        "platforms": [
+          "darwin",
+          "linux",
+          "win32"
+        ],
+        "integration_mode": "local-cli",
+        "network_access": true,
+        "state_dir": null,
+        "requires": {
+          "bins": [
+            "gws"
+          ]
+        },
+        "install": [
+          {
+            "id": "npm-gws",
+            "kind": "npm",
+            "package": "@googleworkspace/cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux",
+              "win32"
+            ]
+          },
+          {
+            "id": "brew-gws",
+            "kind": "brew",
+            "formula": "googleworkspace-cli",
+            "bins": [
+              "gws"
+            ],
+            "os": [
+              "darwin",
+              "linux"
+            ]
+          }
+        ],
+        "optional_env": []
+      },
+      "auth": {
+        "mode": "external",
+        "profile_id": "external.gws.default",
+        "provider": "google",
+        "brokered": false,
+        "env_names": [],
+        "runtime_env_names": [],
+        "required_scopes": [],
+        "notes": [
+          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        ],
+        "check_command": "gws auth status",
+        "check_success_pattern": "token_valid.*true",
+        "setup_steps": [
+          {
+            "id": "setup",
+            "title": {
+              "zh": "配置 Google Cloud 项目",
+              "en": "Configure Google Cloud Project"
+            },
+            "description": {
+              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
+              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
+            },
+            "commands": [
+              "gws auth setup"
+            ],
+            "help_url": "https://console.cloud.google.com/",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          },
+          {
+            "id": "login",
+            "title": {
+              "zh": "登录 Google 账号",
+              "en": "Login to Google"
+            },
+            "description": {
+              "zh": "将打开浏览器进行 OAuth 授权。",
+              "en": "Opens browser for OAuth authorization."
+            },
+            "commands": [
+              "gws auth login"
+            ],
+            "help_url": "https://github.com/googleworkspace/cli#authentication",
+            "check": {
+              "command": "gws auth status",
+              "success_pattern": "token_valid.*true"
+            }
+          }
+        ]
+      },
+      "governance": {
+        "current_status": "store-ready",
+        "maturity": "stable",
+        "risk_level": "low",
+        "human_confirmation_required": false,
+        "data_sensitivity": "low",
+        "permissions": [
+          "local-cli",
+          "network"
+        ],
+        "maintainer": "yushaw",
+        "reason": "Google Tasks is a lightweight Workspace task manager. gws CLI provides list/create/complete operations."
+      },
+      "distribution": {
+        "default_channel": "stable",
+        "current": {
+          "channel": "stable",
+          "version": "0.1.0",
+          "released_at": "2026-03-28T05:02:23Z",
+          "artifact": {
+            "path": "dist/gws-tasks/gws-tasks-0.1.0.zip",
+            "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-tasks/gws-tasks-0.1.0.zip",
+            "sha256": "f8c51ac7d9386946e7ca20e1b32d289fbf2e31cf08ea7b840f614838671594da",
+            "size": 658
+          }
+        },
+        "channels": {
+          "stable": {
+            "version": "0.1.0",
+            "released_at": "2026-03-28T05:02:23Z",
+            "artifact": {
+              "path": "dist/gws-tasks/gws-tasks-0.1.0.zip",
+              "url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-tasks/gws-tasks-0.1.0.zip",
+              "sha256": "f8c51ac7d9386946e7ca20e1b32d289fbf2e31cf08ea7b840f614838671594da",
+              "size": 658
             }
           }
         }

@@ -1,5 +1,5 @@
 {
-  "version": 27,
+  "version": 28,
   "providers": [
     {
       "id": "deepseek",
@@ -608,6 +608,22 @@
       "maxCompletionTokens": 128000
     },
     {
+      "id": "glm-5.1-coding",
+      "name": "GLM-5.1 (Coding Plan)",
+      "modelName": "glm-5.1",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "coding",
+        "reasoning"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072,
+      "codingPlan": true
+    },
+    {
       "id": "glm-5-coding",
       "name": "GLM-5 (Coding Plan)",
       "modelName": "glm-5",
@@ -764,6 +780,22 @@
       "baseUrl": "https://api.z.ai/api/paas/v4",
       "contextWindow": 200000,
       "maxCompletionTokens": 128000
+    },
+    {
+      "id": "zai-glm-5.1-coding",
+      "name": "GLM-5.1 (Coding Plan)",
+      "modelName": "glm-5.1",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "coding",
+        "reasoning"
+      ],
+      "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+      "contextWindow": 204800,
+      "maxCompletionTokens": 131072,
+      "codingPlan": true
     },
     {
       "id": "zai-glm-5-coding",

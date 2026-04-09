@@ -1,6 +1,6 @@
 {
-  "version": 14,
-  "updated_at": "2026-03-28T06:34:32Z",
+  "version": 15,
+  "updated_at": "2026-04-09T07:46:05Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -526,6 +526,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -560,57 +568,71 @@
       "package_sha256": "3725f61e44555b41c2f76744540dce539fd22bd3a345129b2c66e9bc2b453157",
       "package_size": 941,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/calendar.events",
+          "https://www.googleapis.com/auth/calendar.calendarlist.readonly"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -632,6 +654,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -666,57 +696,72 @@
       "package_sha256": "e38d9ff3ba3e29e8585e333160fdc377595067d48af68139a2bda787040ea7a0",
       "package_size": 662,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/chat.messages",
+          "https://www.googleapis.com/auth/chat.spaces",
+          "https://www.googleapis.com/auth/chat.memberships"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -738,6 +783,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -772,57 +825,70 @@
       "package_sha256": "1a3c1096cbe4fe39b9f28d81ea98f68fdd70c4b02b2939ce95fc863482ed6f33",
       "package_size": 786,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/documents"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -844,6 +910,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -878,57 +952,70 @@
       "package_sha256": "da65e7cb64b08975edb0ffcf15197dcc7bf5e3785376e3d41410065d8683ee5a",
       "package_size": 871,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -950,6 +1037,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -984,57 +1079,70 @@
       "package_sha256": "ca45d1ae5e615f2c47e2d981b047dc16d552b847fea598a8f4b84fc8cacc53b9",
       "package_size": 722,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/gmail.modify"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -1056,6 +1164,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -1090,57 +1206,71 @@
       "package_sha256": "3e7d7f13dde2af40ad4cc2aa0b88933b40f33c7a834417f22d9b4a6ff12e723e",
       "package_size": 862,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/contacts",
+          "https://www.googleapis.com/auth/directory.readonly"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -1162,6 +1292,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -1196,57 +1334,70 @@
       "package_sha256": "da255c466d6928222e2045e274b047cd09a1a1559cf5b800c3fc51d682f1a5fc",
       "package_size": 942,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -1268,6 +1419,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -1302,57 +1461,70 @@
       "package_sha256": "c7e02bd463698f35b9c1f886807f60fc8e08c4bbbe4ee71cd21096004f47b65c",
       "package_size": 865,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/presentations"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },
@@ -1374,6 +1546,14 @@
       "requires": {
         "bins": [
           "gws"
+        ],
+        "env": [
+          {
+            "name": "GOOGLE_WORKSPACE_CLI_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived Google OAuth access token injected by Sanqian at runtime for gws CLI. Do not ask users to paste access tokens, refresh tokens, or client secrets into skill runtime.",
+            "help_url": "https://github.com/googleworkspace/cli#authentication"
+          }
         ]
       },
       "install": [
@@ -1408,57 +1588,70 @@
       "package_sha256": "f8c51ac7d9386946e7ca20e1b32d289fbf2e31cf08ea7b840f614838671594da",
       "package_size": 658,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.gws.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.google.workspace",
         "provider": "google",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "notes": [
-          "Requires Google Workspace CLI (gws) authenticated via 'gws auth login'. Sanqian does not store or inject Google tokens."
+        "runtime_env_names": [
+          "GOOGLE_WORKSPACE_CLI_TOKEN"
         ],
-        "check_command": "gws auth status",
-        "check_success_pattern": "token_valid.*true",
-        "setup_steps": [
-          {
-            "id": "setup",
-            "title": {
-              "zh": "配置 Google Cloud 项目",
-              "en": "Configure Google Cloud Project"
+        "required_scopes": [
+          "openid",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "https://www.googleapis.com/auth/tasks"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "Google OAuth client ID for the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             },
-            "description": {
-              "zh": "一次性配置：创建 GCP 项目、启用 API、设置 OAuth 凭据。需要 gcloud CLI。",
-              "en": "One-time setup: creates GCP project, enables APIs, configures OAuth. Requires gcloud CLI."
-            },
-            "commands": [
-              "gws auth setup"
-            ],
-            "help_url": "https://console.cloud.google.com/",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "Google OAuth client secret from the OAuth app you configure on this device.",
+              "help_url": "https://developers.google.com/identity/protocols/oauth2/web-server"
             }
-          },
-          {
-            "id": "login",
-            "title": {
-              "zh": "登录 Google 账号",
-              "en": "Login to Google"
+          ],
+          "notes": [
+            {
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
+              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
             },
-            "description": {
-              "zh": "将打开浏览器进行 OAuth 授权。",
-              "en": "Opens browser for OAuth authorization."
+            {
+              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
+              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
             },
-            "commands": [
-              "gws auth login"
-            ],
-            "help_url": "https://github.com/googleworkspace/cli#authentication",
-            "check": {
-              "command": "gws auth status",
-              "success_pattern": "token_valid.*true"
+            {
+              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+            },
+            {
+              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
             }
-          }
+          ]
+        },
+        "notes": [
+          "Sanqian stores Google refresh state on this device and injects GOOGLE_WORKSPACE_CLI_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gws auth setup/login inside the install dialog."
         ]
       }
     },

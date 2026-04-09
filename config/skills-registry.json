@@ -1,6 +1,6 @@
 {
-  "version": 18,
-  "updated_at": "2026-04-09T10:13:43Z",
+  "version": 19,
+  "updated_at": "2026-04-09T10:55:12Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -522,7 +522,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -564,9 +564,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-calendar/gws-calendar-0.1.0.zip",
-      "package_sha256": "3725f61e44555b41c2f76744540dce539fd22bd3a345129b2c66e9bc2b453157",
-      "package_size": 941,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-calendar/gws-calendar-0.1.1.zip",
+      "package_sha256": "43fdbe48ac8fe1d966919ce185371526032fa427ce2bae53d47447f50a36f248",
+      "package_size": 1171,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -650,7 +650,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -692,9 +692,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-chat/gws-chat-0.1.0.zip",
-      "package_sha256": "e38d9ff3ba3e29e8585e333160fdc377595067d48af68139a2bda787040ea7a0",
-      "package_size": 662,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-chat/gws-chat-0.1.1.zip",
+      "package_sha256": "88a54d09ebd64481e626829f6b1ccd78d74373dd895063f47ee752ab518f3037",
+      "package_size": 883,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -779,7 +779,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -821,9 +821,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-docs/gws-docs-0.1.0.zip",
-      "package_sha256": "1a3c1096cbe4fe39b9f28d81ea98f68fdd70c4b02b2939ce95fc863482ed6f33",
-      "package_size": 786,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-docs/gws-docs-0.1.1.zip",
+      "package_sha256": "01c6d1f5a7237e6f1018260410590ab97caf349155cb3ea9700ff46da694a5bd",
+      "package_size": 1002,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -906,7 +906,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -948,9 +948,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-drive/gws-drive-0.1.0.zip",
-      "package_sha256": "da65e7cb64b08975edb0ffcf15197dcc7bf5e3785376e3d41410065d8683ee5a",
-      "package_size": 871,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-drive/gws-drive-0.1.1.zip",
+      "package_sha256": "943cf86e0af6a811186b3f3e7ef393682c216c600d750922465f06687b13a74e",
+      "package_size": 1083,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -1033,7 +1033,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -1075,9 +1075,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-gmail/gws-gmail-0.1.0.zip",
-      "package_sha256": "ca45d1ae5e615f2c47e2d981b047dc16d552b847fea598a8f4b84fc8cacc53b9",
-      "package_size": 722,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-gmail/gws-gmail-0.1.1.zip",
+      "package_sha256": "cb1a2d169b687bbbb13ef7c9c0b39e97bb455a429425e95897e8ce75f6041066",
+      "package_size": 944,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -1160,7 +1160,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -1202,9 +1202,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-people/gws-people-0.1.0.zip",
-      "package_sha256": "3e7d7f13dde2af40ad4cc2aa0b88933b40f33c7a834417f22d9b4a6ff12e723e",
-      "package_size": 862,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-people/gws-people-0.1.1.zip",
+      "package_sha256": "6b3191938d6696cc1daafc706cadb3b020e051038e844be505d67888f1f00e6e",
+      "package_size": 1075,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -1288,7 +1288,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -1330,9 +1330,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-sheets/gws-sheets-0.1.0.zip",
-      "package_sha256": "da255c466d6928222e2045e274b047cd09a1a1559cf5b800c3fc51d682f1a5fc",
-      "package_size": 942,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-sheets/gws-sheets-0.1.1.zip",
+      "package_sha256": "73b5ec4b0633b7a126aa93a8354ea5876d8e8bc7f2854d816d436aca4da8e157",
+      "package_size": 1157,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -1415,7 +1415,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -1457,9 +1457,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-slides/gws-slides-0.1.0.zip",
-      "package_sha256": "c7e02bd463698f35b9c1f886807f60fc8e08c4bbbe4ee71cd21096004f47b65c",
-      "package_size": 865,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-slides/gws-slides-0.1.1.zip",
+      "package_sha256": "14d94fde8d57bb72964204c8c855d507d9552344274cdcc4729d46c7dc3c2385",
+      "package_size": 1072,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",
@@ -1542,7 +1542,7 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gws"
@@ -1584,9 +1584,9 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-tasks/gws-tasks-0.1.0.zip",
-      "package_sha256": "f8c51ac7d9386946e7ca20e1b32d289fbf2e31cf08ea7b840f614838671594da",
-      "package_size": 658,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/gws-tasks/gws-tasks-0.1.1.zip",
+      "package_sha256": "148096fd33f41787f12a7ddec0d510c421ed84190ca653dca3e960d56c22a73b",
+      "package_size": 868,
       "auth": {
         "mode": "oauth2",
         "kind": "generic_oauth2",

@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-09T10:13:43Z",
+  "feed_version": 17,
+  "catalog_file": "catalog-v17.json",
+  "generated_at": "2026-04-09T10:55:12Z",
   "skill_count": 33,
-  "schema_version": 1,
-  "feed_version": 16,
-  "catalog_file": "catalog-v16.json"
+  "schema_version": 1
 }

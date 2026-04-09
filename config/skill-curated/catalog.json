@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-04-09T07:46:05Z",
+  "generated_at": "2026-04-09T09:54:02Z",
   "provider": {
     "schema_version": 1,
     "id": "sanqian-skill-curated",
@@ -1304,20 +1304,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -1497,20 +1497,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -1687,20 +1687,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -1878,20 +1878,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -2069,20 +2069,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -2261,20 +2261,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -2452,20 +2452,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -2642,20 +2642,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },
@@ -2832,20 +2832,20 @@
           ],
           "notes": [
             {
-              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 配置 OAuth consent screen。建议 External 并发布为 In Production，以避免测试模式 7 天 token 过期。",
-              "en": "Create or select your own Google Cloud project, then configure the OAuth consent screen under Google Auth Platform. Prefer External + In Production to avoid 7-day token expiry in testing mode."
+              "zh": "先创建或选择你自己的 Google Cloud 项目，然后在 Google Auth Platform 完成 Branding、Audience、Data Access 配置。建议 Audience 选 External，并将 Publishing status 设为 In production，以避免 Testing 模式 refresh token 7 天过期。",
+              "en": "Create or select your own Google Cloud project, then complete Branding, Audience, and Data Access in Google Auth Platform. Prefer Audience=External and Publishing status=In production to avoid 7-day refresh-token expiry in Testing mode."
             },
             {
-              "zh": "在同一项目中启用你将使用的 API（例如 Gmail API、Drive API、Docs API、Calendar API、Tasks API、Sheets API、Slides API；Chat API 仅适用于 Google Workspace 账号）。",
-              "en": "Enable the APIs you plan to use in the same project (for example Gmail API, Drive API, Docs API, Calendar API, Tasks API, Sheets API, Slides API; Chat API is limited to Google Workspace accounts)."
+              "zh": "在同一项目中到 APIs & Services > API Library 启用所需 API（入口：https://console.cloud.google.com/apis/library）。例如 Gmail/Drive/Docs/Calendar/Tasks/Sheets/Slides API；Chat API 往往需要 Google Workspace 组织账号与管理员策略。若看不到 Enable 按钮，通常是项目权限不足（需 Service Usage Admin）。",
+              "en": "In the same project, enable required APIs at APIs & Services > API Library (entry: https://console.cloud.google.com/apis/library). Typical APIs: Gmail, Drive, Docs, Calendar, Tasks, Sheets, Slides; Chat API often requires a Google Workspace org account and admin policy. If you cannot see an Enable button, the project likely lacks Service Usage Admin permission."
             },
             {
-              "zh": "创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
-              "en": "Create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
+              "zh": "到 Google Auth Platform Clients 页面（https://console.cloud.google.com/auth/clients）创建 OAuth Client（Web application），把 https://auth.sanqian.ai/skills/auth/callback 加到 authorized redirect URIs，然后将 client_id/client_secret 填在这里。",
+              "en": "Go to Google Auth Platform Clients (https://console.cloud.google.com/auth/clients), create an OAuth Client (Web application), add https://auth.sanqian.ai/skills/auth/callback to authorized redirect URIs, then paste client_id/client_secret here."
             },
             {
-              "zh": "未验证应用授权时可能出现 Google 风险提示页面；确认应用由你自己创建后继续即可。若面向公开用户长期使用，仍需完成 Google 验证流程。",
-              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. For broad public use, complete Google verification."
+              "zh": "未验证应用授权时可能出现 Google 风险提示；确认应用由你自己创建后继续即可。未验证应用通常有新增用户上限（常见约 100，实时规则以 Google 控制台为准）；若要公开大规模使用，需完成 Google 验证（含受限 scope 场景）。",
+              "en": "Google may show an unverified-app warning during consent; continue only after confirming this app is yours. Unverified apps usually have a new-user cap (commonly around 100, subject to current Google Console policy); for broad public use, complete Google verification (including restricted-scope requirements)."
             }
           ]
         },

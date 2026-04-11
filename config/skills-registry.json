@@ -1,6 +1,6 @@
 {
-  "version": 19,
-  "updated_at": "2026-04-09T10:55:12Z",
+  "version": 20,
+  "updated_at": "2026-04-11T12:26:11Z",
   "skills": [
     {
       "id": "algorithmic-art",
@@ -427,10 +427,24 @@
         "linux",
         "win32"
       ],
-      "skill_version": "0.1.0",
+      "skill_version": "0.1.1",
       "requires": {
         "bins": [
           "gh"
+        ],
+        "env": [
+          {
+            "name": "GH_TOKEN",
+            "source": "host",
+            "help_text": "Short-lived GitHub OAuth access token injected by Sanqian at runtime for gh CLI. Do not ask users to paste personal access tokens in skill runtime.",
+            "help_url": "https://cli.github.com/manual/gh_help_environment"
+          },
+          {
+            "name": "GITHUB_TOKEN",
+            "source": "host",
+            "help_text": "Compatibility alias injected by Sanqian for tools that expect GITHUB_TOKEN.",
+            "help_url": "https://cli.github.com/manual/gh_help_environment"
+          }
         ]
       },
       "install": [
@@ -469,42 +483,67 @@
         }
       ],
       "is_preinstalled": false,
-      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/github/github-0.1.0.zip",
-      "package_sha256": "58f5cf9892d1e235bc75f49f76f945786844ce7d585c0f54848380b1b33a724f",
-      "package_size": 800,
+      "package_url": "https://cdn.jsdelivr.net/gh/yushaw/sanqian-releases@main/config/skill-curated/dist/github/github-0.1.1.zip",
+      "package_sha256": "4fec79764ce75a8d51b311f6a6d5aa7a53364c19663f11ccce4b93d39e2648c1",
+      "package_size": 1151,
       "auth": {
-        "mode": "external",
-        "profile_id": "external.github.default",
+        "mode": "oauth2",
+        "kind": "generic_oauth2",
+        "profile_id": "oauth2.github.default",
         "provider": "github",
-        "brokered": false,
+        "brokered": true,
         "env_names": [],
-        "runtime_env_names": [],
-        "required_scopes": [],
-        "check_command": "gh auth status",
-        "check_success_pattern": "Logged in to",
-        "setup_steps": [
-          {
-            "id": "login",
-            "title": {
-              "zh": "GitHub CLI",
-              "en": "Login to GitHub"
-            },
-            "description": {
-              "zh": "gh auth login",
-              "en": "Authenticate with your GitHub account via the GitHub CLI."
-            },
-            "commands": [
-              "gh auth login"
-            ],
-            "help_url": "https://cli.github.com/manual/gh_auth_login",
-            "check": {
-              "command": "gh auth status",
-              "success_pattern": "Logged in to"
-            }
-          }
+        "runtime_env_names": [
+          "GH_TOKEN",
+          "GITHUB_TOKEN"
         ],
+        "required_scopes": [
+          "repo",
+          "read:org",
+          "gist"
+        ],
+        "host_setup": {
+          "required": true,
+          "owner": "host",
+          "end_user_flow": "connect_account_only",
+          "required_provider_config_keys": [
+            "client_id",
+            "client_secret"
+          ],
+          "fields": [
+            {
+              "name": "client_id",
+              "scope": "provider",
+              "type": "text",
+              "required": true,
+              "secret": false,
+              "help_text": "GitHub OAuth app client ID configured for this device.",
+              "help_url": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app"
+            },
+            {
+              "name": "client_secret",
+              "scope": "provider",
+              "type": "password",
+              "required": true,
+              "secret": true,
+              "help_text": "GitHub OAuth app client secret configured for this device.",
+              "help_url": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app"
+            }
+          ],
+          "notes": [
+            {
+              "zh": "先创建或复用你自己的 GitHub OAuth App，并将回调地址设置为 https://auth.sanqian.ai/skills/auth/callback。",
+              "en": "Create or reuse your own GitHub OAuth App, then set the callback URL to https://auth.sanqian.ai/skills/auth/callback."
+            },
+            {
+              "zh": "把该应用的 client_id 和 client_secret 填在下方。此设备上的 GitHub 技能可复用这份 provider 配置。",
+              "en": "Paste that app's client_id and client_secret below. GitHub skills on this device can reuse the same provider configuration."
+            }
+          ]
+        },
         "notes": [
-          "Requires GitHub CLI (gh) authenticated via 'gh auth login'. Sanqian does not store or inject GitHub tokens."
+          "Sanqian stores GitHub refresh state on this device and injects GH_TOKEN/GITHUB_TOKEN only at request time.",
+          "Use Sanqian connect flow for this skill. Do not ask users to run gh auth login inside the install dialog."
         ]
       }
     },

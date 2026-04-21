@@ -1,5 +1,5 @@
 {
-  "version": 29,
+  "version": 30,
   "providers": [
     {
       "id": "deepseek",
@@ -685,6 +685,21 @@
       "codingPlan": true
     },
     {
+      "id": "glm-5v-turbo",
+      "name": "GLM-5V-Turbo",
+      "providerId": "zhipu",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "vision",
+        "coding",
+        "long_context"
+      ],
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
       "id": "glm-4.6v",
       "name": "GLM-4.6V",
       "providerId": "zhipu",
@@ -748,6 +763,22 @@
         "tool_use",
         "long_context",
         "reasoning"
+      ],
+      "baseUrl": "https://api.z.ai/api/paas/v4",
+      "contextWindow": 200000,
+      "maxCompletionTokens": 128000
+    },
+    {
+      "id": "zai-glm-5v-turbo",
+      "name": "GLM-5V-Turbo",
+      "modelName": "glm-5v-turbo",
+      "providerId": "zai",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "vision",
+        "coding",
+        "long_context"
       ],
       "baseUrl": "https://api.z.ai/api/paas/v4",
       "contextWindow": 200000,
@@ -912,6 +943,22 @@
       "baseUrl": "https://api.z.ai/api/paas/v4",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "kimi-k2.6",
+      "name": "Kimi K2.6",
+      "providerId": "moonshot",
+      "type": "llm",
+      "tags": [
+        "tool_use",
+        "vision",
+        "reasoning",
+        "coding",
+        "long_context"
+      ],
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 32768
     },
     {
       "id": "kimi-k2.5",
@@ -1182,6 +1229,40 @@
       "baseUrl": "https://api.openai.com/v1",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "providerId": "anthropic",
+      "type": "llm",
+      "tags": [
+        "computer_use",
+        "vision",
+        "tool_use",
+        "reasoning",
+        "coding",
+        "long_context"
+      ],
+      "baseUrl": "https://api.anthropic.com",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 128000,
+      "capabilities": {
+        "native_cu_protocol": "anthropic_computer",
+        "protocol_version": "anthropic-computer-v1",
+        "tool_version": "computer_20251124",
+        "environment": "mac",
+        "native_cu_adapter": true,
+        "harness_shapes": ["built_in_tool"],
+        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "vision_mode": "provider_native",
+        "coordinate_contract": "provider_native_pixels",
+        "display_contract": "logical_points",
+        "screenshot_contract": "runtime_scaled_jpeg",
+        "safety_contract": "runtime_managed",
+        "confirmation_contract": "runtime_managed",
+        "action_batching_contract": "serial_actions",
+        "preferred_capture_policy": "window"
+      }
     },
     {
       "id": "claude-opus-4-6",

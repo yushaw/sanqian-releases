@@ -1,5 +1,5 @@
 {
-  "version": 30,
+  "version": 31,
   "providers": [
     {
       "id": "deepseek",
@@ -265,6 +265,64 @@
       "baseUrl": "https://api.deepseek.com",
       "contextWindow": 128000,
       "maxCompletionTokens": 64000
+    },
+    {
+      "id": "qwen3.6-max-preview",
+      "name": "Qwen3.6 Max Preview",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 262144,
+      "maxCompletionTokens": 65536
+    },
+    {
+      "id": "qwen3.6-plus",
+      "name": "Qwen3.6 Plus",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
+    },
+    {
+      "id": "qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "providerId": "qwen",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "computer_use",
+        "tool_use",
+        "long_context",
+        "vision"
+      ],
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 65536,
+      "capabilities": {
+        "vision_mode": "runtime_fallback",
+        "coordinate_contract": "image_points_via_artifact",
+        "preferred_capture_policy": "window",
+        "native_cu_adapter": false
+      }
     },
     {
       "id": "qwen3-max",

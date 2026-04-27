@@ -1,5 +1,5 @@
 {
-  "version": 31,
+  "version": 32,
   "providers": [
     {
       "id": "deepseek",
@@ -242,6 +242,34 @@
     }
   ],
   "models": [
+    {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "providerId": "deepseek",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.deepseek.com",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 384000
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "providerId": "deepseek",
+      "type": "llm",
+      "tags": [
+        "reasoning",
+        "tool_use",
+        "long_context"
+      ],
+      "baseUrl": "https://api.deepseek.com",
+      "contextWindow": 1000000,
+      "maxCompletionTokens": 384000
+    },
     {
       "id": "deepseek-chat",
       "name": "DeepSeek Chat",

@@ -1,5 +1,5 @@
 {
-  "version": 39,
+  "version": 40,
   "providers": [
     {
       "id": "deepseek",
@@ -1067,7 +1067,7 @@
     {
       "id": "zai-glm-4.6v",
       "name": "GLM-4.6V",
-      "modelName": "glm-4-flash",
+      "modelName": "glm-4.6v",
       "providerId": "zai",
       "type": "llm",
       "tags": [

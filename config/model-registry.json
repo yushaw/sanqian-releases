@@ -1,5 +1,5 @@
 {
-  "version": 38,
+  "version": 39,
   "providers": [
     {
       "id": "deepseek",
@@ -2042,7 +2042,7 @@
     },
     {
       "id": "gemini-omni-flash-preview",
-      "name": "Gemini Omni Flash",
+      "name": "Gemini Omni Flash Preview",
       "providerId": "google",
       "type": "video",
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
@@ -2142,7 +2142,8 @@
       "type": "llm",
       "tags": [
         "reasoning",
-        "tool_use"
+        "tool_use",
+        "long_context"
       ],
       "baseUrl": "https://api.minimax.io/v1",
       "contextWindow": 204800,

@@ -1,5 +1,5 @@
 {
-  "version": 40,
+  "version": 41,
   "providers": [
     {
       "id": "deepseek",
@@ -281,38 +281,6 @@
         "getApiKeyLabel": {
           "zh": "获取 Deepgram API Key",
           "en": "Get Deepgram API Key"
-        }
-      }
-    },
-    {
-      "id": "tingwu",
-      "icon": "qwen",
-      "name": "Tongyi Tingwu",
-      "validateUrls": {
-        "primary": "https://dashscope.aliyuncs.com/compatible-mode/v1/models"
-      },
-      "validateType": "dashscope",
-      "supportsModelList": false,
-      "apiKeyUrl": {
-        "zh": "https://bailian.console.aliyun.com/?apiKey=1#/api-key",
-        "en": "https://bailian.console.alibabacloud.com/?apiKey=1#/api-key"
-      },
-      "credential": {
-        "apiKeyLabel": {
-          "zh": "DashScope API Key",
-          "en": "DashScope API Key"
-        },
-        "apiKeyPlaceholder": {
-          "zh": "sk-...",
-          "en": "sk-..."
-        },
-        "apiKeyHelper": {
-          "zh": "用于通义听悟实时服务鉴权；App ID 需要单独填写。",
-          "en": "Used to authorize Tongyi Tingwu realtime transcription. App ID is entered separately."
-        },
-        "getApiKeyLabel": {
-          "zh": "获取 DashScope API Key",
-          "en": "Get DashScope API Key"
         }
       }
     }
@@ -2353,7 +2321,7 @@
     {
       "id": "multilingual",
       "name": "Tongyi Tingwu Realtime",
-      "providerId": "tingwu",
+      "providerId": "qwen",
       "type": "stt",
       "tags": [
         "realtime",

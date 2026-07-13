@@ -1,5 +1,5 @@
 {
-  "version": 32,
+  "version": 37,
   "providers": [
     {
       "id": "deepseek",
@@ -13,7 +13,8 @@
       },
       "validateType": "openai",
       "supportsQuotaQuery": true,
-      "supportsModelList": true
+      "supportsModelList": true,
+      "name": "DeepSeek"
     },
     {
       "id": "openai",
@@ -26,7 +27,8 @@
         "primary": "https://api.openai.com/v1/models"
       },
       "validateType": "openai",
-      "supportsModelList": true
+      "supportsModelList": true,
+      "name": "OpenAI"
     },
     {
       "id": "ollama",
@@ -48,7 +50,8 @@
         "defaultBaseUrl": "http://127.0.0.1:11434/v1",
         "modelDiscoveryType": "ollama"
       },
-      "supportsModelList": true
+      "supportsModelList": true,
+      "name": "Ollama"
     },
     {
       "id": "lmstudio",
@@ -70,7 +73,8 @@
         "defaultBaseUrl": "http://127.0.0.1:1234/v1",
         "modelDiscoveryType": "openai"
       },
-      "supportsModelList": true
+      "supportsModelList": true,
+      "name": "LM Studio"
     },
     {
       "id": "anthropic",
@@ -82,7 +86,8 @@
       "validateUrls": {
         "primary": "https://api.anthropic.com/v1/messages"
       },
-      "validateType": "anthropic"
+      "validateType": "anthropic",
+      "name": "Anthropic"
     },
     {
       "id": "google",
@@ -95,7 +100,8 @@
         "primary": "https://generativelanguage.googleapis.com/v1beta/models"
       },
       "validateType": "google",
-      "supportsModelList": true
+      "supportsModelList": true,
+      "name": "Google"
     },
     {
       "id": "zhipu",
@@ -124,7 +130,8 @@
         },
         "useSameApiKey": true,
         "protocol": "openai"
-      }
+      },
+      "name": "Zhipu AI"
     },
     {
       "id": "zai",
@@ -153,7 +160,8 @@
         },
         "useSameApiKey": true,
         "protocol": "openai"
-      }
+      },
+      "name": "Z.AI"
     },
     {
       "id": "qwen",
@@ -167,7 +175,8 @@
         "fallback": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/models"
       },
       "validateType": "openai",
-      "supportsModelList": true
+      "supportsModelList": true,
+      "name": "Qwen"
     },
     {
       "id": "moonshot",
@@ -197,7 +206,8 @@
         },
         "useSameApiKey": false,
         "protocol": "openai"
-      }
+      },
+      "name": "Moonshot"
     },
     {
       "id": "volcengine",
@@ -209,7 +219,8 @@
       "validateUrls": {
         "primary": "https://ark.cn-beijing.volces.com/api/v3/models"
       },
-      "validateType": "openai"
+      "validateType": "openai",
+      "name": "Volcengine"
     },
     {
       "id": "minimax",
@@ -238,6 +249,71 @@
         },
         "useSameApiKey": false,
         "protocol": "openai"
+      },
+      "name": "MiniMax"
+    },
+    {
+      "id": "deepgram",
+      "icon": "deepgram",
+      "name": "Deepgram",
+      "validateUrls": {
+        "primary": "https://api.deepgram.com/v1/models"
+      },
+      "validateType": "deepgram",
+      "supportsModelList": false,
+      "apiKeyUrl": {
+        "zh": "https://console.deepgram.com/project/keys",
+        "en": "https://console.deepgram.com/project/keys"
+      },
+      "credential": {
+        "apiKeyLabel": {
+          "zh": "Deepgram API Key",
+          "en": "Deepgram API Key"
+        },
+        "apiKeyPlaceholder": {
+          "zh": "dg_...",
+          "en": "dg_..."
+        },
+        "apiKeyHelper": {
+          "zh": "用于访问 Deepgram Listen 转写和实时转写服务。",
+          "en": "Used to access Deepgram Listen file and realtime transcription."
+        },
+        "getApiKeyLabel": {
+          "zh": "获取 Deepgram API Key",
+          "en": "Get Deepgram API Key"
+        }
+      }
+    },
+    {
+      "id": "tingwu",
+      "icon": "qwen",
+      "name": "Tongyi Tingwu",
+      "validateUrls": {
+        "primary": "https://dashscope.aliyuncs.com/compatible-mode/v1/models"
+      },
+      "validateType": "dashscope",
+      "supportsModelList": false,
+      "apiKeyUrl": {
+        "zh": "https://bailian.console.aliyun.com/?apiKey=1#/api-key",
+        "en": "https://bailian.console.alibabacloud.com/?apiKey=1#/api-key"
+      },
+      "credential": {
+        "apiKeyLabel": {
+          "zh": "DashScope API Key",
+          "en": "DashScope API Key"
+        },
+        "apiKeyPlaceholder": {
+          "zh": "sk-...",
+          "en": "sk-..."
+        },
+        "apiKeyHelper": {
+          "zh": "用于通义听悟实时服务鉴权；App ID 需要单独填写。",
+          "en": "Used to authorize Tongyi Tingwu realtime transcription. App ID is entered separately."
+        },
+        "getApiKeyLabel": {
+          "zh": "获取 DashScope API Key",
+          "en": "Get DashScope API Key"
+        }
       }
     }
   ],
@@ -586,7 +662,7 @@
       "maxCompletionTokens": 32768,
       "capabilities": {
         "vision_mode": "runtime_fallback",
-        "coordinate_contract": "normalized_0_999",
+        "coordinate_contract": "image_points_via_artifact",
         "preferred_capture_policy": "window",
         "native_cu_adapter": false
       }
@@ -607,7 +683,7 @@
       "maxCompletionTokens": 32768,
       "capabilities": {
         "vision_mode": "runtime_fallback",
-        "coordinate_contract": "normalized_0_999",
+        "coordinate_contract": "image_points_via_artifact",
         "preferred_capture_policy": "window",
         "native_cu_adapter": false
       }
@@ -807,7 +883,12 @@
       "contextWindow": 0,
       "maxCompletionTokens": 0,
       "defaultDimension": 2048,
-      "supportedDimensions": [256, 512, 1024, 2048],
+      "supportedDimensions": [
+        256,
+        512,
+        1024,
+        2048
+      ],
       "dimensionStrategy": "selectable",
       "dimensionParam": "dimensions",
       "taskPrefixStrategy": "none",
@@ -1013,7 +1094,12 @@
       "contextWindow": 0,
       "maxCompletionTokens": 0,
       "defaultDimension": 2048,
-      "supportedDimensions": [256, 512, 1024, 2048],
+      "supportedDimensions": [
+        256,
+        512,
+        1024,
+        2048
+      ],
       "dimensionStrategy": "selectable",
       "dimensionParam": "dimensions",
       "taskPrefixStrategy": "none",
@@ -1111,8 +1197,26 @@
         "tool_version": null,
         "environment": "mac",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool", "custom_harness", "code_exec"],
-        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "harness_shapes": [
+          "built_in_tool",
+          "custom_harness",
+          "code_exec"
+        ],
+        "supported_actions": [
+          "click",
+          "right_click",
+          "double_click",
+          "triple_click",
+          "drag",
+          "hover",
+          "scroll",
+          "type",
+          "keypress",
+          "hold_key",
+          "mouse_down",
+          "mouse_up",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "provider_native_pixels",
         "display_contract": "logical_points",
@@ -1147,8 +1251,26 @@
         "tool_version": null,
         "environment": "mac",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool", "custom_harness", "code_exec"],
-        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "harness_shapes": [
+          "built_in_tool",
+          "custom_harness",
+          "code_exec"
+        ],
+        "supported_actions": [
+          "click",
+          "right_click",
+          "double_click",
+          "triple_click",
+          "drag",
+          "hover",
+          "scroll",
+          "type",
+          "keypress",
+          "hold_key",
+          "mouse_down",
+          "mouse_up",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "provider_native_pixels",
         "display_contract": "logical_points",
@@ -1158,6 +1280,15 @@
         "action_batching_contract": "serial_actions",
         "preferred_capture_policy": "window"
       }
+    },
+    {
+      "id": "gpt-image-2",
+      "name": "GPT Image 2",
+      "providerId": "openai",
+      "type": "image",
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
     },
     {
       "id": "gpt-5.2",
@@ -1248,15 +1379,32 @@
       "providerId": "openai",
       "type": "stt",
       "capabilities": {
-        "realtime_stt": true
+        "realtime_stt": true,
+        "file_stt": true
       },
       "modalities": {
-        "input": ["audio"],
-        "output": ["text"]
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "realtimeProtocol": "openai-realtime",
+        "fileProtocol": "openai-audio-transcriptions",
+        "uploadPath": "/audio/transcriptions",
+        "supportsStreamingResponse": true,
+        "supportsProgressiveBatch": true,
+        "streamingProtocol": "openai-audio-transcriptions-sse"
       },
       "baseUrl": "https://api.openai.com/v1",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "tags": [
+        "file"
+      ]
     },
     {
       "id": "gpt-4o-mini-transcribe",
@@ -1264,15 +1412,32 @@
       "providerId": "openai",
       "type": "stt",
       "capabilities": {
-        "realtime_stt": true
+        "realtime_stt": true,
+        "file_stt": true
       },
       "modalities": {
-        "input": ["audio"],
-        "output": ["text"]
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "realtimeProtocol": "openai-realtime",
+        "fileProtocol": "openai-audio-transcriptions",
+        "uploadPath": "/audio/transcriptions",
+        "supportsStreamingResponse": true,
+        "supportsProgressiveBatch": true,
+        "streamingProtocol": "openai-audio-transcriptions-sse"
       },
       "baseUrl": "https://api.openai.com/v1",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "tags": [
+        "file"
+      ]
     },
     {
       "id": "qwen3-asr-flash",
@@ -1280,15 +1445,31 @@
       "providerId": "qwen",
       "type": "stt",
       "capabilities": {
-        "realtime_stt": true
+        "realtime_stt": true,
+        "file_stt": true
       },
       "modalities": {
-        "input": ["audio"],
-        "output": ["text"]
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "realtimeProtocol": "dashscope-realtime-asr",
+        "fileProtocol": "qwen-chat-input-audio",
+        "supportsStreamingResponse": true,
+        "supportsProgressiveBatch": true,
+        "streamingProtocol": "openai-chat-completions-sse"
       },
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "tags": [
+        "file"
+      ]
     },
     {
       "id": "qwen3-tts-flash",
@@ -1296,25 +1477,45 @@
       "providerId": "qwen",
       "type": "tts",
       "modalities": {
-        "input": ["text"],
-        "output": ["audio"]
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "openai-compatible-audio-speech",
+        "uploadPath": "/audio/speech"
       },
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "tags": []
     },
     {
       "id": "gpt-4o-mini-tts",
-      "name": "GPT-4o Mini TTS",
+      "name": "GPT-4o mini TTS",
       "providerId": "openai",
       "type": "tts",
       "modalities": {
-        "input": ["text"],
-        "output": ["audio"]
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "openai-audio-speech",
+        "uploadPath": "/audio/speech"
       },
       "baseUrl": "https://api.openai.com/v1",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "tags": []
     },
     {
       "id": "claude-opus-4-7",
@@ -1338,8 +1539,24 @@
         "tool_version": "computer_20251124",
         "environment": "mac",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool"],
-        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "harness_shapes": [
+          "built_in_tool"
+        ],
+        "supported_actions": [
+          "click",
+          "right_click",
+          "double_click",
+          "triple_click",
+          "drag",
+          "hover",
+          "scroll",
+          "type",
+          "keypress",
+          "hold_key",
+          "mouse_down",
+          "mouse_up",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "provider_native_pixels",
         "display_contract": "logical_points",
@@ -1372,8 +1589,24 @@
         "tool_version": "computer_20251124",
         "environment": "mac",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool"],
-        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "harness_shapes": [
+          "built_in_tool"
+        ],
+        "supported_actions": [
+          "click",
+          "right_click",
+          "double_click",
+          "triple_click",
+          "drag",
+          "hover",
+          "scroll",
+          "type",
+          "keypress",
+          "hold_key",
+          "mouse_down",
+          "mouse_up",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "provider_native_pixels",
         "display_contract": "logical_points",
@@ -1405,8 +1638,24 @@
         "tool_version": "computer_20251124",
         "environment": "mac",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool"],
-        "supported_actions": ["click", "right_click", "double_click", "triple_click", "drag", "hover", "scroll", "type", "keypress", "hold_key", "mouse_down", "mouse_up", "wait"],
+        "harness_shapes": [
+          "built_in_tool"
+        ],
+        "supported_actions": [
+          "click",
+          "right_click",
+          "double_click",
+          "triple_click",
+          "drag",
+          "hover",
+          "scroll",
+          "type",
+          "keypress",
+          "hold_key",
+          "mouse_down",
+          "mouse_up",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "provider_native_pixels",
         "display_contract": "logical_points",
@@ -1438,8 +1687,20 @@
         "tool_version": "computer_20250124",
         "environment": "mac",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool"],
-        "supported_actions": ["click", "right_click", "double_click", "drag", "hover", "scroll", "type", "keypress", "wait"],
+        "harness_shapes": [
+          "built_in_tool"
+        ],
+        "supported_actions": [
+          "click",
+          "right_click",
+          "double_click",
+          "drag",
+          "hover",
+          "scroll",
+          "type",
+          "keypress",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "provider_native_pixels",
         "display_contract": "logical_points",
@@ -1469,8 +1730,20 @@
         "tool_version": "computer_20250124",
         "environment": "mac",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool"],
-        "supported_actions": ["click", "right_click", "double_click", "drag", "hover", "scroll", "type", "keypress", "wait"],
+        "harness_shapes": [
+          "built_in_tool"
+        ],
+        "supported_actions": [
+          "click",
+          "right_click",
+          "double_click",
+          "drag",
+          "hover",
+          "scroll",
+          "type",
+          "keypress",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "provider_native_pixels",
         "display_contract": "logical_points",
@@ -1557,6 +1830,15 @@
       "maxCompletionTokens": 65536
     },
     {
+      "id": "doubao-seedream-5-0-260128",
+      "name": "Doubao Seedream 5.0 Lite",
+      "providerId": "volcengine",
+      "type": "image",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
       "id": "doubao-seedream-4-5-251128",
       "name": "Doubao Seedream 4.5",
       "providerId": "volcengine",
@@ -1570,6 +1852,24 @@
       "name": "Doubao Seededit 3.0",
       "providerId": "volcengine",
       "type": "image",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "doubao-seedance-2-0-260128",
+      "name": "Doubao Seedance 2.0",
+      "providerId": "volcengine",
+      "type": "video",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "doubao-seedance-1-5-pro-251215",
+      "name": "Doubao Seedance 1.5 Pro",
+      "providerId": "volcengine",
+      "type": "video",
       "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
       "contextWindow": 0,
       "maxCompletionTokens": 0
@@ -1672,8 +1972,18 @@
         "tool_version": null,
         "environment": "browser",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool"],
-        "supported_actions": ["click", "hover", "drag", "scroll", "type", "keypress", "wait"],
+        "harness_shapes": [
+          "built_in_tool"
+        ],
+        "supported_actions": [
+          "click",
+          "hover",
+          "drag",
+          "scroll",
+          "type",
+          "keypress",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "normalized_0_999",
         "display_contract": "logical_points",
@@ -1704,8 +2014,18 @@
         "tool_version": null,
         "environment": "browser",
         "native_cu_adapter": true,
-        "harness_shapes": ["built_in_tool"],
-        "supported_actions": ["click", "hover", "drag", "scroll", "type", "keypress", "wait"],
+        "harness_shapes": [
+          "built_in_tool"
+        ],
+        "supported_actions": [
+          "click",
+          "hover",
+          "drag",
+          "scroll",
+          "type",
+          "keypress",
+          "wait"
+        ],
         "vision_mode": "provider_native",
         "coordinate_contract": "normalized_0_999",
         "display_contract": "logical_points",
@@ -1744,6 +2064,51 @@
       "maxCompletionTokens": 0
     },
     {
+      "id": "veo-3.1-generate-preview",
+      "name": "Veo 3.1",
+      "providerId": "google",
+      "type": "video",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "veo-3.1-fast-generate-preview",
+      "name": "Veo 3.1 Fast",
+      "providerId": "google",
+      "type": "video",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "veo-3.0-generate-001",
+      "name": "Veo 3",
+      "providerId": "google",
+      "type": "video",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "veo-3.0-fast-generate-001",
+      "name": "Veo 3 Fast",
+      "providerId": "google",
+      "type": "video",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "veo-2.0-generate-001",
+      "name": "Veo 2",
+      "providerId": "google",
+      "type": "video",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
       "id": "gemini-2.5-flash-transcribe",
       "name": "Gemini 2.5 Flash (Audio)",
       "modelName": "gemini-2.5-flash",
@@ -1753,8 +2118,12 @@
         "realtime_stt": true
       },
       "modalities": {
-        "input": ["audio"],
-        "output": ["text"]
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
       },
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
@@ -1766,8 +2135,12 @@
       "providerId": "google",
       "type": "tts",
       "modalities": {
-        "input": ["text"],
-        "output": ["audio"]
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
       },
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
@@ -1779,8 +2152,12 @@
       "providerId": "google",
       "type": "tts",
       "modalities": {
-        "input": ["text"],
-        "output": ["audio"]
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
       },
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
@@ -1924,8 +2301,12 @@
       "providerId": "minimax",
       "type": "tts",
       "modalities": {
-        "input": ["text"],
-        "output": ["audio"]
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
       },
       "baseUrl": "https://api.minimax.io/v1",
       "contextWindow": 0,
@@ -1937,10 +2318,220 @@
       "providerId": "minimax",
       "type": "tts",
       "modalities": {
-        "input": ["text"],
-        "output": ["audio"]
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
       },
       "baseUrl": "https://api.minimax.io/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "qwen3-asr-flash-realtime",
+      "name": "Qwen3 ASR Flash Realtime",
+      "providerId": "qwen",
+      "type": "stt",
+      "tags": [
+        "realtime"
+      ],
+      "capabilities": {
+        "realtime_stt": true
+      },
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "realtimeProtocol": "qwen-asr-realtime",
+        "realtimePath": "/api-ws/v1/realtime",
+        "audioFormat": "pcm",
+        "targetSampleRate": 16000,
+        "turnDetection": "server_vad",
+        "vadSilenceDurationMs": 400
+      },
+      "baseUrl": "https://dashscope.aliyuncs.com",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "gpt-4o-transcribe-diarize",
+      "name": "GPT-4o Transcribe Diarize",
+      "providerId": "openai",
+      "type": "stt",
+      "tags": [
+        "file",
+        "speaker"
+      ],
+      "capabilities": {
+        "file_stt": true,
+        "speaker_diarization": true
+      },
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "openai-audio-transcriptions",
+        "uploadPath": "/audio/transcriptions",
+        "responseFormat": "diarized_json",
+        "chunkingStrategy": "auto",
+        "supportsStreamingResponse": true,
+        "supportsProgressiveBatch": true,
+        "streamingProtocol": "openai-audio-transcriptions-sse"
+      },
+      "baseUrl": "https://api.openai.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "nova-3",
+      "name": "Deepgram Nova-3",
+      "providerId": "deepgram",
+      "type": "stt",
+      "tags": [
+        "file",
+        "realtime",
+        "speaker"
+      ],
+      "capabilities": {
+        "file_stt": true,
+        "realtime_stt": true,
+        "speaker_diarization": true,
+        "realtime_speaker_diarization": true
+      },
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "deepgram-listen",
+        "realtimeProtocol": "deepgram-streaming",
+        "uploadPath": "/listen",
+        "diarizationModel": "latest"
+      },
+      "baseUrl": "https://api.deepgram.com/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "bigmodel",
+      "name": "Volcengine BigASR Flash",
+      "providerId": "volcengine",
+      "type": "stt",
+      "tags": [
+        "file",
+        "speaker"
+      ],
+      "capabilities": {
+        "file_stt": true,
+        "speaker_diarization": true
+      },
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "volcengine-bigasr-flash",
+        "uploadPath": "/api/v3/auc/bigmodel/recognize/flash",
+        "responseFormat": "volcengine-bigasr-json",
+        "resourceId": "volc.bigasr.auc_turbo",
+        "supportedFormats": [
+          "wav",
+          "mp3",
+          "ogg"
+        ]
+      },
+      "baseUrl": "https://openspeech.bytedance.com",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "multilingual",
+      "name": "Tongyi Tingwu Realtime",
+      "providerId": "tingwu",
+      "type": "stt",
+      "tags": [
+        "realtime",
+        "speaker"
+      ],
+      "capabilities": {
+        "realtime_stt": true,
+        "realtime_speaker_diarization": true
+      },
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "realtimeProtocol": "tingwu-meeting-realtime",
+        "realtimePath": "/api-ws/v1/inference",
+        "submitPath": "/api/v1/services/aigc/multimodal-generation/generation",
+        "requiresAppId": true,
+        "audioFormat": "pcm",
+        "targetSampleRate": 16000
+      },
+      "baseUrl": "https://dashscope.aliyuncs.com",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0
+    },
+    {
+      "id": "fun-asr-realtime",
+      "name": "Fun-ASR Realtime",
+      "providerId": "qwen",
+      "type": "stt",
+      "tags": [
+        "realtime"
+      ],
+      "capabilities": {
+        "realtime_stt": true
+      },
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "realtimeProtocol": "dashscope-fun-asr-realtime",
+        "realtimePath": "/api-ws/v1/inference",
+        "audioFormat": "pcm",
+        "targetSampleRate": 16000,
+        "supportsTimestamps": true,
+        "timestampGranularity": "word",
+        "wordTimestampMode": "native"
+      },
+      "baseUrl": "https://dashscope.aliyuncs.com",
       "contextWindow": 0,
       "maxCompletionTokens": 0
     }

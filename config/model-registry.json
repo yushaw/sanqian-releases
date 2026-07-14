@@ -1,5 +1,5 @@
 {
-  "version": 43,
+  "version": 44,
   "providers": [
     {
       "id": "deepseek",
@@ -1506,8 +1506,7 @@
       },
       "speechRuntime": {
         "protocolVersion": 1,
-        "fileProtocol": "openai-compatible-audio-speech",
-        "uploadPath": "/audio/speech"
+        "fileProtocol": "dashscope-qwen-tts"
       },
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 0,

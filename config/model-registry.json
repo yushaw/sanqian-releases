@@ -1,5 +1,5 @@
 {
-  "version": 44,
+  "version": 45,
   "providers": [
     {
       "id": "deepseek",
@@ -2272,43 +2272,6 @@
         "diarizationModel": "latest"
       },
       "baseUrl": "https://api.deepgram.com/v1",
-      "contextWindow": 0,
-      "maxCompletionTokens": 0
-    },
-    {
-      "id": "bigmodel",
-      "name": "Volcengine BigASR Flash",
-      "providerId": "volcengine",
-      "type": "stt",
-      "tags": [
-        "file",
-        "speaker"
-      ],
-      "capabilities": {
-        "file_stt": true,
-        "speaker_diarization": true
-      },
-      "modalities": {
-        "input": [
-          "audio"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "speechRuntime": {
-        "protocolVersion": 1,
-        "fileProtocol": "volcengine-bigasr-flash",
-        "uploadPath": "/api/v3/auc/bigmodel/recognize/flash",
-        "responseFormat": "volcengine-bigasr-json",
-        "resourceId": "volc.bigasr.auc_turbo",
-        "supportedFormats": [
-          "wav",
-          "mp3",
-          "ogg"
-        ]
-      },
-      "baseUrl": "https://openspeech.bytedance.com",
       "contextWindow": 0,
       "maxCompletionTokens": 0
     },

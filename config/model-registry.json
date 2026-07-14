@@ -1,5 +1,5 @@
 {
-  "version": 46,
+  "version": 47,
   "providers": [
     {
       "id": "deepseek",
@@ -2032,7 +2032,8 @@
       "providerId": "google",
       "type": "stt",
       "capabilities": {
-        "file_stt": true
+        "file_stt": true,
+        "realtime_stt": true
       },
       "modalities": {
         "input": [
@@ -2047,7 +2048,8 @@
       "maxCompletionTokens": 0,
       "speechRuntime": {
         "protocolVersion": 1,
-        "fileProtocol": "gemini-generate-content-audio"
+        "fileProtocol": "gemini-generate-content-audio",
+        "realtimeProtocol": "gemini-live-realtime"
       }
     },
     {

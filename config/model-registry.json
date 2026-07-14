@@ -1,5 +1,5 @@
 {
-  "version": 41,
+  "version": 42,
   "providers": [
     {
       "id": "deepseek",
@@ -2004,15 +2004,6 @@
       "name": "Gemini 3 Pro Image",
       "providerId": "google",
       "type": "image",
-      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
-      "contextWindow": 0,
-      "maxCompletionTokens": 0
-    },
-    {
-      "id": "gemini-omni-flash-preview",
-      "name": "Gemini Omni Flash Preview",
-      "providerId": "google",
-      "type": "video",
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
       "maxCompletionTokens": 0

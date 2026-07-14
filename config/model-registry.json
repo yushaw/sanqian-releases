@@ -1,5 +1,5 @@
 {
-  "version": 42,
+  "version": 43,
   "providers": [
     {
       "id": "deepseek",
@@ -2033,7 +2033,7 @@
       "providerId": "google",
       "type": "stt",
       "capabilities": {
-        "realtime_stt": true
+        "file_stt": true
       },
       "modalities": {
         "input": [
@@ -2045,7 +2045,11 @@
       },
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "gemini-generate-content-audio"
+      }
     },
     {
       "id": "gemini-3.1-flash-tts-preview",
@@ -2375,6 +2379,72 @@
       "baseUrl": "https://dashscope.aliyuncs.com",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "text-embedding-v4",
+      "name": "Text Embedding V4",
+      "providerId": "qwen",
+      "type": "embedding",
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0,
+      "embedding": {
+        "defaultDimension": 1024,
+        "supportedDimensions": [
+          2048,
+          1536,
+          1024,
+          768,
+          512,
+          256,
+          128,
+          64
+        ],
+        "dimensionStrategy": "selectable",
+        "dimensionParam": "dimensions"
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-preview-tts",
+      "name": "Gemini 2.5 Flash Preview TTS",
+      "providerId": "google",
+      "type": "tts",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0,
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "gemini-generate-content-tts"
+      }
+    },
+    {
+      "id": "gemini-2.5-pro-preview-tts",
+      "name": "Gemini 2.5 Pro Preview TTS",
+      "providerId": "google",
+      "type": "tts",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0,
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "gemini-generate-content-tts"
+      }
     }
   ]
 }

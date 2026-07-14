@@ -1,5 +1,5 @@
 {
-  "version": 45,
+  "version": 46,
   "providers": [
     {
       "id": "deepseek",
@@ -2272,40 +2272,6 @@
         "diarizationModel": "latest"
       },
       "baseUrl": "https://api.deepgram.com/v1",
-      "contextWindow": 0,
-      "maxCompletionTokens": 0
-    },
-    {
-      "id": "multilingual",
-      "name": "Tongyi Tingwu Realtime",
-      "providerId": "qwen",
-      "type": "stt",
-      "tags": [
-        "realtime",
-        "speaker"
-      ],
-      "capabilities": {
-        "realtime_stt": true,
-        "realtime_speaker_diarization": true
-      },
-      "modalities": {
-        "input": [
-          "audio"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "speechRuntime": {
-        "protocolVersion": 1,
-        "realtimeProtocol": "tingwu-meeting-realtime",
-        "realtimePath": "/api-ws/v1/inference",
-        "submitPath": "/api/v1/services/aigc/multimodal-generation/generation",
-        "requiresAppId": true,
-        "audioFormat": "pcm",
-        "targetSampleRate": 16000
-      },
-      "baseUrl": "https://dashscope.aliyuncs.com",
       "contextWindow": 0,
       "maxCompletionTokens": 0
     },

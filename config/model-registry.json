@@ -1,5 +1,5 @@
 {
-  "version": 40,
+  "version": 48,
   "providers": [
     {
       "id": "deepseek",
@@ -71,7 +71,8 @@
       "authType": "none",
       "localProfile": {
         "defaultBaseUrl": "http://127.0.0.1:1234/v1",
-        "modelDiscoveryType": "openai"
+        "modelDiscoveryType": "openai",
+        "authOptional": true
       },
       "supportsModelList": true,
       "name": "LM Studio"
@@ -281,38 +282,6 @@
         "getApiKeyLabel": {
           "zh": "获取 Deepgram API Key",
           "en": "Get Deepgram API Key"
-        }
-      }
-    },
-    {
-      "id": "tingwu",
-      "icon": "qwen",
-      "name": "Tongyi Tingwu",
-      "validateUrls": {
-        "primary": "https://dashscope.aliyuncs.com/compatible-mode/v1/models"
-      },
-      "validateType": "dashscope",
-      "supportsModelList": false,
-      "apiKeyUrl": {
-        "zh": "https://bailian.console.aliyun.com/?apiKey=1#/api-key",
-        "en": "https://bailian.console.alibabacloud.com/?apiKey=1#/api-key"
-      },
-      "credential": {
-        "apiKeyLabel": {
-          "zh": "DashScope API Key",
-          "en": "DashScope API Key"
-        },
-        "apiKeyPlaceholder": {
-          "zh": "sk-...",
-          "en": "sk-..."
-        },
-        "apiKeyHelper": {
-          "zh": "用于通义听悟实时服务鉴权；App ID 需要单独填写。",
-          "en": "Used to authorize Tongyi Tingwu realtime transcription. App ID is entered separately."
-        },
-        "getApiKeyLabel": {
-          "zh": "获取 DashScope API Key",
-          "en": "Get DashScope API Key"
         }
       }
     }
@@ -1538,8 +1507,7 @@
       },
       "speechRuntime": {
         "protocolVersion": 1,
-        "fileProtocol": "openai-compatible-audio-speech",
-        "uploadPath": "/audio/speech"
+        "fileProtocol": "dashscope-qwen-tts"
       },
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 0,
@@ -2041,15 +2009,6 @@
       "maxCompletionTokens": 0
     },
     {
-      "id": "gemini-omni-flash-preview",
-      "name": "Gemini Omni Flash Preview",
-      "providerId": "google",
-      "type": "video",
-      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
-      "contextWindow": 0,
-      "maxCompletionTokens": 0
-    },
-    {
       "id": "veo-3.1-generate-preview",
       "name": "Veo 3.1",
       "providerId": "google",
@@ -2074,6 +2033,7 @@
       "providerId": "google",
       "type": "stt",
       "capabilities": {
+        "file_stt": true,
         "realtime_stt": true
       },
       "modalities": {
@@ -2086,7 +2046,12 @@
       },
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "contextWindow": 0,
-      "maxCompletionTokens": 0
+      "maxCompletionTokens": 0,
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "gemini-generate-content-audio",
+        "realtimeProtocol": "gemini-live-realtime"
+      }
     },
     {
       "id": "gemini-3.1-flash-tts-preview",
@@ -2314,77 +2279,6 @@
       "maxCompletionTokens": 0
     },
     {
-      "id": "bigmodel",
-      "name": "Volcengine BigASR Flash",
-      "providerId": "volcengine",
-      "type": "stt",
-      "tags": [
-        "file",
-        "speaker"
-      ],
-      "capabilities": {
-        "file_stt": true,
-        "speaker_diarization": true
-      },
-      "modalities": {
-        "input": [
-          "audio"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "speechRuntime": {
-        "protocolVersion": 1,
-        "fileProtocol": "volcengine-bigasr-flash",
-        "uploadPath": "/api/v3/auc/bigmodel/recognize/flash",
-        "responseFormat": "volcengine-bigasr-json",
-        "resourceId": "volc.bigasr.auc_turbo",
-        "supportedFormats": [
-          "wav",
-          "mp3",
-          "ogg"
-        ]
-      },
-      "baseUrl": "https://openspeech.bytedance.com",
-      "contextWindow": 0,
-      "maxCompletionTokens": 0
-    },
-    {
-      "id": "multilingual",
-      "name": "Tongyi Tingwu Realtime",
-      "providerId": "tingwu",
-      "type": "stt",
-      "tags": [
-        "realtime",
-        "speaker"
-      ],
-      "capabilities": {
-        "realtime_stt": true,
-        "realtime_speaker_diarization": true
-      },
-      "modalities": {
-        "input": [
-          "audio"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "speechRuntime": {
-        "protocolVersion": 1,
-        "realtimeProtocol": "tingwu-meeting-realtime",
-        "realtimePath": "/api-ws/v1/inference",
-        "submitPath": "/api/v1/services/aigc/multimodal-generation/generation",
-        "requiresAppId": true,
-        "audioFormat": "pcm",
-        "targetSampleRate": 16000
-      },
-      "baseUrl": "https://dashscope.aliyuncs.com",
-      "contextWindow": 0,
-      "maxCompletionTokens": 0
-    },
-    {
       "id": "fun-asr-realtime",
       "name": "Fun-ASR Realtime",
       "providerId": "qwen",
@@ -2416,6 +2310,72 @@
       "baseUrl": "https://dashscope.aliyuncs.com",
       "contextWindow": 0,
       "maxCompletionTokens": 0
+    },
+    {
+      "id": "text-embedding-v4",
+      "name": "Text Embedding V4",
+      "providerId": "qwen",
+      "type": "embedding",
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0,
+      "embedding": {
+        "defaultDimension": 1024,
+        "supportedDimensions": [
+          2048,
+          1536,
+          1024,
+          768,
+          512,
+          256,
+          128,
+          64
+        ],
+        "dimensionStrategy": "selectable",
+        "dimensionParam": "dimensions"
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-preview-tts",
+      "name": "Gemini 2.5 Flash Preview TTS",
+      "providerId": "google",
+      "type": "tts",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0,
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "gemini-generate-content-tts"
+      }
+    },
+    {
+      "id": "gemini-2.5-pro-preview-tts",
+      "name": "Gemini 2.5 Pro Preview TTS",
+      "providerId": "google",
+      "type": "tts",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "contextWindow": 0,
+      "maxCompletionTokens": 0,
+      "speechRuntime": {
+        "protocolVersion": 1,
+        "fileProtocol": "gemini-generate-content-tts"
+      }
     }
   ]
 }

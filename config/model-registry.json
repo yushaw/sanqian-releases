@@ -1,5 +1,5 @@
 {
-  "version": 47,
+  "version": 48,
   "providers": [
     {
       "id": "deepseek",
@@ -71,7 +71,8 @@
       "authType": "none",
       "localProfile": {
         "defaultBaseUrl": "http://127.0.0.1:1234/v1",
-        "modelDiscoveryType": "openai"
+        "modelDiscoveryType": "openai",
+        "authOptional": true
       },
       "supportsModelList": true,
       "name": "LM Studio"

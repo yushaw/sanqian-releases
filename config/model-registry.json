@@ -1,5 +1,5 @@
 {
-  "version": 48,
+  "version": 49,
   "providers": [
     {
       "id": "deepseek",
@@ -2319,21 +2319,22 @@
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "contextWindow": 0,
       "maxCompletionTokens": 0,
-      "embedding": {
-        "defaultDimension": 1024,
-        "supportedDimensions": [
-          2048,
-          1536,
-          1024,
-          768,
-          512,
-          256,
-          128,
-          64
-        ],
-        "dimensionStrategy": "selectable",
-        "dimensionParam": "dimensions"
-      }
+      "defaultDimension": 1024,
+      "supportedDimensions": [
+        2048,
+        1536,
+        1024,
+        768,
+        512,
+        256,
+        128,
+        64
+      ],
+      "dimensionStrategy": "selectable",
+      "dimensionParam": "dimensions",
+      "taskPrefixStrategy": "none",
+      "vectorSpaceFamily": "qwen:text-embedding-v4",
+      "capabilitySource": "registry"
     },
     {
       "id": "gemini-2.5-flash-preview-tts",
